@@ -15,6 +15,15 @@ public partial class _Default : System.Web.UI.Page
 
     private void log()
     {
-        DataTable dt = BLL.isLogin.login();
+        DataTable i = login.win(TextBox1.Text, TextBox2.Text);
+        if (i.Rows.Count == 0)
+        {
+            Label3.Text = "登陆失败！";
+        }
+        if (i.Rows.Count > 0)
+        {
+            Label4.Text = "权限为" + i.Rows[0]["id"];
+            Label3.Text = "登陆成功！";
+        }
     }
 }
