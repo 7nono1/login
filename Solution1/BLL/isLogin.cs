@@ -11,7 +11,7 @@ namespace BLL
     {
         public static DataTable login(string IDl,string pawl)
         {
-            String strSQL = "select * from load where [user]='"+IDl+"'";
+            String strSQL = "select * from islogin where 工号='"+IDl+"'";
             DataTable dt = DAL.DBHelper.getDt(strSQL);
             return dt;
         }
