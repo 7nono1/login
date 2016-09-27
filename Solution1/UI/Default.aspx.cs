@@ -15,7 +15,7 @@ public partial class _Default : System.Web.UI.Page
 
     private void log()
     {
-        DataTable i = login.win(TextBox1.Text, TextBox2.Text);
+        DataTable i = BLL.isLogin.login(TextBox1.Text, TextBox2.Text);
         if (i.Rows.Count == 0)
         {
             Label3.Text = "登陆失败！";
@@ -25,5 +25,10 @@ public partial class _Default : System.Web.UI.Page
             Label4.Text = "权限为" + i.Rows[0]["id"];
             Label3.Text = "登陆成功！";
         }
+    }
+
+    protected void Button1_Click(object sender, EventArgs e)
+    {
+        log();
     }
 }
