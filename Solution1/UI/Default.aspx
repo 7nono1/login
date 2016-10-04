@@ -38,6 +38,7 @@
          <div id="pass">
         <br /><asp:Label ID="Label2" runat="server" Text="密码"></asp:Label>
              <input type="password" id="TextBox2" runat="server" />
+             <img src="ValidateImage.aspx" alt="验证字符" style="width:80px; height:17px" onclick="this.src=this.src+'?'" />
              </div>
          <div id="lo">
         <br /><asp:Button ID="Button1" runat="server" Text="登陆" OnClick="Button1_Click" Width="81px" />
