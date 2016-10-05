@@ -26,7 +26,7 @@ public partial class Default2 : System.Web.UI.Page
             string fnt = font[ra.Next(font.Length)];
             Font ft = new Font(fnt, 12);
             Color cr = color[ra.Next(color.Length)];
-            g.DrawString(shkCode.Length.ToString(),ft,new SolidBrush(cr),(float)i*20,(float)1);
+            g.DrawString(shkCode[i].ToString(),ft,new SolidBrush(cr),(float)i*20,(float)1);
 
         }
         mp.Save(Response.OutputStream,ImageFormat.Gif);

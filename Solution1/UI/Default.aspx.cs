@@ -15,7 +15,7 @@ public partial class _Default : System.Web.UI.Page
 
     private void log()
     {
-        DataTable i = BLL.isLogin.login(TextBox1.Text, TextBox2.Value.ToString());
+        DataTable i = BLL.isLogin.login(TextBox1.Text);
         if (i.Rows.Count == 0)
         {
             Label3.Visible = true;
@@ -25,24 +25,31 @@ public partial class _Default : System.Web.UI.Page
         {
             if (i.Rows[0][1].ToString() == TextBox2.Value.ToString())
             {
-                Label3.Visible = true;
-                Label3.Text = "登陆成功！";
-                Session["userID"] = i.Rows[0][0];
-                Session["userPwd"] = i.Rows[0][1];
-                Session["userName"] = i.Rows[0][2];
-                Session["userCols"] = i.Rows[0][4];
-                switch (i.Rows[0][4].ToString())
+                if (Session["ValiDateCode"].ToString() == TextBox3.Text)
                 {
-                    case "1":
-                        Response.Redirect(""); break;
-                    case "2":
-                        Response.Redirect(""); break;
-                    case "3":
-                        Response.Redirect(""); break;
-                    case "4":
-                        Response.Redirect(""); break;
-                    default:
-                        break;
+                    Label3.Visible = true;
+                    Label3.Text = "登陆成功！";
+                    Session["userID"] = i.Rows[0][0];
+                    Session["userPwd"] = i.Rows[0][1];
+                    Session["userName"] = i.Rows[0][2];
+                    Session["userCols"] = i.Rows[0][3];
+                    switch (i.Rows[0][3].ToString())
+                    {
+                        case "1":
+                            Response.Redirect(""); break;
+                        case "2":
+                            Response.Redirect(""); break;
+                        case "3":
+                            Response.Redirect(""); break;
+                        case "4":
+                            Response.Redirect("https://www.baidu.com"); break;
+                        default:
+                            break;
+                    }
+                }
+                else
+                {
+                    Label3.Text = "验证码错误！";
                 }
             }
             else

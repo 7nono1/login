@@ -9,7 +9,7 @@ namespace BLL
 {
     public class isLogin
     {
-        public static DataTable login(string IDl,string pawl)
+        public static DataTable login(string IDl)
         {
             String strSQL = "select * from 教师 where 工号='"+IDl+"'";
             DataTable dt = DAL.DBHelper.getDt(strSQL);
