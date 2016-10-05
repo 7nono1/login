@@ -5,14 +5,9 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 
-public partial class sdbi_MasterPage : System.Web.UI.MasterPage
+public partial class Defaul1t : System.Web.UI.Page
 {
     protected void Page_Load(object sender, EventArgs e)
-    {
-
-    }
-
-    protected void Label1_DataBinding(object sender, EventArgs e)
     {
 
     }
