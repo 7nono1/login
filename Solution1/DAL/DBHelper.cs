@@ -24,5 +24,18 @@ namespace DAL
             conn.Close();
             return dt;
         }
+
+        public static DataTable Getdt(string strSQL)
+        {
+            string strConn = ConfigurationManager.ConnectionStrings["MyConn"].ConnectionString;
+            SqlConnection conn = new SqlConnection(strConn);
+            conn.Open();
+
+            DataTable dt = new DataTable();
+            SqlCommand cmd = new SqlCommand(strSQL,conn);
+            cmd.ExecuteNonQuery();
+
+            return dt;
+        }
     }
 }
