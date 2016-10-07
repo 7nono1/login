@@ -11,7 +11,7 @@ public partial class Default2 : System.Web.UI.Page
 {
     protected void Page_Load(object sender, EventArgs e)
     {
-        string[] codes = { "红烧茄子","酱醋排骨","宫爆鸡丁","糖醋鲤鱼"};
+        string[] codes = { "红烧茄子","酱醋排骨","宫爆鸡丁","糖醋鲤鱼","葛二蛋子"};
         Color[] color = {Color.Black,Color.Red,Color.Blue,Color.Brown,Color.DarkBlue };
         string[] font = {"宋体","楷体","幼圆"};
         Random ra = new Random();
