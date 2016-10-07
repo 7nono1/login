@@ -66,7 +66,7 @@
              <br /><div id="vali">
                  <asp:Label ID="Label4" runat="server" Text="验证码"></asp:Label>
                  <asp:TextBox ID="TextBox3" runat="server" Width="71px"></asp:TextBox>
-             <img src="ValidateImage.aspx" alt="验证字符" style="width:80px; height:17px" onclick="this.src=this.src+'?'" />
+             <img src="/../ValidateImage.aspx" alt="验证字符" style="width:80px; height:17px" onclick="this.src=this.src+'?'" />
              </div>
          <div id="lo">
         <br /><asp:Button ID="Button1" runat="server" Text="登陆" OnClick="Button1_Click" Width="120px" Height="29px" />
