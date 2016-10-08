@@ -1,9 +1,10 @@
-﻿<!DOCTYPE html>
-<html>
-<head>
-	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-	<meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=0" />	
-	<title>山东商务职业学院考勤系统 </title>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeFile="index.aspx.cs" Inherits="页面_index" %>
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+    <title>山东商务职业学院考勤系统 </title>
 	<link rel="stylesheet" href="css/style.css" type="text/css" media="all" />
 </head>
 <body class="loading-process">
@@ -137,4 +138,3 @@
 </div>
 </body>
 </html>
-
