@@ -4,14 +4,14 @@
 
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
-    <title>山东商务职业学院考勤系统 </title>
+    <title>山东商务职业学院考勤系统嘎嘎嘎嘎嘎 </title>
 	<link rel="stylesheet" href="css/style.css" type="text/css" media="all" />
 </head>
 <body class="loading-process">
 <div class="loading">
 	<div class="loading-circle"></div>
 	<div class="loading-avatar"><img src="images/avatar@2x.jpg" alt="" width="100" height="100"></div>
-	<div class="loading-info">正在努力加载中...</div>
+	<div class="loading-info">正在努力加载中....</div>
 </div>
 <div class="section-header">
 	<div class="section">
