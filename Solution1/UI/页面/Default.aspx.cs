@@ -41,7 +41,7 @@ public partial class _Default : System.Web.UI.Page
                         case "3":
                             Response.Redirect(""); break;
                         case "4":
-                            Response.Redirect("https://www.baidu.com"); break;
+                            Response.Redirect("../Default1.aspx"); break;
                         default:
                             break;
                     }

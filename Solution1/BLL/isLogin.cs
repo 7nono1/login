@@ -84,5 +84,13 @@ namespace BLL
                 return 1;
             }
         }
+
+        /*
+         * treeview链接数据库
+         */
+        public static DataTable tr()
+        {
+            return DAL.DBHelper.getDt("select * from tree");
+        }
     }
 }
