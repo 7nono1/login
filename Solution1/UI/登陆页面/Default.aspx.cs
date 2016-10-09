@@ -40,8 +40,8 @@ public partial class _Default : System.Web.UI.Page
                             Response.Redirect(""); break;
                         case "3":
                             Response.Redirect(""); break;
-                        case "4":
-                            Response.Redirect("../Default1.aspx"); break;
+                        //case "4":
+                        //    Response.Redirect("../Default1.aspx"); break;
                         default:
                             break;
                     }

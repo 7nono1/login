@@ -103,8 +103,8 @@
 					</a>
 				</div>
 				<div class="works-item fade fade2">
-			    <img src="images/works/wxshop.jpg" alt="" width="300" height="180">
-						<a href="Default.aspx"><div class="work-info">
+			    <img src="images/works/wxshop.jpg" alt="" width="300" height="180" runat="server">
+						<a href="Default.aspx"><div class="work-info" >
                             <h2>教师界面</h2>
                             </div>
 							

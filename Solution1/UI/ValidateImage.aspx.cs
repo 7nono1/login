@@ -13,7 +13,7 @@ public partial class Default2 : System.Web.UI.Page
     {
         string[] codes = { "红烧茄子","酱醋排骨","宫爆鸡丁","糖醋鲤鱼","葛二蛋子"};
         Color[] color = {Color.Black,Color.Red,Color.Blue,Color.Brown,Color.DarkBlue };
-        string[] font = {"宋体","楷体","幼圆"};
+        string[] font = {"宋体","楷体","幼圆","Times New Roman"};
         Random ra = new Random();
         string shkCode = codes[ra.Next(codes.Length)];
         Session["ValiDateCode"] = shkCode;
