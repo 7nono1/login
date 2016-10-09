@@ -9,7 +9,8 @@
         #main {
         }
         body {
-        background-image:url(/images/1235.jpg);
+        /*background-image:url(/images/1235.jpg);*/
+        background-color:#333;
         }
         #login {
         margin-top:220px;
