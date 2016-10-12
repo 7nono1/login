@@ -88,9 +88,21 @@ namespace BLL
         /*
          * treeview链接数据库
          */
-        public static DataTable tr()
+        public static DataTable Atr()
         {
-            return DAL.DBHelper.getDt("select * from tree");
+            return DAL.DBHelper.getDt("select aid,aname from tree");
+        }
+        public static DataTable Btr()
+        {
+            return DAL.DBHelper.getDt("select bid,bname from tree");
+        }
+        public static DataTable Ctr()
+        {
+            return DAL.DBHelper.getDt("select cid,cname from tree");
+        }
+        public static DataTable Dtr()
+        {
+            return DAL.DBHelper.getDt("select did,dname from tree");
         }
     }
 }

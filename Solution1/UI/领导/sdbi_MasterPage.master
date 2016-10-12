@@ -1,0 +1,82 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeFile="sdbi_MasterPage.master.cs" Inherits="sdbi_MasterPage" %>
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <title>山东商务职业学院考勤系统</title>
+    <style type="text/css">
+     #main{
+         width:1300px;
+         height:1000px;
+         margin:0 auto;
+
+     }
+        #header {
+            width: 1300px;
+            height: 100px;
+            background-image:url(../images/logo1.jpg);
+            background-repeat:no-repeat;
+            
+        }
+     #left{
+         width:250px;
+         height:800px;
+         background-image:url(../images/logo8.jpg);
+             float:left;
+           
+              
+            
+     }
+     #concent{
+         width:1050px;
+         height:800px;
+         float:right;
+        background-image:url(../images/logo6.jpg);
+     
+     }
+     #fool{
+         width:1300px;
+         height:100px;
+         background-image:url(../images/logo3.jpg);
+     }
+     #label1{
+         margin-left:1100px;
+         margin-top:50px;
+         font-weight:300;
+     }
+    </style>
+    <script type="text/javascript">
+    function display() {
+        window.location.href = "/login/login-form.aspx";
+        }
+</script>
+    <asp:ContentPlaceHolder id="head" runat="server">
+    </asp:ContentPlaceHolder>
+</head>
+<body>
+    <form id="form1" runat="server">
+    <div>
+      <div id="main">
+         <div id="header">
+             <div id="label1">
+             <asp:Label ID="Label1" runat="server" Text="【切换用户】"></asp:Label>
+                 </div>
+          </div>
+          <div id="left">
+              <asp:TreeView ID="TreeView1" runat="server">
+              </asp:TreeView>
+          </div>
+               <div id="concent">
+                    <asp:ContentPlaceHolder id="ContentPlaceHolder1" runat="server">
+        
+                     </asp:ContentPlaceHolder>
+               </div>
+          <div id="fool"></div>
+      </div>
+       
+    </div>
+    </form>
+</body>
+</html>
