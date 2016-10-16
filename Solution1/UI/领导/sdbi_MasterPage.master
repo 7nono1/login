@@ -65,7 +65,7 @@
                  </div>
           </div>
           <div id="left">
-              <asp:TreeView ID="TreeView1" runat="server">
+              <asp:TreeView ID="TreeView1" runat="server" OnSelectedNodeChanged="TreeView1_SelectedNodeChanged">
               </asp:TreeView>
           </div>
                <div id="concent">
