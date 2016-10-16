@@ -48,17 +48,18 @@ namespace BLL
         /*
          * 修改教师密码
          */
-        public static int updt(string pwd,string id)
+        public static int updt(string pwd,string id,string ypwd)
         {
-            string str = "update 教师 set 密码='"+pwd+"' where 工号='"+id+"'";
+            string str = "update 教师 set 密码='"+pwd.Trim()+"' where 工号='"+id.Trim()+"'";
             DataTable dt = DAL.DBHelper.Getdt(str);
-            if (dt.Rows.Count == 0)
+            DataTable dtt = DAL.DBHelper.getDt("select 密码 from 教师 where 工号='"+id.Trim()+"'");
+            if (dtt.Rows[0][0].ToString() == ypwd.Trim())
             {
-                return 0;
+                return 1;
             }
             else
             {
-                return 1;
+                return 0;
             }
         }
 

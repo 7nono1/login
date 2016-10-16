@@ -19,7 +19,7 @@ public partial class sdbi_MasterPage : System.Web.UI.MasterPage
 
     public void tree()
     {
-        DataTable dt = BLL.isLogin.Btr();
+        DataTable dt = BLL.isLogin.Ctr();
         TreeNode tn = new TreeNode(dt.Rows[0][1].ToString());
         tn.NavigateUrl = "";
         TreeView1.Nodes.Add(tn);
@@ -30,13 +30,11 @@ public partial class sdbi_MasterPage : System.Web.UI.MasterPage
                 if (dt.Rows[i][0].ToString() == "10")
                 {
                     TreeNode father = new TreeNode(dt.Rows[i][1].ToString());
-                    father.NavigateUrl = "";
                     TreeView1.Nodes[0].ChildNodes.Add(father);
                 }
                 if (dt.Rows[i][0].ToString() != "10" && dt.Rows[i][0].ToString() != "0")
                 {
                     TreeNode child = new TreeNode(dt.Rows[i][1].ToString());
-                    child.NavigateUrl = "";
                     TreeView1.Nodes[0].ChildNodes[(Int32.Parse(dt.Rows[i][0].ToString()) - 1)].ChildNodes.Add(child);
 
                 }

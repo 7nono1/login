@@ -24,6 +24,7 @@ h1{
 	width:350px;
 	height:469px;
 	margin-left:37%;
+    margin-top:80px;
 	border-radius: 15px;}
 #login-head{
 	width:350px;
