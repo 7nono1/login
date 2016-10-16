@@ -54,6 +54,10 @@
         height:620px;
         float:right;
         }
+        
+        #TreeView1 {
+        font-weight:bold;
+        }
     </style>
     <script type="text/javascript">
     function display(imgmain) {
@@ -74,7 +78,7 @@
           </div>
           <div id="left">
               <div id="left1">
-                  <asp:TreeView ID="TreeView1" runat="server">
+                  <asp:TreeView ID="TreeView1" runat="server" ForeColor="#2B2B36" OnSelectedNodeChanged="TreeView1_SelectedNodeChanged">
               </asp:TreeView></div>
               
           </div>
@@ -83,7 +87,7 @@
         
                      </asp:ContentPlaceHolder>
                </div>
-          <div id="fool"><img src="../images/logo4.jpg" /></div>s
+          <div id="fool"><img src="../images/logo4.jpg" /></div>
       </div>
        
     </div>

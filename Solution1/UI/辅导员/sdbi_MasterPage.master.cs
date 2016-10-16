@@ -18,13 +18,19 @@ public partial class sdbi_MasterPage : System.Web.UI.MasterPage
 
     public void tree()
     {
+       
+
+    }
+
+    protected void TreeView1_SelectedNodeChanged(object sender, EventArgs e)
+    {
         DataTable dt = BLL.isLogin.Ctr();
         TreeNode tn = new TreeNode(dt.Rows[0][1].ToString());
         tn.NavigateUrl = "";
         TreeView1.Nodes.Add(tn);
         for (int i = 1; i < dt.Rows.Count; i++)
         {
-            if (dt.Rows[i][0].ToString() != null&& dt.Rows[i][0].ToString() != "")
+            if (dt.Rows[i][0].ToString() != null && dt.Rows[i][0].ToString() != "")
             {
                 if (dt.Rows[i][0].ToString() == "10")
                 {
@@ -39,6 +45,5 @@ public partial class sdbi_MasterPage : System.Web.UI.MasterPage
                 }
             }
         }
-
     }
 }

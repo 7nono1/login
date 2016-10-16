@@ -10,7 +10,6 @@ public partial class sdbi_MasterPage : System.Web.UI.MasterPage
 {
     protected void Page_Load(object sender, EventArgs e)
     {
-        Label1.Attributes.Add("onclick", "display()");
         if (!IsPostBack)
         {
             tree();
@@ -42,15 +41,16 @@ public partial class sdbi_MasterPage : System.Web.UI.MasterPage
         }
 
     }
+    
 
-    protected void TreeView1_SelectedNodeChanged(object sender, EventArgs e)
+    protected void TreeView1_SelectedNodeChanged1(object sender, EventArgs e)
     {
         switch (TreeView1.SelectedNode.Text)
         {
             case "个人信息":
                 Response.Redirect("alterPwd.aspx"); break;
             case "修改密码":
-                Response.Redirect("alterPwd.aspx");break;
+                Response.Redirect("alterPwd.aspx"); break;
 
 
             case "数据分析":
