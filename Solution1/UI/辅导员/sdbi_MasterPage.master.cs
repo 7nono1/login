@@ -10,7 +10,6 @@ public partial class sdbi_MasterPage : System.Web.UI.MasterPage
 {
     protected void Page_Load(object sender, EventArgs e)
     {
-        Label1.Attributes.Add("onclick", "display()");
         if (!IsPostBack)
         {
             tree();

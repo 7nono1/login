@@ -7,48 +7,56 @@
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
     <title>山东商务职业学院考勤系统</title>
     <style type="text/css">
+        body{ margin:0 auto
+        padding:0px;
+        }
      #main{
-         width:1300px;
-         height:1000px;
+         width:1366px;
+         height:768px;
          margin:0 auto;
 
      }
         #header {
-            width: 1300px;
-            height: 100px;
+            width: 1366px;
+            height: 110px;
             background-image:url(../images/logo1.jpg);
             background-repeat:no-repeat;
             
         }
      #left{
-         width:250px;
-         height:800px;
-         background-image:url(../images/logo8.jpg);
+         width:366px;
+         height:620px;
+         background-image:url(../images/logo2.jpg);
              float:left;
            
               
             
      }
      #concent{
-         width:1050px;
-         height:800px;
+         width:1000px;
+         height:620px;
          float:right;
-        background-image:url(../images/logo6.jpg);
+        background-image:url(../images/logo3.jpg);
      
      }
      #fool{
-         width:1300px;
-         height:100px;
-         background-image:url(../images/logo3.jpg);
+         width:1366px;
+         height:38px;
      }
-     #label1{
-         margin-left:1100px;
-         margin-top:50px;
+     #png{
+         margin-left:1000px;
+         margin-top:25px;
          font-weight:300;
+        float:left;
      }
+        #left1{
+        width:300px;
+        height:620px;
+        float:right;
+        }
     </style>
     <script type="text/javascript">
-    function display() {
+    function display(imgmain) {
         window.location.href = "/login/login-form.aspx";
         }
 </script>
@@ -60,20 +68,22 @@
     <div>
       <div id="main">
          <div id="header">
-             <div id="label1">
-             <asp:Label ID="Label1" runat="server" Text="【切换用户】"></asp:Label>
+             <div id="png">
+                 <a><img src="../images/logo6.png" id="imgmain" onclick="display()" /></a>
                  </div>
           </div>
           <div id="left">
-              <asp:TreeView ID="TreeView1" runat="server">
-              </asp:TreeView>
+              <div id="left1">
+                  <asp:TreeView ID="TreeView1" runat="server">
+              </asp:TreeView></div>
+              
           </div>
                <div id="concent">
                     <asp:ContentPlaceHolder id="ContentPlaceHolder1" runat="server">
         
                      </asp:ContentPlaceHolder>
                </div>
-          <div id="fool"></div>
+          <div id="fool"><img src="../images/logo4.jpg" /></div>s
       </div>
        
     </div>
