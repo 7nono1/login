@@ -95,7 +95,7 @@ h1{
 </head>
 <body>
     <form id="form1" runat="server">
-    <h1>欢迎进入山东商务职业学院考勤系统</h1>
+    <h1></h1>
 <div id="login-form">
 <div id="login-head">
 <img src="images/avtar.png" id="header" />
