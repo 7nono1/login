@@ -18,12 +18,6 @@ public partial class sdbi_MasterPage : System.Web.UI.MasterPage
 
     public void tree()
     {
-        
-
-    }
-
-    protected void TreeView1_SelectedNodeChanged(object sender, EventArgs e)
-    {
         DataTable dt = BLL.isLogin.Dtr();
         TreeNode tn = new TreeNode(dt.Rows[0][1].ToString());
         tn.NavigateUrl = "";
@@ -45,5 +39,11 @@ public partial class sdbi_MasterPage : System.Web.UI.MasterPage
                 }
             }
         }
+
+    }
+
+    protected void TreeView1_SelectedNodeChanged(object sender, EventArgs e)
+    {
+       
     }
 }
