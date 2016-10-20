@@ -7,6 +7,7 @@
          margin:0 auto;
              height:200px;
             width: 341px;
+            margin-top:150px;
         }
    
     </style>
