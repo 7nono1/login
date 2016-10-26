@@ -105,5 +105,21 @@ namespace BLL
         {
             return DAL.DBHelper.getDt("select did,dname from tree");
         }
+
+        /*
+         *数据的导入 
+         */
+        public static int excle(string url)
+        {
+            DataTable dt= DAL.DBHelper.getExcle(url);
+            for (int i = 0; i < dt.Rows.Count; i++)
+            {
+                for (int j = 0; j < 5; j++)
+                {
+                    DataTable ft = DAL.DBHelper.Getdt("insert into ceshi(F"+(j+1)+") values('" + dt.Rows[i][j] + "') ");
+                }
+            }
+            return 1;
+        }
     }
 }

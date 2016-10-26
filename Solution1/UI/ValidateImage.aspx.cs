@@ -31,6 +31,22 @@ public partial class Default2 : System.Web.UI.Page
             g.DrawString(shkCode[i].ToString(),ft,new SolidBrush(cr),(float)i*20,(float)1);
 
         }
+        for (int i = 0; i < 90; i++)
+        {
+            int x = ra.Next(124);
+            int y = ra.Next(35);
+            Color cr = Color.FromArgb(ra.Next(255),ra.Next(255),ra.Next(255));
+            mp.SetPixel(x,y,cr);
+        }
+        for (int i = 0; i < 10; i++)
+        {
+            int x = ra.Next(124);
+            int y = ra.Next(35);
+            int x1 = ra.Next(124);
+            int y1 = ra.Next(35);
+            Color cr = Color.FromArgb(ra.Next(255), ra.Next(255), ra.Next(255));
+            g.DrawLine(new Pen(cr),x,y,x1,y1);
+        }
         mp.Save(Response.OutputStream,ImageFormat.Gif);
     }
 }

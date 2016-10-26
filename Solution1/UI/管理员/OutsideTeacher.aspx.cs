@@ -11,4 +11,9 @@ public partial class 管理员_OutsideTeacher : System.Web.UI.Page
     {
 
     }
+
+    protected void Button1_Click(object sender, EventArgs e)
+    {
+
+    }
 }
