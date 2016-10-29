@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using System.Data;
 using System.Data.SqlClient;
 using System.Configuration;
+using System.Data.OleDb;
 
 namespace DAL
 {
@@ -36,6 +37,21 @@ namespace DAL
             cmd.ExecuteNonQuery();
 
             return dt;
+        }
+
+        public static DataTable getExcle(string url)
+        {
+            string strConn = "provider=Microsoft.ACE.OLEDB.12.0;data source='" + url + "';Extended Properties='Excel 8.0;HDR=NO;IMEX=1'";
+            OleDbConnection conn = new OleDbConnection(strConn);
+            conn.Open();
+
+            string strSQL = "select * from [sheet1$]";
+            OleDbDataAdapter da = new OleDbDataAdapter(strSQL, conn);
+            DataSet ds = new DataSet();
+            da.Fill(ds);
+            conn.Close();
+
+            return ds.Tables[0];
         }
     }
 }
