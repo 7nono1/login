@@ -26,17 +26,15 @@ namespace DAL
             return dt;
         }
 
-        public static DataTable Getdt(string strSQL)
+        public static void Getdt(string strSQL)
         {
             string strConn = ConfigurationManager.ConnectionStrings["MyConn"].ConnectionString;
             SqlConnection conn = new SqlConnection(strConn);
             conn.Open();
-
-            DataTable dt = new DataTable();
+            
             SqlCommand cmd = new SqlCommand(strSQL,conn);
             cmd.ExecuteNonQuery();
-
-            return dt;
+            conn.Close();
         }
 
         public static DataTable getExcle(string url)

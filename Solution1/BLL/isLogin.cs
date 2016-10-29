@@ -34,15 +34,9 @@ namespace BLL
         {
             string str= "insert into 教师(工号,密码,姓名,权限,性别,部门,是否外聘(1/2))values('"+usrid+"','"+Pwd+"','"+userName+"','"+permissions+"','"+sex+"','"+dpm+"','"+YN+"')";
 
-            DataTable dt = DAL.DBHelper.Getdt(str);
-            if (dt.Rows.Count == 0)
-            {
-                return 0;
-            }
-            else
-            {
+            DAL.DBHelper.Getdt(str);
+           
                 return 1;
-            }
         }
 
         /*
@@ -51,7 +45,7 @@ namespace BLL
         public static int updt(string pwd,string id,string ypwd)
         {
             string str = "update 教师 set 密码='"+pwd.Trim()+"' where 工号='"+id.Trim()+"'";
-            DataTable dt = DAL.DBHelper.Getdt(str);
+            DAL.DBHelper.Getdt(str);
             DataTable dtt = DAL.DBHelper.getDt("select 密码 from 教师 where 工号='"+id.Trim()+"'");
             if (dtt.Rows[0][0].ToString() == ypwd.Trim())
             {
@@ -74,16 +68,10 @@ namespace BLL
             {
                 string timer = System.DateTime.Now.ToShortDateString();
                 string str = "insert into 消息(时间,信息,用户名,阅读状态)values('" + timer + "','"+message+"','"+ID.Rows[i][0]+"','1')";
-                dt = DAL.DBHelper.Getdt(str);
+                DAL.DBHelper.Getdt(str);
             }
-            if (dt.Rows.Count == 0)
-            {
-                return 0;
-            }
-            else
-            {
+          
                 return 1;
-            }
         }
 
         /*
@@ -114,10 +102,7 @@ namespace BLL
             DataTable dt= DAL.DBHelper.getExcle(url);
             for (int i = 0; i < dt.Rows.Count; i++)
             {
-                for (int j = 0; j < 5; j++)
-                {
-                    DataTable ft = DAL.DBHelper.Getdt("insert into ceshi(F"+(j+1)+") values('" + dt.Rows[i][j] + "') ");
-                }
+                    DAL.DBHelper.Getdt("insert into ceshi values('" + dt.Rows[i][0] + "','" + dt.Rows[i][1] + "','" + dt.Rows[i][2] + "','" + dt.Rows[i][3] + "','" + dt.Rows[i][4] + "') ");
             }
             return 1;
         }
