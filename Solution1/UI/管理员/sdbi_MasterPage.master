@@ -70,7 +70,7 @@
 <body>
     <form id="form1" runat="server">
     <div>
-      <div id="main">
+      <div id="main">DE3
          <div id="header">
              <div id="png">
                  <a><img src="../images/logo6.png" id="imgmain" onclick="display()" /></a>
