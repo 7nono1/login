@@ -51,6 +51,10 @@ public partial class sdbi_MasterPage : System.Web.UI.MasterPage
                 Response.Redirect("AddUser.aspx"); break;
 
 
+            case "导入数据":
+                Response.Redirect("ImoprtData.aspx"); break;
+
+
             case "考勤信息":
                 Response.Redirect("#"); break;
             case "录入考勤":

@@ -115,12 +115,15 @@ namespace BLL
         /*
          *数据的导入 
          */
-        public static int excle(string url)
+        public static int excle(string url,string tb)
         {
             DataTable dt= DAL.DBHelper.getExcle(url);
             for (int i = 0; i < dt.Rows.Count; i++)
             {
-                    DAL.DBHelper.Getdt("insert into ceshi values('" + dt.Rows[i][0] + "','" + dt.Rows[i][1] + "','" + dt.Rows[i][2] + "','" + dt.Rows[i][3] + "','" + dt.Rows[i][4] + "') ");
+                if (tb == "教师")
+                {
+                    DAL.DBHelper.Getdt("insert into 教师 values('" + dt.Rows[i][0] + "','" + dt.Rows[i][1] + "','" + dt.Rows[i][2] + "','" + dt.Rows[i][3] + "','" + dt.Rows[i][4] + "','" + dt.Rows[i][5] + "','" + dt.Rows[i][6] + "','" + dt.Rows[i][7] + "','" + dt.Rows[i][8] + "','" + dt.Rows[i][9] + "','" + dt.Rows[i][10] + "','" + dt.Rows[i][11] + "','" + dt.Rows[i][12] + "','" + dt.Rows[i][13] + "') ");
+                }
             }
             return 1;
         }

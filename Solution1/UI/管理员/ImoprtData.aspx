@@ -25,8 +25,6 @@
   
         <div id="div1"></div>
       <div id="div2">
-           <asp:RadioButton ID="本校教师" runat="server" />
-           <asp:RadioButton ID="外聘教师" runat="server" />
        </div>
       <div>
        请选择要导入的文件：<asp:FileUpload ID="FileUpload1" runat="server" />
