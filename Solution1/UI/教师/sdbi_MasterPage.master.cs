@@ -44,6 +44,18 @@ public partial class sdbi_MasterPage : System.Web.UI.MasterPage
 
     protected void TreeView1_SelectedNodeChanged(object sender, EventArgs e)
     {
-       
+        switch (TreeView1.SelectedNode.Text)
+        {
+            case "修改密码":
+                Response.Redirect("alterPwd.aspx"); break;
+
+
+            case "考勤信息":
+                Response.Redirect("#"); break;
+            case "录入考勤":
+                Response.Redirect("#"); break;
+            case "以往记录":
+                Response.Redirect("#"); break;
+        }
     }
 }

@@ -3,10 +3,10 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" Runat="Server">
      <style type="text/css">
   
-        #div1 {
+         #div1 {
          margin:0 auto;
              height:300px;
-            width: 300px;
+            width: 462px;
         }
          #Select1 {
              height: 28px;
@@ -27,29 +27,58 @@
     </style>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" Runat="Server">
-    <div id="div1">教师类型：<select id="Select1" name="D1">
-        <option></option>
-        </select><br />
+    <div id="div1">教师类型：<asp:DropDownList ID="DropDownList1" runat="server" Height="16px" Width="188px">
+        <asp:ListItem Value="外聘教师"></asp:ListItem>
+        <asp:ListItem Selected="True" Value="本校教师"></asp:ListItem>
+        </asp:DropDownList>
         <br />
-        所属部门：<select id="Select2" name="D2">
-            <option></option>
-        </select><br />
+        <br />
+        所属部门：<asp:DropDownList ID="DropDownList2" runat="server" Height="16px" Width="187px">
+            <asp:ListItem Value="安全保卫处"></asp:ListItem>
+            <asp:ListItem Value="办公室"></asp:ListItem>
+            <asp:ListItem Value="教务处"></asp:ListItem>
+            <asp:ListItem Value="基础部"></asp:ListItem>
+            <asp:ListItem Value="机电工程系"></asp:ListItem>
+            <asp:ListItem Value="经济管理系"></asp:ListItem>
+            <asp:ListItem Value="建筑工程系"></asp:ListItem>
+            <asp:ListItem Value="会计系"></asp:ListItem>
+            <asp:ListItem Value="食品工程系"></asp:ListItem>
+            <asp:ListItem Value="商务外语系"></asp:ListItem>
+            <asp:ListItem Value="信息艺术系"></asp:ListItem>
+            <asp:ListItem Value="学生公寓管理中心"></asp:ListItem>
+            <asp:ListItem Value="总务处"></asp:ListItem>
+        </asp:DropDownList>
+        <br />
         <br />
         教师工号：<asp:TextBox ID="TextBox1" runat="server" Height="16px" Width="183px"></asp:TextBox>
+        <asp:Label ID="Label2" runat="server" Text="Label"></asp:Label>
         <br />
         <br />
         教师姓名：<asp:TextBox ID="TextBox2" runat="server" Height="16px" Width="183px"></asp:TextBox>
         <br />
         <br />
-        密&nbsp;&nbsp; 码:<input id="Password1" type="password" /><br />
+        密&nbsp;&nbsp; 码:<input id="Password1" type="password" runat="server" /><br />
         <br />
-        权&nbsp;&nbsp; 限:<asp:TextBox ID="TextBox3" runat="server" Height="16px" Width="183px"></asp:TextBox>
+        确认密码：<input id="Password2" type="password" runat="server" /><asp:Label ID="Label1" runat="server" Text="Label"></asp:Label>
+        <br />
+        <br />性&nbsp;&nbsp;别：<asp:DropDownList ID="DropDownList4" runat="server" Height="16px" Width="188px">
+        <asp:ListItem Value="男"></asp:ListItem>
+        <asp:ListItem Selected="True" Value="女"></asp:ListItem>
+        </asp:DropDownList>
+        <br />
+        <br />
+        权&nbsp;&nbsp; 限:<asp:DropDownList ID="DropDownList3" runat="server" Height="19px" Width="190px">
+            <asp:ListItem Value="1"></asp:ListItem>
+            <asp:ListItem Value="2"></asp:ListItem>
+            <asp:ListItem Value="3"></asp:ListItem>
+            <asp:ListItem Selected="True" Value="4"></asp:ListItem>
+        </asp:DropDownList>
         <br />
         <br />
         <br />
-        <div>&nbsp;<asp:Button ID="Button2" runat="server" Height="27px" Text="确定" Width="112px" />
+        <div style="height: 60px">&nbsp;<asp:Button ID="Button2" runat="server" Height="27px" Text="确定" Width="112px" OnClick="Button2_Click" />
 &nbsp;&nbsp;
-            <asp:Button ID="Button3" runat="server" Height="27px" Text="取消" Width="112px" />
+            <asp:Button ID="Button3" runat="server" Height="27px" Text="重置" Width="112px" OnClick="Button3_Click" />
 &nbsp;&nbsp;&nbsp; </div>
     </div>
 </asp:Content>

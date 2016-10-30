@@ -1,7 +1,9 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/领导/sdbi_MasterPage.master" AutoEventWireup="true" CodeFile="alterPwd.aspx.cs" Inherits="领导_alterPwd" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/管理员/sdbi_MasterPage.master" AutoEventWireup="true" CodeFile="alterPwd.aspx.cs" Inherits="管理员_alterPwd" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" Runat="Server">
-     <style type="text/css">
+</asp:Content>
+<asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" Runat="Server">
+      <style type="text/css">
         #Button1 {
     border-style: none;
     border-color: inherit;
@@ -18,9 +20,6 @@
 #Button1:hover{
 	background: #ff2775;}
     </style>
-</asp:Content>
-<asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" Runat="Server">
-   
      <div style="height:28px; margin-left:30px; margin-top:10px;">
         <a href="Default.aspx" style="text-decoration:none; color:cyan;">首页</a>><a href="alterPwd.aspx" style="text-decoration:none;color:cyan;">修改密码</a>
     </div>

@@ -9,6 +9,9 @@ namespace BLL
 {
     public class isLogin
     {
+        /*
+         *登陆信息 
+         */
         public static DataTable login(string IDl)
         {
             String strSQL = "select * from 教师 where 工号='"+IDl+"'";
@@ -32,11 +35,26 @@ namespace BLL
          */
         public static int creatTeach(string YN,string dpm,string usrid,string userName,string sex,string Pwd,string permissions)
         {
-            string str= "insert into 教师(工号,密码,姓名,权限,性别,部门,是否外聘(1/2))values('"+usrid+"','"+Pwd+"','"+userName+"','"+permissions+"','"+sex+"','"+dpm+"','"+YN+"')";
+            if (YN == "外聘教师")
+            {
+                YN = "是";
+            }
+            if (YN == "本校教师")
+            {
+                YN = "否";
+            }
+            string str = "insert into 教师(工号,密码,姓名,权限,性别,部门,是否外聘教师)values('" + usrid + "','" + Pwd + "','" + userName + "','" + permissions + "','" + sex + "','" + dpm + "','" + YN + "')";
 
             DAL.DBHelper.Getdt(str);
-           
+            DataTable dt = DAL.DBHelper.getDt("select * from 教师 where 工号='"+usrid+"'");
+            if (dt.Rows.Count == 1)
+            {
                 return 1;
+            }
+            else
+            {
+                return 0;
+            }
         }
 
         /*
