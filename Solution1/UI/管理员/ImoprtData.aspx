@@ -9,7 +9,7 @@
            height:20px;
        }
        #div2 {
-           margin-left:155px;
+           margin-left:160px;
        }
        #Select1 {
             height: 8px;
@@ -25,6 +25,10 @@
   
         <div id="div1"></div>
       <div id="div2">
+          <select id="Select1" name="D1">
+              <option></option>
+          </select><br />
+          <br />
        </div>
       <div>
        请选择要导入的文件：<asp:FileUpload ID="FileUpload1" runat="server" />
@@ -34,37 +38,15 @@
        </div>
          <div id="div1"></div>
      <div id="div2">
-           &nbsp;  <select id="Select1">
-             <option>教务处</option>
-
-         </select>
+           &nbsp;&nbsp;
      </div>
-       &nbsp;<div>
-          请选择要导入的文件：<asp:FileUpload ID="FileUpload2" runat="server" />
-
-                &nbsp;  <asp:Button ID="Button2" runat="server" Height="20px" Text="导入" Width="98px" OnClick="Button2_Click" />
-       </div>
-        <div id="div1"></div>
-      <div>
-           请选择要导入的文件：<asp:FileUpload ID="FileUpload3" runat="server" />
-
-               &nbsp;  <asp:Button ID="Button3" runat="server" Height="20px" Text="导入" Width="98px" OnClick="Button3_Click" />
-
-       </div>
-        <div id="div1"></div>
-       <div>
-           会计系&nbsp;   信息工程系&nbsp;   经济管理系&nbsp;   食品工程系 &nbsp;  机械工程系&nbsp;   商务外语系 &nbsp;  建筑工程系
-      </div>
-      <div> </div>
-       <asp:TextBox ID="TextBox1" runat="server" Width="45px"></asp:TextBox>
-      &nbsp;  <asp:TextBox ID="TextBox2" runat="server" Width="45px"></asp:TextBox>      
-         &nbsp;&nbsp;&nbsp;  <asp:TextBox ID="TextBox3" runat="server" Width="45px"></asp:TextBox>
-      &nbsp;&nbsp;&nbsp;&nbsp;  <asp:TextBox ID="TextBox4" runat="server" Width="45px"></asp:TextBox>
-     &nbsp;&nbsp;&nbsp;&nbsp; <asp:TextBox ID="TextBox5" runat="server" Width="45px"></asp:TextBox>
-      &nbsp;&nbsp;&nbsp; <asp:TextBox ID="TextBox6" runat="server" Width="45px"></asp:TextBox>
-     &nbsp;&nbsp;&nbsp;&nbsp;  <asp:TextBox ID="TextBox7" runat="server" Width="45px"></asp:TextBox>
-      &nbsp;&nbsp;  <asp:Button ID="Button4" runat="server" Text="确定" Height="23px" Width="65px" OnClick="Button4_Click" />
-       <div id="div1"></div>
+       &nbsp;&nbsp;        
+         &nbsp;&nbsp;&nbsp;  
+      &nbsp;&nbsp;&nbsp;&nbsp;  
+     &nbsp;&nbsp;&nbsp;&nbsp; 
+      &nbsp;&nbsp;&nbsp; 
+     &nbsp;&nbsp;&nbsp;&nbsp;  
+      &nbsp;&nbsp;  
       <div id="div3">
      <asp:Button ID="Button5" runat="server" Text="分析导入数据" Height="23px" Width="134px" OnClick="Button5_Click" />
           <br />
