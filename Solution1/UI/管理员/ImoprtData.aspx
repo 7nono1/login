@@ -53,6 +53,7 @@
            <br />
 <asp:Button ID="Button7" runat="server" Text="清空入库数据" OnClick="Button7_Click" Height="23px" Width="134px" />
           <br />
+          <br />
 <asp:Button ID="Button8" runat="server" Text="更新课程数据" OnClick="Button7_Click" Height="23px" Width="134px" />
           <br />
       </div>
