@@ -23,10 +23,9 @@
     </style>
      <div id="center">
   
-        <div id="div1"></div>
       <div id="div2">
           <select id="Select1" name="D1">
-              <option></option>
+              <option>nihhjk</option>
           </select><br />
           <br />
        </div>
