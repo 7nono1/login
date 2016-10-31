@@ -13,11 +13,6 @@ public partial class 管理员_ImoprtData : System.Web.UI.Page
 
     }
 
-    protected void Button2_Click(object sender, EventArgs e)
-    {
-
-    }
-
     /*
      * 导入数据
      */
@@ -47,30 +42,6 @@ public partial class 管理员_ImoprtData : System.Web.UI.Page
         Filename = Newdate + Newtime + Filename;//日期、时间、文件名（带扩展名）合成一个文件名
         this.cur = path + Filename;//将路径加文件名合并
         ff.SaveAs(this.cur);//上传
-    }
-
-    protected void Button3_Click(object sender, EventArgs e)
-    {
-
-    }
-
-    protected void Button4_Click(object sender, EventArgs e)
-    {
-
-    }
-
-    protected void Button5_Click(object sender, EventArgs e)
-    {
-
-    }
-
-    protected void Button6_Click(object sender, EventArgs e)
-    {
-
-    }
-
-    protected void Button7_Click(object sender, EventArgs e)
-    {
-
+        int send = BLL.isLogin.excle(cur,DropDownList1.SelectedValue.ToString().Trim());
     }
 }

@@ -25,9 +25,21 @@
      <div id="center">
   
       <div id="div2">
-          选择数据类型：&nbsp;&nbsp;&nbsp; <select id="Select1" name="D1">
-              <option></option>
-          </select><br />
+          选择数据类型：&nbsp;&nbsp;&nbsp;<asp:DropDownList ID="DropDownList1" runat="server" Height="16px" Width="138px">
+              <asp:ListItem Value="学生信息"></asp:ListItem>
+              <asp:ListItem Value="教师信息"></asp:ListItem>
+              <asp:ListItem Value="会计系"></asp:ListItem>
+              <asp:ListItem Value="所有课程"></asp:ListItem>
+              <asp:ListItem Value="信息与艺术系"></asp:ListItem>
+              <asp:ListItem Value="商务外语系"></asp:ListItem>
+              <asp:ListItem Value="食品工程系"></asp:ListItem>
+              <asp:ListItem Value="建筑工程系"></asp:ListItem>
+              <asp:ListItem Value="机械工程系"></asp:ListItem>
+              <asp:ListItem Value="经济管理系"></asp:ListItem>
+              <asp:ListItem Value="教务处"></asp:ListItem>
+              <asp:ListItem Value="基础教学部"></asp:ListItem>
+          </asp:DropDownList>
+          <br />
           <br />
           <br />
        </div>

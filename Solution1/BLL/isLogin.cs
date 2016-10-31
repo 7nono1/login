@@ -117,12 +117,28 @@ namespace BLL
          */
         public static int excle(string url,string tb)
         {
+            
             DataTable dt= DAL.DBHelper.getExcle(url);
             for (int i = 0; i < dt.Rows.Count; i++)
             {
-                if (tb == "教师")
+                if (tb == "教师信息")
                 {
                     DAL.DBHelper.Getdt("insert into 教师 values('" + dt.Rows[i][0] + "','" + dt.Rows[i][1] + "','" + dt.Rows[i][2] + "','" + dt.Rows[i][3] + "','" + dt.Rows[i][4] + "','" + dt.Rows[i][5] + "','" + dt.Rows[i][6] + "','" + dt.Rows[i][7] + "','" + dt.Rows[i][8] + "','" + dt.Rows[i][9] + "','" + dt.Rows[i][10] + "','" + dt.Rows[i][11] + "','" + dt.Rows[i][12] + "','" + dt.Rows[i][13] + "') ");
+                }
+                if (tb == "学生信息") {
+
+                    DAL.DBHelper.Getdt("insert into 学生 values('" + dt.Rows[i][0] + "','" + dt.Rows[i][1] + "','" + dt.Rows[i][2] + "','" + dt.Rows[i][3] + "','" + dt.Rows[i][4] + "','" + dt.Rows[i][5] + "') ");
+
+                }
+                if (tb == "信息艺术系" || tb == "会计系" || tb == "商务外语系" || tb == "食品工程系" || tb == "建筑工程系" || tb == "机械工程系" || tb == "经济管理系" || tb == "教务处" || tb == "基础教学部")
+                {
+                    DAL.DBHelper.Getdt("insert into "+tb+" values('" + dt.Rows[i][0] + "','" + dt.Rows[i][1] + "','" + dt.Rows[i][2] + "','" + dt.Rows[i][3] + "') ");
+
+                }
+                if (tb == "所有课程")
+                {
+                    DAL.DBHelper.Getdt("insert into " + tb + " values('" + dt.Rows[i][0] + "','" + dt.Rows[i][1] + "','" + dt.Rows[i][2] + "','" + dt.Rows[i][3] + "','" + dt.Rows[i][4] + "','" + dt.Rows[i][5] + "','" + dt.Rows[i][6] + "','" + dt.Rows[i][7] + "') ");
+
                 }
             }
             return 1;
