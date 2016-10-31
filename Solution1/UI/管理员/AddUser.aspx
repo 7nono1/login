@@ -7,6 +7,7 @@
          margin:0 auto;
              height:300px;
             width: 462px;
+            padding-top:30px;
         }
          #Select1 {
              height: 28px;

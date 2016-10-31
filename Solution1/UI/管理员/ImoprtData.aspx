@@ -5,28 +5,30 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" Runat="Server">
      <style type="text/css">
        #div1 {
-            background-color:#000000;
+           
            height:20px;
        }
        #div2 {
-           margin-left:160px;
+          
        }
        #Select1 {
-            height: 8px;
-            width: 86px;
+            height: 13px;
+            width: 148px;
        }
         #center {
           width:942px;
             float:left;
            margin-left: 18px;
+           padding-top:50px;
        }
     </style>
      <div id="center">
   
       <div id="div2">
-          <select id="Select1" name="D1">
-              <option>nihhjk</option>
+          选择数据类型：&nbsp;&nbsp;&nbsp; <select id="Select1" name="D1">
+              <option></option>
           </select><br />
+          <br />
           <br />
        </div>
       <div>
@@ -35,10 +37,6 @@
                 &nbsp;   <asp:Button ID="Button1" runat="server" Height="20px" Text="导入" Width="98px" OnClick="Button1_Click" />
 
        </div>
-         <div id="div1"></div>
-     <div id="div2">
-           &nbsp;&nbsp;
-     </div>
        &nbsp;&nbsp;        
          &nbsp;&nbsp;&nbsp;  
       &nbsp;&nbsp;&nbsp;&nbsp;  
@@ -54,11 +52,11 @@
           <br />
            <br />
 <asp:Button ID="Button7" runat="server" Text="清空入库数据" OnClick="Button7_Click" Height="23px" Width="134px" />
-      </div>
-       <div id="div1"></div>
-      <div>
+          <br />
+          <br />
 <asp:Button ID="Button8" runat="server" Text="更新课程数据" OnClick="Button7_Click" Height="23px" Width="134px" />
-        </div>
+          <br />
+      </div>
   </div>
 </asp:Content>
 
