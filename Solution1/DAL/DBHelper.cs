@@ -12,10 +12,18 @@ namespace DAL
 {
     public class DBHelper
     {
+
+        /*
+         * 链接sql数据库
+         */
+        private static string  getConn() {
+            string strConn = ConfigurationManager.ConnectionStrings["MyConn"].ConnectionString;
+            return strConn;
+        }
+
         public static DataTable getDt(string strSQL)
         {
-            string strConn = ConfigurationManager.ConnectionStrings["MyConn"].ConnectionString;
-            SqlConnection conn = new SqlConnection(strConn);
+            SqlConnection conn = new SqlConnection(getConn());
             conn.Open();
 
             DataTable dt = new DataTable();
@@ -28,8 +36,7 @@ namespace DAL
 
         public static void Getdt(string strSQL)
         {
-            string strConn = ConfigurationManager.ConnectionStrings["MyConn"].ConnectionString;
-            SqlConnection conn = new SqlConnection(strConn);
+            SqlConnection conn = new SqlConnection(getConn());
             conn.Open();
             
             SqlCommand cmd = new SqlCommand(strSQL,conn);
@@ -37,6 +44,11 @@ namespace DAL
             conn.Close();
         }
 
+
+
+        /*
+         *读取Excel表 
+         */
         public static DataTable getExcle(string url)
         {
             string strConn = "provider=Microsoft.ACE.OLEDB.12.0;data source='" + url + "';Extended Properties='Excel 8.0;HDR=NO;IMEX=1'";
@@ -50,6 +62,20 @@ namespace DAL
             conn.Close();
 
             return ds.Tables[0];
+        }
+
+        /*
+         *批量导入excel数据到数据库
+         */
+        public static void SQLBulkCopy(DataTable dt) {
+            using (SqlConnection conn = new SqlConnection(getConn())) {
+                conn.Open();
+                using (SqlBulkCopy bulkCopy = new SqlBulkCopy(conn)) {
+                    bulkCopy.DestinationTableName = "TabTempUserInfo";
+                    //bulkCopy.ColumnMappings.Add("","");
+                    bulkCopy.WriteToServer(dt);
+                }
+            }
         }
     }
 }
