@@ -4,7 +4,7 @@
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" Runat="Server">
       <style type="text/css">
-        #Button1 {
+        .Button1 {
     border-style: none;
     border-color: inherit;
     border-width: medium;
@@ -17,11 +17,11 @@
     margin-left: 4px;
     margin-top:20px;
 }
-#Button1:hover{
-	background: #ff2775;}
+.Button1:hover{
+    background-color: #ff2775;}
     </style>
      <div style="height:28px; margin-left:30px; margin-top:10px;">
-        <a href="Default.aspx" style="text-decoration:none; color:cyan;">首页</a>><a href="alterPwd.aspx" style="text-decoration:none;color:cyan;">修改密码</a>
+        <a href="message.aspx" style="text-decoration:none; color:cyan;">首页</a>><a href="alterPwd.aspx" style="text-decoration:none;color:cyan;">修改密码</a>
     </div>
     <div style="height: 606px">
         <div style="height:323px; width:496px; margin-left:28%; margin-top:150px; background-color:#2b2b36; border-radius:15px;">
@@ -45,7 +45,7 @@
             </div>
             <div style="height:59px; width:213px; margin-left:126px; margin-top:2em; border-radius:15px;">
                 
-                <asp:Button ID="Button1" runat="server" Height="53px"  Text="提交" Width="205px" OnClick="Button1_Click" BackColor="#00ff99"  />
+                <asp:Button ID="Button1" CssClass="Button1" runat="server" Height="53px"  Text="提交" Width="205px" OnClick="Button1_Click" BackColor="#00ff99"  />
                 
             </div>
         </div>

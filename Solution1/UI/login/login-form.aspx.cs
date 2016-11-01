@@ -39,7 +39,7 @@ public partial class login_login : System.Web.UI.Page
                     switch (i.Rows[0][3].ToString())
                     {
                         case "1":
-                            Response.Redirect("/管理员/Default.aspx"); break;
+                            Response.Redirect("/管理员/message.aspx"); break;
                         case "2":
                             Response.Redirect("/领导/Default.aspx"); break;
                         case "3":

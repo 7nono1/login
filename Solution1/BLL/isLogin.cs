@@ -78,18 +78,37 @@ namespace BLL
         /**
          * 发布通知 
          */
-        public static int inform(string message,DataTable id)
+        public static int sendmarg(string message,string id)
         {
-            DataTable ID = id;
-            DataTable dt = new DataTable();
-            for (int i = 0; i < ID.Rows.Count; i++)
+            DataTable dt = DAL.DBHelper.getDt("select 工号 from 教师 where 权限='"+id+"'");
+            string timer = System.DateTime.Now.ToShortDateString();
+            for (int i = 0; i < dt.Rows.Count; i++)
             {
-                string timer = System.DateTime.Now.ToShortDateString();
-                string str = "insert into 消息(时间,信息,用户名,阅读状态)values('" + timer + "','"+message+"','"+ID.Rows[i][0]+"','1')";
+                string str = "insert into 消息(时间,信息,用户名,阅读状态)values('" + timer + "','" + message + "','" + dt.Rows[i][0] + "','1')";
                 DAL.DBHelper.Getdt(str);
             }
           
                 return 1;
+        }
+
+        /*
+         *查询消息
+         */
+        public static DataTable readmarg(string id)
+        {
+            DataTable dt = DAL.DBHelper.getDt("select 时间,信息 from 消息 where 用户名='"+id+"' and 阅读状态='1'");
+            return dt;
+        }
+        /*
+         *修改标记消息阅读状态
+         */
+        public static void upmarg(string id,string marg,string timema)
+        {
+            DAL.DBHelper.Getdt("update 消息 set 阅读状态='2' where 时间='"+timema+"' and 信息='"+marg+"' and 用户名='"+id+"'");
+        }
+        public static void upmarg1(string id)
+        {
+            DAL.DBHelper.Getdt("update 消息 set 阅读状态='2' where 用户名='"+id+"'");
         }
 
         /*
@@ -119,7 +138,7 @@ namespace BLL
         {
             
             DataTable dt= DAL.DBHelper.getExcle(url);
-            for (int i = 0; i < dt.Rows.Count; i++)
+            for (int i = 1; i < dt.Rows.Count; i++)
             {
                 if (tb == "教师信息")
                 {

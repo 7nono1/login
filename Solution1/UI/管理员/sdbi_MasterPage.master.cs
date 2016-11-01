@@ -49,6 +49,8 @@ public partial class sdbi_MasterPage : System.Web.UI.MasterPage
                 Response.Redirect("alterPwd.aspx"); break;
             case "新增用户":
                 Response.Redirect("AddUser.aspx"); break;
+            case "发布通知":
+                Response.Redirect("sendNew.aspx"); break;
 
 
             case "导入数据":

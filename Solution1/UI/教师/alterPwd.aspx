@@ -2,7 +2,7 @@
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" Runat="Server">
       <style type="text/css">
-        #Button1 {
+        .Button1 {
     border-style: none;
     border-color: inherit;
     border-width: medium;
@@ -15,7 +15,7 @@
     margin-left: 4px;
     margin-top:20px;
 }
-#Button1:hover{
+.Button1:hover{
 	background: #ff2775;}
     </style>
 </asp:Content>
@@ -45,7 +45,7 @@
             </div>
             <div style="height:59px; width:213px; margin-left:126px; margin-top:2em; border-radius:15px;">
                 
-                <asp:Button ID="Button1" runat="server" Height="53px"  Text="提交" Width="205px" OnClick="Button1_Click" BackColor="#00ff99"  />
+                <asp:Button ID="Button1" CssClass="Button1" runat="server" Height="53px"  Text="提交" Width="205px" OnClick="Button1_Click" BackColor="#00ff99"  />
                 
             </div>
         </div>

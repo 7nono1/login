@@ -16,7 +16,7 @@ namespace DAL
         /*
          * 链接sql数据库
          */
-        private static string  getConn() {
+        public static string  getConn() {
             string strConn = ConfigurationManager.ConnectionStrings["MyConn"].ConnectionString;
             return strConn;
         }
@@ -38,7 +38,7 @@ namespace DAL
         {
             SqlConnection conn = new SqlConnection(getConn());
             conn.Open();
-            
+
             SqlCommand cmd = new SqlCommand(strSQL,conn);
             cmd.ExecuteNonQuery();
             conn.Close();
