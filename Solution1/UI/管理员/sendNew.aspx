@@ -42,7 +42,7 @@
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" Runat="Server">
     <div style="height:28px; margin-left:30px; margin-top:10px;">
-        <a href="Default.aspx" style="text-decoration:none; color:cyan;">首页</a>><a href="alterPwd.aspx" style="text-decoration:none;color:cyan;">发布通知</a>
+        <a href="message.aspx" style="text-decoration:none; color:cyan;">首页</a>><a href="sendNew.aspx" style="text-decoration:none;color:cyan;">发布通知</a>
     </div>
     <div style="height: 514px">
         <div class="check">

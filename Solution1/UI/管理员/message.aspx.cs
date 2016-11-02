@@ -19,7 +19,7 @@ public partial class 管理员_message : System.Web.UI.Page
 
     private void getdata()
     {
-        DataTable dt = BLL.isLogin.readmarg(Session["userID"].ToString().Trim().ToString().Trim());
+        DataTable dt = BLL.isLogin.readmarg(Session["userID"].ToString().Trim(),"1");
         //DataTable dt = BLL.isLogin.readmarg("121");
         for (int i = 0; i < dt.Rows.Count; i++)
         {
@@ -51,5 +51,10 @@ public partial class 管理员_message : System.Web.UI.Page
 
         CheckBoxList1.Items.Clear();
         getdata();
+    }
+
+    protected void Button3_Click(object sender, EventArgs e)
+    {
+        Response.Redirect("hosmarg.aspx");
     }
 }

@@ -31,6 +31,7 @@
             background-color:#00FF99;
             border-top-left-radius:10px;
             font-size:26px;
+            color:white;
         }
             .btn1:hover {
                  background-color: #ff2775;
@@ -39,6 +40,7 @@
             border:none;
             background-color:#00FF99;
             font-size:26px;
+            color:white;
         }
             .btn2:hover {
                  background-color: #ff2775;
@@ -48,6 +50,7 @@
             background-color:#00FF99;
             border-top-right-radius:10px;
             font-size:26px;
+            color:white;
         }
             .btn3:hover {
                  background-color: #ff2775;
@@ -62,7 +65,7 @@
 
             <asp:Button ID="Button1" CssClass="btn1" runat="server" Height="52px" Text="标记已读" Width="267px" OnClick="Button1_Click" />
             <asp:Button ID="Button2" CssClass="btn2" runat="server" Height="52px" Text="全部标记已读" Width="269px" OnClick="Button2_Click" />
-            <asp:Button ID="Button3" CssClass="btn3" runat="server" Height="52px" Text="历史记录" Width="267px" />
+            <asp:Button ID="Button3" CssClass="btn3" runat="server" Height="52px" Text="历史记录" Width="267px" OnClick="Button3_Click" />
 
         </div>
 

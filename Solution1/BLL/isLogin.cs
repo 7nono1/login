@@ -94,9 +94,9 @@ namespace BLL
         /*
          *查询消息
          */
-        public static DataTable readmarg(string id)
+        public static DataTable readmarg(string id,string num)
         {
-            DataTable dt = DAL.DBHelper.getDt("select 时间,信息 from 消息 where 用户名='"+id+"' and 阅读状态='1'");
+            DataTable dt = DAL.DBHelper.getDt("select 时间,信息 from 消息 where 用户名='"+id+"' and 阅读状态='"+num+"'");
             return dt;
         }
         /*
@@ -106,9 +106,20 @@ namespace BLL
         {
             DAL.DBHelper.Getdt("update 消息 set 阅读状态='2' where 时间='"+timema+"' and 信息='"+marg+"' and 用户名='"+id+"'");
         }
+        /*
+         *所有消息已读
+         */
         public static void upmarg1(string id)
         {
             DAL.DBHelper.Getdt("update 消息 set 阅读状态='2' where 用户名='"+id+"'");
+        }
+
+        /*
+         *删除历史信息
+         */
+        public static void delemarg(string id, string marg,string timemarg)
+        {
+            DAL.DBHelper.Getdt("delete from 消息 where 用户名='"+id+"' and 时间='"+timemarg+"' and 信息='"+marg+"' and 阅读状态='2'");
         }
 
         /*
