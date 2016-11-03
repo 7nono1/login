@@ -1,8 +1,6 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/管理员/sdbi_MasterPage.master" AutoEventWireup="true" CodeFile="ImoprtData.aspx.cs" Inherits="管理员_ImoprtData" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" Runat="Server">
-</asp:Content>
-<asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" Runat="Server">
      <style type="text/css">
        #div1 {
            
@@ -22,6 +20,11 @@
            padding-top:50px;
        }
     </style>
+</asp:Content>
+<asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" Runat="Server">
+    <div style="height:28px; margin-left:30px; margin-top:10px;">
+        <a href="message.aspx" style="text-decoration:none; color:cyan;">首页</a>><a href="ImoprtData.aspx" style="text-decoration:none;color:cyan;">导入数据</a>
+    </div>
      <div id="center">
   
       <div id="div2">
@@ -30,7 +33,7 @@
               <asp:ListItem Value="教师信息"></asp:ListItem>
               <asp:ListItem Value="会计系"></asp:ListItem>
               <asp:ListItem Value="所有课程"></asp:ListItem>
-              <asp:ListItem Value="信息与艺术系"></asp:ListItem>
+              <asp:ListItem Value="信息艺术系"></asp:ListItem>
               <asp:ListItem Value="商务外语系"></asp:ListItem>
               <asp:ListItem Value="食品工程系"></asp:ListItem>
               <asp:ListItem Value="建筑工程系"></asp:ListItem>
@@ -39,6 +42,7 @@
               <asp:ListItem Value="教务处"></asp:ListItem>
               <asp:ListItem Value="基础教学部"></asp:ListItem>
           </asp:DropDownList>
+          <asp:Label ID="Label1" runat="server" Text="Label"></asp:Label>
           <br />
           <br />
           <br />

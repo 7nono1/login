@@ -12,18 +12,18 @@ namespace DAL
 {
     public class DBHelper
     {
-        private static string GetConn()
-        {
+
+        /*
+         * 链接sql数据库
+         */
+        public static string  getConn() {
             string strConn = ConfigurationManager.ConnectionStrings["MyConn"].ConnectionString;
             return strConn;
-        
         }
-        
-        
+
         public static DataTable getDt(string strSQL)
         {
-            string strConn = ConfigurationManager.ConnectionStrings["MyConn"].ConnectionString;
-            SqlConnection conn = new SqlConnection(strConn);
+            SqlConnection conn = new SqlConnection(getConn());
             conn.Open();
 
             DataTable dt = new DataTable();
@@ -36,15 +36,19 @@ namespace DAL
 
         public static void Getdt(string strSQL)
         {
-            string strConn = ConfigurationManager.ConnectionStrings["MyConn"].ConnectionString;
-            SqlConnection conn = new SqlConnection(strConn);
+            SqlConnection conn = new SqlConnection(getConn());
             conn.Open();
-            
+
             SqlCommand cmd = new SqlCommand(strSQL,conn);
             cmd.ExecuteNonQuery();
             conn.Close();
         }
 
+
+
+        /*
+         *读取Excel表 
+         */
         public static DataTable getExcle(string url)
         {
             string strConn = "provider=Microsoft.ACE.OLEDB.12.0;data source='" + url + "';Extended Properties='Excel 8.0;HDR=NO;IMEX=1'";
@@ -59,22 +63,19 @@ namespace DAL
 
             return ds.Tables[0];
         }
-        public static void SQLBulkCopy(DataTable dt)
-        {
-            using (SqlConnection conn = new SqlConnection(GetConn())) {
-                conn.Open();
-                using (SqlBulkCopy bulCopy = new SqlBulkCopy(conn))
-                {
-                    bulCopy.DestinationTableName = "";
-                    bulCopy.ColumnMappings.Add("dt1", "dbt1");
-                    bulCopy.ColumnMappings.Add("dt2", "dbt2");
-                    bulCopy.ColumnMappings.Add("dt3", "dbt3");
-                    bulCopy.ColumnMappings.Add("dt4", "dbt4");
-                    bulCopy.WriteToServer(dt);
 
+        /*
+         *批量导入excel数据到数据库
+         */
+        public static void SQLBulkCopy(DataTable dt) {
+            using (SqlConnection conn = new SqlConnection(getConn())) {
+                conn.Open();
+                using (SqlBulkCopy bulkCopy = new SqlBulkCopy(conn)) {
+                    bulkCopy.DestinationTableName = "TabTempUserInfo";
+                    //bulkCopy.ColumnMappings.Add("","");
+                    bulkCopy.WriteToServer(dt);
                 }
             }
         }
     }
 }
-
