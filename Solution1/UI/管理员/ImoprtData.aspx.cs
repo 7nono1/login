@@ -44,4 +44,19 @@ public partial class 管理员_ImoprtData : System.Web.UI.Page
         ff.SaveAs(this.cur);//上传
         int send = BLL.isLogin.excle(cur,DropDownList1.SelectedValue.ToString().Trim());
     }
+
+    protected void Button5_Click(object sender, EventArgs e)
+    {
+
+    }
+
+    protected void Button6_Click(object sender, EventArgs e)
+    {
+
+    }
+
+    protected void Button7_Click(object sender, EventArgs e)
+    {
+
+    }
 }
