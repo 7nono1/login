@@ -40,25 +40,26 @@ public partial class 管理员_ImoprtData : System.Web.UI.Page
 
         string tempPath = Path.GetTempPath();
         HttpPostedFile ff = this.FileUpload1.PostedFile;//文件所有属性
-       //string Filename = ff.FileName;//文件名
+       string filename = ff.FileName;//文件名
         //string path = "C:\\Users\\昱小可\\Desktop\\ASP.NET\\";//上传路径
         //string path=Path.GetTempPath();//获取系统临时文件路径
-        string path = Server.MapPath("../") + "testDB\\";//上传到工程文件夹里
-        string Filename = Path.GetFileName( FileUpload1.PostedFile.FileName);//文件名
+        string path = Server.MapPath("../") + "testDB\\";//要上传的工程文件夹
+        string Filename = Path.GetFileName(filename);//文件名
         //string Extension=Path.GetExtension(Filename);//获取文件的扩展名
-        string[] date = System.DateTime.Now.ToShortDateString().Split('/');//把日期的‘/’符号改成‘-’
-        string Newdate = "";
-        for (int i = 0; i < date.Length; i++)
-        {
-            Newdate = Newdate + date[i] + "-";
-        }
-        string[] time = System.DateTime.Now.ToLongTimeString().Split(':');//把时间‘：’符号改成‘-’
-        string Newtime = "";
-        for (int i = 0; i < time.Length; i++)
-        {
-            Newtime = Newtime + time[i] + "-";
-        }
-        Filename = Newdate + Newtime + Filename;//日期、时间、文件名（带扩展名）合成一个文件名
+        //string[] date = System.DateTime.Now.ToShortDateString().Split('/');//把日期的‘/’符号改成‘-’
+        //string Newdate = "";
+        //for (int i = 0; i < date.Length; i++)
+        //{
+        //    Newdate = Newdate + date[i] + "-";
+        //}
+        //string[] time = System.DateTime.Now.ToLongTimeString().Split(':');//把时间‘：’符号改成‘-’
+        //string Newtime = "";
+        //for (int i = 0; i < time.Length; i++)
+        //{
+        //    Newtime = Newtime + time[i] + "-";
+        //}
+        //Filename = Newdate + Newtime + Filename;//日期、时间、文件名（带扩展名）合成一个文件名
+        Filename = System.DateTime.Now.ToString("yyyyMMddhhmmssffff")+Filename;//将日期与文件名合并（带扩展名  ）
         this.cur = path + Filename;//将路径加文件名合并
         ff.SaveAs(this.cur);//上传
         int send = BLL.isLogin.excle(cur, DropDownList1.SelectedValue.ToString().Trim());

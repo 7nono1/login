@@ -67,12 +67,71 @@ namespace DAL
         /*
          *批量导入excel数据到数据库
          */
-        public static void SQLBulkCopy(DataTable dt) {
+        public static void SQLBulkCopy(DataTable dt,string table1)
+        {
             using (SqlConnection conn = new SqlConnection(getConn())) {
                 conn.Open();
                 using (SqlBulkCopy bulkCopy = new SqlBulkCopy(conn)) {
-                    bulkCopy.DestinationTableName = "TabTempUserInfo";
-                    //bulkCopy.ColumnMappings.Add("","");
+                    bulkCopy.DestinationTableName = table1;
+                    for (int i = 0; i < 13; i++)
+                    {
+                        bulkCopy.ColumnMappings.Add(dt.Columns[i].ColumnName, dt.Rows[0][i].ToString());
+                    }//对应表导入
+                    bulkCopy.WriteToServer(dt);
+                }
+            }
+        }
+
+        public static void waiteaSQLBulkCopy(DataTable dt, string table1)
+        {
+            using (SqlConnection conn = new SqlConnection(getConn()))
+            {
+                conn.Open();
+                using (SqlBulkCopy bulkCopy = new SqlBulkCopy(conn))
+                {
+                    bulkCopy.DestinationTableName = table1;
+                    for (int i = 0; i < 14; i++)
+                    {
+                        bulkCopy.ColumnMappings.Add(dt.Columns[i].ColumnName, dt.Rows[0][i].ToString());
+                    }//对应表导入
+                    bulkCopy.WriteToServer(dt);
+                }
+            }
+        }
+
+        public static void waipinTea(DataTable dt, string table1)
+        {
+            using (SqlConnection conn = new SqlConnection(getConn()))
+            {
+                conn.Open();
+                using (SqlBulkCopy bulkCopy = new SqlBulkCopy(conn))
+                {
+                    bulkCopy.DestinationTableName = table1;
+                    for (int i = 0; i < 9; i++)
+                    {
+                        bulkCopy.ColumnMappings.Add(dt.Columns[i].ColumnName, dt.Rows[0][i].ToString());
+                    }//对应表导入
+                    bulkCopy.WriteToServer(dt);
+                }
+            }
+        }
+
+
+        /*
+         *系部数据导入
+         */
+        public static void xibu(DataTable dt, string table1)
+        {
+            using (SqlConnection conn = new SqlConnection(getConn()))
+            {
+                conn.Open();
+                using (SqlBulkCopy bulkCopy = new SqlBulkCopy(conn))
+                {
+                    bulkCopy.DestinationTableName = table1;
+                    for (int i = 0; i < 15; i++)
+                    {
+                        bulkCopy.ColumnMappings.Add(dt.Columns[i].ColumnName, dt.Rows[0][i].ToString());
+                    }//对应表导入
                     bulkCopy.WriteToServer(dt);
                 }
             }
