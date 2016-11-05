@@ -14,7 +14,7 @@ namespace BLL
          */
         public static DataTable login(string IDl)
         {
-            String strSQL = "select * from 教师 where 工号='" + IDl + "'";
+            String strSQL = "SELECT * from 教师 WHERE 工号='" + IDl + "'";
             DataTable dt = DAL.DBHelper.getDt(strSQL);
             return dt;
         }
@@ -24,7 +24,7 @@ namespace BLL
          */
         public static DataTable Adminteach()
         {
-            string str = "select 工号,姓名,权限,部门 from 教师";
+            string str = "SELECT 工号,姓名,权限,部门 FROM 教师";
             DataTable dt = DAL.DBHelper.getDt(str);
             return dt;
         }
@@ -43,10 +43,10 @@ namespace BLL
             {
                 YN = "否";
             }
-            string str = "insert into 教师(工号,密码,姓名,权限,性别,部门,是否外聘教师)values('" + usrid + "','" + Pwd + "','" + userName + "','" + permissions + "','" + sex + "','" + dpm + "','" + YN + "')";
+            string str = "INSERT INTO 教师(工号,密码,姓名,权限,性别,部门,是否外聘教师)VALUES('" + usrid + "','" + Pwd + "','" + userName + "','" + permissions + "','" + sex + "','" + dpm + "','" + YN + "')";
 
             DAL.DBHelper.Getdt(str);
-            DataTable dt = DAL.DBHelper.getDt("select * from 教师 where 工号='" + usrid + "'");
+            DataTable dt = DAL.DBHelper.getDt("SELECT * FROM 教师 WHERE 工号='" + usrid + "'");
             if (dt.Rows.Count == 1)
             {
                 return 1;
@@ -62,9 +62,9 @@ namespace BLL
          */
         public static int updt(string pwd, string id, string ypwd)
         {
-            string str = "update 教师 set 密码='" + pwd.Trim() + "' where 工号='" + id.Trim() + "'";
+            string str = "UPDATE 教师 SET 密码='" + pwd.Trim() + "' WHERE 工号='" + id.Trim() + "'";
             DAL.DBHelper.Getdt(str);
-            DataTable dtt = DAL.DBHelper.getDt("select 密码 from 教师 where 工号='" + id.Trim() + "'");
+            DataTable dtt = DAL.DBHelper.getDt("SELECT 密码 FROM 教师 WHERE 工号='" + id.Trim() + "'");
             if (dtt.Rows[0][0].ToString() == ypwd.Trim())
             {
                 return 1;
@@ -80,11 +80,11 @@ namespace BLL
          */
         public static int sendmarg(string message, string id)
         {
-            DataTable dt = DAL.DBHelper.getDt("select 工号 from 教师 where 权限='" + id + "'");
+            DataTable dt = DAL.DBHelper.getDt("SELECT 工号 FROM 教师 WHERE 权限='" + id + "'");
             string timer = System.DateTime.Now.ToShortDateString();
             for (int i = 0; i < dt.Rows.Count; i++)
             {
-                string str = "insert into 消息(时间,信息,用户名,阅读状态)values('" + timer + "','" + message + "','" + dt.Rows[i][0] + "','1')";
+                string str = "INSERT INTO 消息(时间,信息,用户名,阅读状态)VALUES('" + timer + "','" + message + "','" + dt.Rows[i][0] + "','1')";
                 DAL.DBHelper.Getdt(str);
             }
 
@@ -96,7 +96,7 @@ namespace BLL
          */
         public static DataTable readmarg(string id, string num)
         {
-            DataTable dt = DAL.DBHelper.getDt("select 时间,信息 from 消息 where 用户名='" + id + "' and 阅读状态='" + num + "'");
+            DataTable dt = DAL.DBHelper.getDt("SELECT 时间,信息 FROM 消息 WHERE 用户名='" + id + "' AND 阅读状态='" + num + "'");
             return dt;
         }
         /*
@@ -104,14 +104,14 @@ namespace BLL
          */
         public static void upmarg(string id, string marg, string timema)
         {
-            DAL.DBHelper.Getdt("update 消息 set 阅读状态='2' where 时间='" + timema + "' and 信息='" + marg + "' and 用户名='" + id + "'");
+            DAL.DBHelper.Getdt("UPDATE 消息 SET 阅读状态='2' WHERE 时间='" + timema + "' AND 信息='" + marg + "' AND 用户名='" + id + "'");
         }
         /*
          *所有消息已读
          */
         public static void upmarg1(string id)
         {
-            DAL.DBHelper.Getdt("update 消息 set 阅读状态='2' where 用户名='" + id + "'");
+            DAL.DBHelper.Getdt("UPDATE 消息 SET 阅读状态='2' WHERE 用户名='" + id + "'");
         }
 
         /*
@@ -119,7 +119,7 @@ namespace BLL
          */
         public static void delemarg(string id, string marg, string timemarg)
         {
-            DAL.DBHelper.Getdt("delete from 消息 where 用户名='" + id + "' and 时间='" + timemarg + "' and 信息='" + marg + "' and 阅读状态='2'");
+            DAL.DBHelper.Getdt("DELECT FROM 消息 WHERE 用户名='" + id + "' AND 时间='" + timemarg + "' AND 信息='" + marg + "' AND 阅读状态='2'");
         }
 
         /*
@@ -151,7 +151,7 @@ namespace BLL
             DataTable dt = DAL.DBHelper.getExcle(url);
             if (tb == "全校教师")
             {
-                DAL.DBHelper.SQLBulkCopy(dt,tb);
+                DAL.DBHelper.SQLBulkCopy(dt,"教师");
             }
             if (tb == "外聘教师")
             {
@@ -168,8 +168,17 @@ namespace BLL
             return 1;
         }
 
+        /*
+         *清空所有数据
+         */
+
+        public static void wipe(string tb)
+        {
+            DAL.DBHelper.Getdt("DELETE FROM "+tb);
+        }
         public static void de()
         {
+
             DAL.DBHelper.Getdt("delete from 信息艺术系");
             DAL.DBHelper.Getdt("delete from 教师 where 工号!='12'");
             DAL.DBHelper.Getdt("delete from 消息");

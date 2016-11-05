@@ -57,6 +57,8 @@ public partial class sdbi_MasterPage : System.Web.UI.MasterPage
 
             case "导入数据":
                 Response.Redirect("ImoprtData.aspx"); break;
+            case "清空数据":
+                Response.Redirect("wipeData.aspx"); break;
 
             case "缺勤分析":
                 Response.Redirect("Queqinfenxi.aspx"); break;

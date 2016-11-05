@@ -55,13 +55,21 @@ namespace DAL
             OleDbConnection conn = new OleDbConnection(strConn);
             conn.Open();
 
-            string strSQL = "select * from [sheet1$]";
+            DataTable tableName = conn.GetOleDbSchemaTable(OleDbSchemaGuid.Tables, new object[] { null, null, null, "Table" });//得到所以sheet的名字
+            string firstSheetName = tableName.Rows[0][2].ToString();//得到第一个sheet表名
+
+            string strSQL = string.Format(("SELECT * FROM [{0}]"),firstSheetName);
             OleDbDataAdapter da = new OleDbDataAdapter(strSQL, conn);
             DataSet ds = new DataSet();
             da.Fill(ds);
             conn.Close();
 
             return ds.Tables[0];
+        }
+
+        private static DataTable GetExcelTableName(string v)
+        {
+            throw new NotImplementedException();
         }
 
         /*

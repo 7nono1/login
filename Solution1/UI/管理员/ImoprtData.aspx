@@ -28,7 +28,7 @@
      <div id="center">
   
       <div id="div2">
-          选择数据类型：&nbsp;&nbsp;&nbsp;<asp:DropDownList ID="DropDownList1" runat="server" Height="16px" Width="138px">
+          选择数据类型：&nbsp;&nbsp;&nbsp;<asp:DropDownList ID="DropDownList1" runat="server" Height="16px" Width="138px" OnSelectedIndexChanged="DropDownList1_SelectedIndexChanged">
               <asp:ListItem Value="全校教师"></asp:ListItem>
               <asp:ListItem Value="会计系"></asp:ListItem>
               <asp:ListItem Value="信息艺术系"></asp:ListItem>
