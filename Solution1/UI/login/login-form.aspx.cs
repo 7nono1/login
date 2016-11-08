@@ -32,11 +32,11 @@ public partial class login_login : System.Web.UI.Page
             {
                 if (Session["ValiDateCode"].ToString() == codeBox.Value)
                 {
-                    Session["userID"] = i.Rows[0][0];
-                    Session["userPwd"] = i.Rows[0][1];
-                    Session["userName"] = i.Rows[0][2];
-                    Session["userCols"] = i.Rows[0][3];
-                    switch (i.Rows[0][3].ToString())
+                    Session["userID"] = i.Rows[0][1];
+                    Session["userPwd"] = i.Rows[0][2];
+                    Session["userName"] = i.Rows[0][3];
+                    Session["userCols"] = i.Rows[0][5];
+                    switch (i.Rows[0][5].ToString())
                     {
                         case "1":
                             Response.Redirect("/管理员/message.aspx"); break;

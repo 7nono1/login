@@ -28,11 +28,9 @@
      <div id="center">
   
       <div id="div2">
-          选择数据类型：&nbsp;&nbsp;&nbsp;<asp:DropDownList ID="DropDownList1" runat="server" Height="16px" Width="138px">
-              <asp:ListItem Value="学生信息"></asp:ListItem>
-              <asp:ListItem Value="教师信息"></asp:ListItem>
+          选择数据类型：&nbsp;&nbsp;&nbsp;<asp:DropDownList ID="DropDownList1" runat="server" Height="16px" Width="138px" OnSelectedIndexChanged="DropDownList1_SelectedIndexChanged">
+              <asp:ListItem Value="全校教师"></asp:ListItem>
               <asp:ListItem Value="会计系"></asp:ListItem>
-              <asp:ListItem Value="所有课程"></asp:ListItem>
               <asp:ListItem Value="信息艺术系"></asp:ListItem>
               <asp:ListItem Value="商务外语系"></asp:ListItem>
               <asp:ListItem Value="食品工程系"></asp:ListItem>
@@ -41,6 +39,8 @@
               <asp:ListItem Value="经济管理系"></asp:ListItem>
               <asp:ListItem Value="教务处"></asp:ListItem>
               <asp:ListItem Value="基础教学部"></asp:ListItem>
+              <asp:ListItem Value="外聘教师"></asp:ListItem>
+              <asp:ListItem Value="校历"></asp:ListItem>
           </asp:DropDownList>
           <asp:Label ID="Label1" runat="server" Text="Label"></asp:Label>
           <br />

@@ -1,7 +1,7 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/管理员/sdbi_MasterPage.master" AutoEventWireup="true" CodeFile="message.aspx.cs" Inherits="管理员_message" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/辅导员/sdbi_MasterPage.master" AutoEventWireup="true" CodeFile="message.aspx.cs" Inherits="辅导员_message" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" Runat="Server">
-    <style type="text/css">
+     <style type="text/css">
         * {
         margin:0;
         padding:0;
@@ -59,7 +59,7 @@
     </style>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" Runat="Server">
-    <div class="main">
+     <div class="main">
 
         <div class="btn">
 

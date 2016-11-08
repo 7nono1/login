@@ -34,7 +34,7 @@ public partial class sdbi_MasterPage : System.Web.UI.MasterPage
                 if (dt.Rows[i][0].ToString() != "10" && dt.Rows[i][0].ToString() != "0")
                 {
                     TreeNode child = new TreeNode(dt.Rows[i][1].ToString());
-                    TreeView1.Nodes[0].ChildNodes[(Int32.Parse(dt.Rows[i][0].ToString()) - 1)].ChildNodes.Add(child);
+                    TreeView1.Nodes[0].ChildNodes[(Int32.Parse(dt.Rows[i][0].ToString()))].ChildNodes.Add(child);
 
                 }
             }
@@ -45,6 +45,8 @@ public partial class sdbi_MasterPage : System.Web.UI.MasterPage
     {
         switch (TreeView1.SelectedNode.Text)
         {
+            case "首页消息":
+                Response.Redirect("message.aspx"); break;
             case "修改密码":
                 Response.Redirect("alterPwd.aspx"); break;
             case "新增用户":
@@ -55,6 +57,8 @@ public partial class sdbi_MasterPage : System.Web.UI.MasterPage
 
             case "导入数据":
                 Response.Redirect("ImoprtData.aspx"); break;
+            case "清空数据":
+                Response.Redirect("wipeData.aspx"); break;
 
             case "缺勤分析":
                 Response.Redirect("Queqinfenxi.aspx"); break;
