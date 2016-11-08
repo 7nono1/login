@@ -18,7 +18,7 @@ namespace BLL
             DataTable dt = DAL.DBHelper.getDt(strSQL);
             return dt;
         }
-        public static DataTable getStudent(string Weeked,string department)
+        public static DataTable getStudent(string department,int Weeked)
         {
             String strSQL = "select '"+department+"' from 考核情况 where 周次='" + Weeked + "'";
             DataTable dt = DAL.DBHelper.getDt(strSQL);
