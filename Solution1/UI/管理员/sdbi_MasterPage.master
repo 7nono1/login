@@ -38,8 +38,16 @@
          float:left;
         background-image:url(../images/logo3.jpg);
         padding:0;
-     
      }
+      #concent1{
+       width:800px;
+       height:500px;
+       float:left;
+                padding:0;
+        margin:30px 50px;
+     }
+
+
      #fool{
          width:1366px;
          height:38px;
@@ -83,9 +91,10 @@
               
           </div>
                <div id="concent">
-                    <asp:ContentPlaceHolder id="ContentPlaceHolder1" runat="server">
-        
-                     </asp:ContentPlaceHolder>
+                   <div id="concent1">
+                       <asp:ContentPlaceHolder id="ContentPlaceHolder1" runat="server">
+                       </asp:ContentPlaceHolder>
+                   </div>
                </div>
           <div id="fool"><img src="../images/logo4.jpg" /></div>
       </div>

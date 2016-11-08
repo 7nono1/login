@@ -6,6 +6,7 @@ using System.Web.UI;
 using System.Web.UI.WebControls;
 using System.Drawing;
 using dotnetCHARTING;
+using System.Data;
 public partial class 管理员_Queqinfenxi : System.Web.UI.Page
 {
     protected void Page_Load(object sender, EventArgs e)
@@ -13,13 +14,7 @@ public partial class 管理员_Queqinfenxi : System.Web.UI.Page
         if (!Page.IsPostBack)
         {
             Drawing("Spline");
-
-            DropDownList1.Items.Add(new ListItem("AreaLine", "AreaLine"));
-            DropDownList1.Items.Add(new ListItem("Bar", "Bar"));
-            DropDownList1.Items.Add(new ListItem("Column", "Column"));
-            DropDownList1.Items.Add(new ListItem("Cylinder", "Cylinder"));
-            DropDownList1.Items.Add(new ListItem("Line", "Line"));
-            DropDownList1.Items.Add(new ListItem("Marker", "Marker"));
+            DropDownList1.Items.Add(new ListItem("Column", "Column"));;
             DropDownList1.Items.Add(new ListItem("Spline", "Spline"));
         }
     }
@@ -27,38 +22,17 @@ public partial class 管理员_Queqinfenxi : System.Web.UI.Page
     private void Drawing(string type)
     {
         Charting c = new Charting();
-
         c.Title = "缺勤情况";
         c.XTitle = "周次";
         c.YTitle = "人数（人）";
-        c.PicHight = 600;
-        c.PicWidth = 1000;
+        c.PicHight = 500;
+        c.PicWidth = 875;
         c.SeriesName = "合计";//仅对于DataTable类型做数据源时，此属性有效
         c.PhaysicalImagePath = "ChartImages";//统计图片存放的文件夹名称，缺少对应的文件夹生成不了统计图片
         c.FileName = "Statistics51aspx";
-        if (type == "AreaLine")
-        {
-            c.Type = SeriesType.AreaLine;
-        }
-        else if (type == "Bar")
-        {
-            c.Type = SeriesType.Bar;
-        }
-        else if (type == "Column")
+        if (type == "Column")
         {
             c.Type = SeriesType.Column;
-        }
-        else if (type == "Cylinder")
-        {
-            c.Type = SeriesType.Cylinder;
-        }
-        else if (type == "Line")
-        {
-            c.Type = SeriesType.Line;
-        }
-        else if (type == "Marker")
-        {
-            c.Type = SeriesType.Marker;
         }
         else
         {
@@ -86,42 +60,57 @@ public partial class 管理员_Queqinfenxi : System.Web.UI.Page
             Series s = new Series();
             if (a == 1)
             {
-                s.Name = ("信息系");
+                getSc("信息与艺术设计系", s);
+                SC.Add(s);
             }
             else if (a == 2)
             {
-                s.Name = ("建筑系");
+                getSc("建筑系", s);
+                SC.Add(s);
             }
             else if (a == 3)
             {
-                s.Name = ("机电系");
+                getSc("机电系", s);
+                SC.Add(s);
             }
             else if (a == 4)
             {
-                s.Name = ("粮食工程系");
+                getSc("粮食工程系", s);
+                SC.Add(s);
             }
             else if (a == 5)
             {
-                s.Name = ("食品工程系");
+                getSc("食品工程系", s);
+                SC.Add(s);
             }
             else if (a == 6)
             {
-                s.Name = ("经济管理系");
+                getSc("经济管理系", s);
+                SC.Add(s);
             }
             else
             {
-                s.Name = ("商务外语系");
-            }
-            //各个数据项代表的名称.
+                getSc("商务外语系", s);
+                SC.Add(s);
 
-            for (int b = 1; b <= 19; b++) //X轴尺度个数，如19个周表示有19个尺度数
-            {
-                Element e = new Element();
-                e.Name = "第" + b.ToString() + "周次";//对应于X轴个尺度的名称
-                e.YValue = rd.Next(10);//与X轴对应的Y轴的数值
-                s.Elements.Add(e);
             }
-            SC.Add(s);
+            
+            //各个数据项代表的名称.     
+        }
+        return SC;
+    }
+        public static void getSc(string departement, Series s)
+    {
+        s.Name = (departement);
+        for (int b = 1; b <= 19; b++) //X轴尺度个数，如19个周表示有19个尺度数
+        {
+            DataTable dt = BLL.isLogin.getStudent("经济管理系", b);
+            int i = (int)dt.Rows.Count;
+
+            Element e = new Element();
+            e.Name = b.ToString() ;//对应于X轴个尺度的名称
+            e.YValue = i+b;//与X轴对应的Y轴的数值
+            s.Elements.Add(e);
         }
 
 
@@ -130,7 +119,6 @@ public partial class 管理员_Queqinfenxi : System.Web.UI.Page
         //SC[1].DefaultElement.Color = Color.Red;
         //SC[2].DefaultElement.Color = Color.FromArgb(255, 99, 49);
         //SC[3].DefaultElement.Color = Color.FromArgb(0, 156, 255);
-        return SC;
     }
 
     public class Charting

@@ -1,24 +1,11 @@
-﻿  <%@ Page Language="C#" AutoEventWireup="true" CodeFile="Default.aspx.cs" Inherits="_Default" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/管理员/sdbi_MasterPage.master" AutoEventWireup="true" CodeFile="Default.aspx.cs" Inherits="_Default" %>
 
-<%@ Register assembly="dotnetCHARTING" namespace="dotnetCHARTING" tagprefix="dotnetCHARTING" %>
-
-<!DOCTYPE html>
-
-<html xmlns="http://www.w3.org/1999/xhtml">
-<head runat="server">
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
-    <title></title>
-</head>
-<body>
-    <form id="form1" runat="server">
-    <div>
+<asp:Content ID="Content1" ContentPlaceHolderID="head" Runat="Server">
+</asp:Content>
+<asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" Runat="Server">
     
-    </div>
-        <dotnetCHARTING:Chart ID="Chart1" runat="server" Height="470px" Width="635px">
-        </dotnetCHARTING:Chart>
-        <asp:DropDownList ID="DropDownList1" runat="server"  AutoPostBack="True"
-            OnSelectedIndexChanged="DropDownList1_SelectedIndexChanged">
-        </asp:DropDownList>
-    </form>
-</body>
-</html>
+
+    <asp:Label ID="Label1" runat="server" Text="Label"></asp:Label>
+    
+
+</asp:Content>
