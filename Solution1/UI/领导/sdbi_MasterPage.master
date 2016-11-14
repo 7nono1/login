@@ -7,52 +7,59 @@
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
     <title>山东商务职业学院考勤系统</title>
     <style type="text/css">
-    body{ margin:0 auto
+         *{
+       margin:0 auto;
         padding:0px;
         }
      #main{
-         width:1366px;
+        margin:0 auto;
+        padding:0px;
+         width:1288px;
          height:768px;
-         margin:0 auto;
-
+         margin:0 0px;
      }
         #header {
-            width: 1366px;
-            height: 110px;
-            background-image:url(../images/logo1.jpg);
-            background-repeat:no-repeat;
+            width: 1288px;
+            height:95px;
+            background-image:url(../images/top.jpg);
+            float:leftt;
             
         }
      #left{
-         width:366px;
-         height:620px;
-         background-image:url(../images/logo2.jpg);
-             float:left;
-           
-              
-            
+         width:315px;
+         height:608px;
+         background-image:url(../images/left.jpg);
+         float:left;    
      }
      #concent{
-         width:1000px;
-         height:620px;
-         float:left;
-        background-image:url(../images/logo3.jpg);
+         width:973px;
+         height:608px;
+       float:left;
+        background-image:url(../images/content.jpg);
         padding:0;
-     
+     }
+      #concent1{
+       width:800px;
+       height:500px;
+       float:left;
+       padding:0;
+        margin:30px 50px;
      }
      #fool{
-         width:1366px;
-         height:38px;
+         width:1288px;
+         height:86px;
+        float:left;
+        background-image:url(../images/bottom.jpg);
      }
-     #png{
-         margin-left:1000px;
-         margin-top:25px;
-         font-weight:300;
+    #png{
+        width:131px;
+        height:95px;
+         margin-left:1157px;
         float:left;
      }
         #left1{
-        width:300px;
-        height:620px;
+        width:200px;
+        height:608px;
         float:right;
         }
         #TreeView1 {
@@ -73,7 +80,8 @@
       <div id="main">
          <div id="header">
              <div id="png">
-                 <a><img src="../images/logo6.png" id="imgmain" onclick="display()" /></a>
+                  <a>
+                            <img src="../images/top_3.jpg" id="imgmain" onclick="display()" /></a>
                  </div>
           </div>
           <div id="left">
@@ -87,7 +95,7 @@
         
                      </asp:ContentPlaceHolder>
                </div>
-          <div id="fool"><img src="../images/logo4.jpg" /></div>
+          <div id="fool"></div>
       </div>
        
     </div>
