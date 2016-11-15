@@ -40,7 +40,6 @@
               <asp:ListItem Value="教务处"></asp:ListItem>
               <asp:ListItem Value="基础教学部"></asp:ListItem>
               <asp:ListItem Value="外聘教师"></asp:ListItem>
-              <asp:ListItem Value="校历"></asp:ListItem>
           </asp:DropDownList>
           <asp:Label ID="Label1" runat="server" Text="Label"></asp:Label>
           <br />
@@ -62,15 +61,13 @@
       &nbsp;&nbsp;  
       <div id="div3">
      <asp:Button ID="Button5" runat="server" Text="分析导入数据" Height="23px" Width="134px" OnClick="Button5_Click" />
+          <asp:Label ID="Label2" runat="server" Text="Label"></asp:Label>
           <br />
          <br />
-<asp:Button ID="Button6" runat="server" Text="处理入库数据" Height="23px" Width="134px" OnClick="Button6_Click" />
           <br />
            <br />
-<asp:Button ID="Button7" runat="server" Text="清空入库数据" OnClick="Button7_Click" Height="23px" Width="134px" />
           <br />
           <br />
-<asp:Button ID="Button8" runat="server" Text="更新课程数据" OnClick="Button7_Click" Height="23px" Width="134px" />
           <br />
       </div>
   </div>

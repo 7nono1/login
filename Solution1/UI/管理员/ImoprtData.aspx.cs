@@ -11,6 +11,8 @@ public partial class 管理员_ImoprtData : System.Web.UI.Page
     protected void Page_Load(object sender, EventArgs e)
     {
         Label1.Visible = false;
+        Label2.Visible = false;
+        Label2.Text = "失败!";
     }
     
     protected void Button1_Click(object sender, EventArgs e)
@@ -63,23 +65,33 @@ public partial class 管理员_ImoprtData : System.Web.UI.Page
         this.cur = path + Filename;//将路径加文件名合并
         ff.SaveAs(this.cur);//上传
         int send = BLL.isLogin.excle(cur, DropDownList1.SelectedValue.ToString().Trim());
-        Label1.Visible = true;
-        Label1.Text = "成功！";
+        if (send == 1)
+        {
+            Label1.Visible = true;
+            Label1.Text = "成功！";
+        }
+        else
+        {
+            Label1.Visible = true;
+            Label1.Text = "数据重复！";
+        }
     }
 
     protected void Button5_Click(object sender, EventArgs e)
     {
-
-    }
-
-    protected void Button6_Click(object sender, EventArgs e)
-    {
-
-    }
-
-    protected void Button7_Click(object sender, EventArgs e)
-    {
-
+        if (Label2.Text == "失败!")
+        {
+            int i = BLL.Datasplit.a();
+            Label2.Text = "请您稍等。。。";
+            if (i == 1)
+            {
+                Label2.Text = "成功！";
+            }
+        }
+        else
+        {
+            Response.Redirect("<Script Language=JavaScript>alert('不可以重复分析哦');</Script>");
+        }
     }
 
     protected void DropDownList1_SelectedIndexChanged(object sender, EventArgs e)

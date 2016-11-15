@@ -89,7 +89,7 @@ namespace DAL
                 }
             }
         }
-
+        //外聘教师
         public static void waiteaSQLBulkCopy(DataTable dt, string table1)
         {
             using (SqlConnection conn = new SqlConnection(getConn()))
@@ -106,7 +106,7 @@ namespace DAL
                 }
             }
         }
-
+        //外聘教师导入到全校教师
         public static void waipinTea(DataTable dt, string table1)
         {
             using (SqlConnection conn = new SqlConnection(getConn()))
@@ -126,7 +126,7 @@ namespace DAL
 
 
         /*
-         *系部数据导入
+         *系部数据导入（初始信息）
          */
         public static void xibu(DataTable dt, string table1)
         {
@@ -143,6 +143,16 @@ namespace DAL
                     bulkCopy.WriteToServer(dt);
                 }
             }
+        }
+
+        /*
+         * 拆分初始数据
+         */
+        //插入数据
+        public static void datasplit(string strSQL,SqlConnection conn)
+        {
+            SqlCommand cmd = new SqlCommand(strSQL, conn);
+            cmd.ExecuteNonQuery();
         }
     }
 }

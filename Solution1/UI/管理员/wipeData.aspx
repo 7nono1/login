@@ -69,7 +69,7 @@
             <br />
         <br />
         <br />
-        <asp:CheckBox ID="CheckBox5" runat="server" Text="信息艺术系" OnCheckedChanged="CheckBox5_CheckedChanged" />
+        <asp:CheckBox ID="CheckBox5" runat="server" Text="信息工程系" OnCheckedChanged="CheckBox5_CheckedChanged" />
         &nbsp;&nbsp;&nbsp;&nbsp;
         <asp:CheckBox ID="CheckBox6" runat="server" Text="经济管理系" OnCheckedChanged="CheckBox6_CheckedChanged" />
             &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
