@@ -47,6 +47,8 @@ public partial class sdbi_MasterPage : System.Web.UI.MasterPage
     {
         switch (TreeView1.SelectedNode.Text)
         {
+            case "首页消息":
+                Response.Redirect("message.aspx"); break;
             case "个人信息":
                 Response.Redirect("alterPwd.aspx"); break;
             case "修改密码":

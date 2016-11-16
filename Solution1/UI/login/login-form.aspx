@@ -7,7 +7,7 @@
     <title>山东商务职业学院学生考勤管理系统</title>
     <style type="text/css">
 body{
-	background-image:url(images/bg11.jpg);
+	background-image:url(images/bg1.jpg);
 	background-repeat:no-repeat;
 	margin:0 auto;
 	font-family: 'Open Sans', sans-serif;}
@@ -24,7 +24,7 @@ h1{
 	width:350px;
 	height:469px;
 	margin-left:37%;
-    margin-top:80px;
+    margin-top:40px;
 	border-radius: 15px;}
 #login-head{
 	width:350px;
@@ -93,10 +93,20 @@ h1{
         }
 
 </style>
+<script type="text/javascript">
+    var b=1;
+    function a() {
+        document.getElementById("body").style.backgroundImage = "url(images/bg"+b+".jpg)";
+        b++;
+        if (b> 5) { b = 1;}
+    }
+    setInterval("a()",3000);
+</script>
+
 </head>
-<body>
+<body id="body">
     <form id="form1" runat="server">
-    <h1></h1>
+    <h1>山东商务职业学院学生考勤系统</h1>
 <div id="login-form">
 <div id="login-head">
 <img src="images/avtar.png" id="header" />
