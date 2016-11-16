@@ -157,12 +157,12 @@ public partial class 管理员_Queqinfenxi : System.Web.UI.Page
         s.Name = (departement);
          for (int b = 1; b <= 19; b++) //X轴尺度个数，如19个周表示有19个尺度数
         {
-             DataTable dt = BLL.isLogin.getStudent(departement,b);
-             int i = (int)dt.Rows.Count;
+             DataTable dt = BLL.isLogin.getWork(departement,b);
+             int i = dt.Rows.Count;
 
              Element e = new Element();
              e.Name = b.ToString() ;//对应于X轴个尺度的名称
-             e.YValue = i+rd.Next(100);//与X轴对应的Y轴的数值
+             e.YValue = i;//与X轴对应的Y轴的数值
              s.Elements.Add(e);
          }
  

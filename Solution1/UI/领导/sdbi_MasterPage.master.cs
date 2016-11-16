@@ -58,9 +58,9 @@ public partial class sdbi_MasterPage : System.Web.UI.MasterPage
             case "数据分析":
                 Response.Redirect("DAform.aspx"); break;
             case "系部分析":
-                Response.Redirect("DAform.aspx"); break;
+                Response.Redirect("DapartmentForm.aspx"); break;
             case "作业分析":
-                Response.Redirect("workform.aspx"); break;
+                Response.Redirect("Zuoyefenxi.aspx"); break;
             case "漏报分析":
                 Response.Redirect("FTRform.aspx"); break;
             case "缺勤汇总":

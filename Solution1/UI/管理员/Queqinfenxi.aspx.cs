@@ -9,6 +9,7 @@ using System.Web.UI.WebControls;
 using System.Data;
 public partial class 管理员_Queqinfenxi : System.Web.UI.Page
 {
+    int i = 0;
     protected void Page_Load(object sender, EventArgs e)
     {
         
@@ -36,6 +37,7 @@ public partial class 管理员_Queqinfenxi : System.Web.UI.Page
     {
         Charting c = new Charting();
 
+   
         c.Title = "缺勤情况";
        c.XTitle = "周次";
         c.YTitle = "人数（人）";
@@ -101,78 +103,78 @@ public partial class 管理员_Queqinfenxi : System.Web.UI.Page
 
 
 
-     private SeriesCollection GetDataSource(int i,int x)
+    private SeriesCollection GetDataSource(int i, int x)
     {
         SeriesCollection SC = new SeriesCollection();
         string droplist1 = DropDownList2.SelectedValue;
-       
-        
-       for (int a =i; a <= x; a++) //对比的项数
-       {
-             Series s = new Series();
+
+
+        for (int a = i; a <= x; a++) //对比的项数
+        {
+            Series s = new Series();
             if (a == 1)
             {
-                getSc("信息与艺术设计系", s);
+                getSc("信息工程系", s);
                 SC.Add(s);
-             }
-            else if (a == 2)
-             {
-                 getSc("建筑系", s);
-                 SC.Add(s);
-             }
-            else if (a == 3)
-             {
-                 getSc("机电系", s);
-                 SC.Add(s);
             }
-             else if (a == 4)
+            else if (a == 2)
             {
-                 getSc("粮食工程系", s);
-                 SC.Add(s);
-             }
-             else if (a == 5)
-             {
-                 getSc("食品工程系", s);
+                getSc("建筑工程系", s);
                 SC.Add(s);
-             }
-             else if (a == 6)
-             {
-                 getSc("经济管理系", s);
-                 SC.Add(s);
-             }
+            }
+            else if (a == 3)
+            {
+                getSc("会计系", s);
+                SC.Add(s);
+            }
+            else if (a == 4)
+            {
+                getSc("机械工程系", s);
+                SC.Add(s);
+            }
+            else if (a == 5)
+            {
+                getSc("食品工程系", s);
+                SC.Add(s);
+            }
+            else if (a == 6)
+            {
+                getSc("经济管理系", s);
+                SC.Add(s);
+            }
             else
-             {
-                 getSc("商务外语系", s);
-                 SC.Add(s);
- 
-           }
-             
-             //各个数据项代表的名称.     
-         }
-         return SC;
+            {
+                getSc("商务外语系", s);
+                SC.Add(s);
+
+            }
+
+            //各个数据项代表的名称.     
+        }
+        return SC;
     }
-         public static void getSc(string departement, Series s)
-     {
+    public static void getSc(string departement, Series s)
+    {
         Random rd = new Random();
         s.Name = (departement);
-         for (int b = 1; b <= 19; b++) //X轴尺度个数，如19个周表示有19个尺度数
+        for (int b = 1; b <= 19; b++) //X轴尺度个数，如19个周表示有19个尺度数
         {
-             DataTable dt = BLL.isLogin.getStudent(departement,b);
-             int i = (int)dt.Rows.Count;
+            DataTable dt = BLL.isLogin.getStudent(departement, b);
+            int i = dt.Rows.Count;
 
-             Element e = new Element();
-             e.Name = b.ToString() ;//对应于X轴个尺度的名称
-             e.YValue = i+rd.Next(100);//与X轴对应的Y轴的数值
-             s.Elements.Add(e);
-         }
- 
+            Element e = new Element();
+            e.Name = b.ToString();//对应于X轴个尺度的名称
+            e.YValue = i;//与X轴对应的Y轴的数值
+            s.Elements.Add(e);
+        }
 
-         //可自定义填充图的填充色，系统采取默认分配各数据项的填充色
-         //SC[0].DefaultElement.Color = Color.Blue;
-         //SC[1].DefaultElement.Color = Color.Red;
+
+        //可自定义填充图的填充色，系统采取默认分配各数据项的填充色
+        //SC[0].DefaultElement.Color = Color.Blue;
+        //SC[1].DefaultElement.Color = Color.Red;
         //SC[2].DefaultElement.Color = Color.FromArgb(255, 99, 49);
-         //SC[3].DefaultElement.Color = Color.FromArgb(0, 156, 255);
-     }
+        //SC[3].DefaultElement.Color = Color.FromArgb(0, 156, 255);
+    }
  
      public class Charting
      {
