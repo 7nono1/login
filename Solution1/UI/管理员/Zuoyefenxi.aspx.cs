@@ -112,43 +112,43 @@ public partial class 管理员_Queqinfenxi : System.Web.UI.Page
              Series s = new Series();
             if (a == 1)
             {
-                getSc("信息与艺术设计系", s);
+                getSc("信息工程系", s);
                 SC.Add(s);
-             }
-            else if (a == 2)
-             {
-                 getSc("建筑系", s);
-                 SC.Add(s);
-             }
-            else if (a == 3)
-             {
-                 getSc("机电系", s);
-                 SC.Add(s);
             }
-             else if (a == 4)
+            else if (a == 2)
             {
-                 getSc("粮食工程系", s);
-                 SC.Add(s);
-             }
-             else if (a == 5)
-             {
-                 getSc("食品工程系", s);
+                getSc("建筑工程系", s);
                 SC.Add(s);
-             }
-             else if (a == 6)
-             {
-                 getSc("经济管理系", s);
-                 SC.Add(s);
-             }
+            }
+            else if (a == 3)
+            {
+                getSc("会计系", s);
+                SC.Add(s);
+            }
+            else if (a == 4)
+            {
+                getSc("机械工程系", s);
+                SC.Add(s);
+            }
+            else if (a == 5)
+            {
+                getSc("食品工程系", s);
+                SC.Add(s);
+            }
+            else if (a == 6)
+            {
+                getSc("经济管理系", s);
+                SC.Add(s);
+            }
             else
-             {
-                 getSc("商务外语系", s);
-                 SC.Add(s);
- 
-           }
-             
-             //各个数据项代表的名称.     
-         }
+            {
+                getSc("商务外语系", s);
+                SC.Add(s);
+
+            }
+
+            //各个数据项代表的名称.     
+        }
          return SC;
     }
          public static void getSc(string departement, Series s)

@@ -112,22 +112,22 @@ public partial class 管理员_Queqinfenxi : System.Web.UI.Page
              Series s = new Series();
             if (a == 1)
             {
-                getSc("信息与艺术设计系", s);
+                getSc("信息工程系", s);
                 SC.Add(s);
              }
             else if (a == 2)
              {
-                 getSc("建筑系", s);
+                 getSc("建筑工程系", s);
                  SC.Add(s);
              }
             else if (a == 3)
              {
-                 getSc("机电系", s);
+                 getSc("会计系", s);
                  SC.Add(s);
             }
              else if (a == 4)
             {
-                 getSc("粮食工程系", s);
+                 getSc("机械工程系", s);
                  SC.Add(s);
              }
              else if (a == 5)

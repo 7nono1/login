@@ -68,7 +68,10 @@ public partial class sdbi_MasterPage : System.Web.UI.MasterPage
                 Response.Redirect("#"); break;
             case "以往记录":
                 Response.Redirect("#"); break;
-
+            case "作业分析":
+                Response.Redirect("Zuoyefenxi.aspx"); break;
+            case "漏报分析":
+                Response.Redirect("Loubaofenxi.aspx"); break;
         }
     }
 }
