@@ -9,7 +9,6 @@ using System.Web.UI.WebControls;
 using System.Data;
 public partial class 管理员_Queqinfenxi : System.Web.UI.Page
 {
-    int i = 0;
     protected void Page_Load(object sender, EventArgs e)
     {
         
@@ -37,7 +36,6 @@ public partial class 管理员_Queqinfenxi : System.Web.UI.Page
     {
         Charting c = new Charting();
 
-   
         c.Title = "缺勤情况";
        c.XTitle = "周次";
         c.YTitle = "人数（人）";
@@ -159,7 +157,7 @@ public partial class 管理员_Queqinfenxi : System.Web.UI.Page
         s.Name = (departement);
         for (int b = 1; b <= 19; b++) //X轴尺度个数，如19个周表示有19个尺度数
         {
-            DataTable dt = BLL.isLogin.getStudent(departement, b);
+            DataTable dt = BLL.isLogin.getWork(departement, b);
             int i = dt.Rows.Count;
 
             Element e = new Element();

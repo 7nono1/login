@@ -9,7 +9,6 @@ using System.Web.UI.WebControls;
 using System.Data;
 public partial class 管理员_Queqinfenxi : System.Web.UI.Page
 {
-    int i = 0;
     protected void Page_Load(object sender, EventArgs e)
     {
         
@@ -22,10 +21,10 @@ public partial class 管理员_Queqinfenxi : System.Web.UI.Page
            DropDownList1.Items.Add(new ListItem("折线图", "Spline"));
 
             DropDownList2.Items.Add(new ListItem("全院情况", "1"));
-            DropDownList2.Items.Add(new ListItem("信息与艺术系情况", "2"));
+            DropDownList2.Items.Add(new ListItem("信息与艺术系", "2"));
             DropDownList2.Items.Add(new ListItem("建筑系", "3"));
-            DropDownList2.Items.Add(new ListItem("机电系", "4"));
-            DropDownList2.Items.Add(new ListItem("粮食工程系", "5"));
+            DropDownList2.Items.Add(new ListItem("机械工程系", "4"));
+            DropDownList2.Items.Add(new ListItem("会计系", "5"));
             DropDownList2.Items.Add(new ListItem("食品工程系", "6"));
             DropDownList2.Items.Add(new ListItem("经济管理系", "7"));
             DropDownList2.Items.Add(new ListItem("商务外语系", "8"));
@@ -37,7 +36,6 @@ public partial class 管理员_Queqinfenxi : System.Web.UI.Page
     {
         Charting c = new Charting();
 
-   
         c.Title = "缺勤情况";
        c.XTitle = "周次";
         c.YTitle = "人数（人）";
@@ -167,7 +165,6 @@ public partial class 管理员_Queqinfenxi : System.Web.UI.Page
             e.YValue = i;//与X轴对应的Y轴的数值
             s.Elements.Add(e);
         }
-
 
         //可自定义填充图的填充色，系统采取默认分配各数据项的填充色
         //SC[0].DefaultElement.Color = Color.Blue;

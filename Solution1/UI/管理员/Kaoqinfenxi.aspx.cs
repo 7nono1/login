@@ -9,7 +9,6 @@ using System.Web.UI.WebControls;
 using System.Data;
 public partial class 管理员_Queqinfenxi : System.Web.UI.Page
 {
-    int i = 0;
     protected void Page_Load(object sender, EventArgs e)
     {
         
@@ -37,7 +36,6 @@ public partial class 管理员_Queqinfenxi : System.Web.UI.Page
     {
         Charting c = new Charting();
 
-   
         c.Title = "缺勤情况";
        c.XTitle = "周次";
         c.YTitle = "人数（人）";
