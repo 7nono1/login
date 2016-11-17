@@ -268,7 +268,7 @@ namespace BLL
         /*
          * 读取当前周次
          */
-        public static int dweek()
+        public static string dweek()
         {
             int i = 0;
             StringBuilder sb = new StringBuilder();
@@ -282,7 +282,14 @@ namespace BLL
             else {
                 i = 0;
             }
-            return i;
+            if (i < 10)
+            {
+                return ("0" + i.ToString());
+            }
+            else
+            {
+                return i.ToString();
+            }
         }
     }
 }
