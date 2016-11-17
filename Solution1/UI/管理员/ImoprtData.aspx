@@ -22,12 +22,12 @@
     </style>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" Runat="Server">
-    <div style="height:28px; margin-left:30px; margin-top:10px;">
+    <div style="height:25px; margin-left:30px; margin-top:10px;">
         <a href="message.aspx" style="text-decoration:none; color:cyan;">首页</a>><a href="ImoprtData.aspx" style="text-decoration:none;color:cyan;">导入数据</a>
     </div>
      <div id="center">
   
-      <div id="div2">
+         <div id="div2">
           选择数据类型：&nbsp;&nbsp;&nbsp;<asp:DropDownList ID="DropDownList1" runat="server" Height="16px" Width="138px" OnSelectedIndexChanged="DropDownList1_SelectedIndexChanged">
               <asp:ListItem Value="全校教师"></asp:ListItem>
               <asp:ListItem Value="会计系"></asp:ListItem>
@@ -63,7 +63,20 @@
      <asp:Button ID="Button5" runat="server" Text="分析导入数据" Height="23px" Width="134px" OnClick="Button5_Click" />
           <asp:Label ID="Label2" runat="server" Text="Label"></asp:Label>
           <br />
+          <br />
+          <br />
+          <asp:Label ID="Label3" runat="server" Font-Size="24px" Text="导入校历："></asp:Label>
+          <br />
+          <asp:Label ID="Label4" runat="server" Text="本学期的起始日期："></asp:Label>
+          年分：<asp:TextBox ID="TextBox1" runat="server" Width="97px"></asp:TextBox>
+          月份：<asp:TextBox ID="TextBox2" runat="server" Width="64px"></asp:TextBox>
+&nbsp;日：<asp:TextBox ID="TextBox3" runat="server" Width="41px"></asp:TextBox>
+          <br />
+          本学期共几周（只填数字）：<asp:TextBox ID="TextBox4" runat="server" Width="89px"></asp:TextBox>
          <br />
+          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+          <asp:Button ID="Button6" runat="server" OnClick="Button6_Click" Text="导入" Width="99px" />
+          <asp:Label ID="Label5" runat="server" Text="Label"></asp:Label>
           <br />
            <br />
           <br />

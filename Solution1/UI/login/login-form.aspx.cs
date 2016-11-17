@@ -41,11 +41,11 @@ public partial class login_login : System.Web.UI.Page
                         case "1":
                             Response.Redirect("/管理员/message.aspx"); break;
                         case "2":
-                            Response.Redirect("/领导/Default.aspx"); break;
+                            Response.Redirect("/领导/message.aspx"); break;
                         case "3":
-                            Response.Redirect("/辅导员/Default.aspx"); break;
+                            Response.Redirect("/辅导员/message.aspx"); break;
                         case "4":
-                            Response.Redirect("/教师/Default.aspx"); break;
+                            Response.Redirect("/教师/message.aspx"); break;
                         default:
                             break;
                     }

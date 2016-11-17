@@ -157,7 +157,7 @@ namespace BLL
             DataTable dt = DAL.DBHelper.getExcle(url);
             if (tb == "全校教师")
             {
-                DataTable dtt = DAL.DBHelper.getDt("SELECTE * FROM 教师 WHERE 工号='"+dt.Rows[5][1]+"'");
+                DataTable dtt = DAL.DBHelper.getDt("SELECT * FROM 教师 WHERE 工号='"+dt.Rows[5][1]+"'");
                 if (dtt.Rows.Count == 0)
                 {
                     DAL.DBHelper.SQLBulkCopy(dt, "教师");
@@ -170,7 +170,7 @@ namespace BLL
             }
             if (tb == "外聘教师")
             {
-                DataTable dtt = DAL.DBHelper.getDt("SELECTE * FROM 外聘教师 WHERE 工号='" + dt.Rows[5][1] + "'");
+                DataTable dtt = DAL.DBHelper.getDt("SELECT * FROM 外聘教师 WHERE 工号='" + dt.Rows[5][1] + "'");
                 if (dtt.Rows.Count == 0)
                 {
                     DAL.DBHelper.waiteaSQLBulkCopy(dt, tb);
@@ -180,7 +180,7 @@ namespace BLL
                 {
                     return 3;
                 }
-                DataTable dtt1 = DAL.DBHelper.getDt("SELECTE * FROM 教师 WHERE 工号='" + dt.Rows[5][1] + "'");
+                DataTable dtt1 = DAL.DBHelper.getDt("SELECT * FROM 教师 WHERE 工号='" + dt.Rows[5][1] + "'");
                 if (dtt1.Rows.Count == 0)
                 {
                     DAL.DBHelper.waipinTea(dt, "教师");
@@ -193,9 +193,42 @@ namespace BLL
                 DAL.DBHelper.xibu(dt,"初始信息");
                 DAL.DBHelper.getDt("DELETE FROM 初始信息 WHERE 承担单位='承担单位'");
             }
-            if (tb == "校历")
+            return 1;
+        }
+
+        //导入日历
+        public static int calender(string y,string m,string d,string w,int sweek)
+        {
+            string ssweek = "";
+            if (sweek == 1)
             {
+                ssweek = "星期一";
             }
+            if (sweek == 2)
+            {
+                ssweek = "星期二";
+            }
+            if (sweek == 3)
+            {
+                ssweek = "星期三";
+            }
+            if (sweek == 4)
+            {
+                ssweek = "星期四";
+            }
+            if (sweek == 5)
+            {
+                ssweek = "星期五";
+            }
+            if (sweek == 6)
+            {
+                ssweek = "星期六";
+            }
+            if (sweek == 7)
+            {
+                ssweek = "星期七";
+            }
+            DAL.DBHelper.Getdt("INSERT INTO 校历 VALUES('"+w+"','"+y+"','"+m+"','"+d+"','"+ssweek+"')");
             return 1;
         }
 
@@ -205,13 +238,13 @@ namespace BLL
 
         public static void wipe(string tb)
         {
-            if (tb == "教师" || tb == "外聘教师")
+            if (tb == "教师 where 工号!='12'" || tb == "外聘教师"||tb=="校历")
             {
                 DAL.DBHelper.Getdt("DELETE FROM " + tb);
             }
             else
             {
-                DAL.DBHelper.Getdt("DELETE FROM 初始信息 WHERE 承担单位='"+tb+"'");
+                DAL.DBHelper.Getdt("DELETE FROM 初始信息 WHERE 承担单位='" + tb + "'");
                 DAL.DBHelper.Getdt("DELETE FROM 考勤课程 WHERE 承担单位='" + tb + "'");
             }
         }
@@ -223,6 +256,27 @@ namespace BLL
             DAL.DBHelper.Getdt("DELETE FROM 消息");
             DAL.DBHelper.Getdt("DELETE FROM 外聘教师");
             DAL.DBHelper.Getdt("DELETE FROM 考勤课程");
+            DAL.DBHelper.Getdt("DELETE FROM 校历");
+        }
+
+        /*
+         * 读取当前周次
+         */
+        public static int dweek()
+        {
+            int i = 0;
+            StringBuilder sb = new StringBuilder();
+            string da=System.DateTime.Now.ToShortDateString();
+            string[] w = da.Split(new char[] { '/'},StringSplitOptions.RemoveEmptyEntries);
+            DataTable dt = DAL.DBHelper.getDt("SELECT 周次 FROM 校历 WHERE STUYEAR='"+w[0]+"' AND STUMOTH='"+w[1]+"' AND STUDAY='"+w[2]+"'");
+            if (dt.Rows.Count>0)
+            {
+                i = Convert.ToInt32(dt.Rows[0][0].ToString());
+            }
+            else {
+                i = 0;
+            }
+            return i;
         }
     }
 }
