@@ -29,7 +29,6 @@ namespace DAL
             DataTable dt = new DataTable();
             SqlDataAdapter da = new SqlDataAdapter(strSQL,conn);
             da.Fill(dt);
-
             conn.Close();
             return dt;
         }

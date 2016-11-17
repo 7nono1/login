@@ -13,7 +13,7 @@ public partial class sdbi_MasterPage : System.Web.UI.MasterPage
         if (!IsPostBack)
         {
             tree();
-            Label1.Text = Session["stuweek"].ToString();
+            //Label1.Text = Session["stuweek"].ToString();
         }
     }
 

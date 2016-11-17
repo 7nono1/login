@@ -40,7 +40,7 @@ public partial class 管理员_jiaoshichaxun : System.Web.UI.Page
             }
             else if (DropDownList1.SelectedItem.Text == "按权限查询")
             {
-                DataTable dt = cxjs.Griview("权限", " TextBox1.Text");
+                DataTable dt = cxjs.Griview("权限", TextBox1.Text);
                 BindToGridView(dt);
             }
 
@@ -72,7 +72,7 @@ public partial class 管理员_jiaoshichaxun : System.Web.UI.Page
     }
     protected void GridView1_PageIndexChanging(object sender, GridViewPageEventArgs e)
     {
-
+        GridView1.PageIndex = e.NewPageIndex;
 
         Inquire();
 
@@ -81,10 +81,6 @@ public partial class 管理员_jiaoshichaxun : System.Web.UI.Page
     protected void GridView1_RowEditing(object sender, GridViewEditEventArgs e)
     {
         GridView1.EditIndex = e.NewEditIndex;
-
-
-
-
         Inquire();
 
     }
