@@ -69,7 +69,7 @@ public partial class 管理员_wipeData : System.Web.UI.Page
     {
         BLL.isLogin.wipe(CheckBox1.Text.Trim());
         BLL.isLogin.wipe(CheckBox2.Text.Trim());
-        //BLL.isLogin.wipe(CheckBox3.Text.Trim());
+        BLL.isLogin.wipe(CheckBox3.Text.Trim());
         BLL.isLogin.wipe(CheckBox4.Text.Trim());
         BLL.isLogin.wipe(CheckBox5.Text.Trim());
         BLL.isLogin.wipe(CheckBox6.Text.Trim());

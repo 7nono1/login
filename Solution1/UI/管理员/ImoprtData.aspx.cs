@@ -98,4 +98,53 @@ public partial class 管理员_ImoprtData : System.Web.UI.Page
     {
         Label1.Visible = false;
     }
+
+    protected void Button6_Click(object sender, EventArgs e)
+    {
+        int sday = Convert.ToInt32(TextBox3.Text);//获取起始日
+        int sum = sday-1;//总天数，控制月份转换
+        int moth = Convert.ToInt32(TextBox2.Text);//获取起始月
+        int week = Convert.ToInt32(TextBox4.Text);//获取总周次
+        int moco = 0;//每月的总天数
+        string we = "";//周次
+        string mo = "";//月份
+        int y = Convert.ToInt32(TextBox1.Text);
+        for (int j = 0; j < week; j++)
+        {
+            for (int i = 0; i < 7; i++)
+            {
+                if (i == 0)
+                {
+                    we = (j + 1).ToString();
+                }
+                sum++;
+                if (moth == 1 || moth == 3 || moth == 5 || moth == 7 || moth == 8 || moth == 10 || moth == 12)
+                {
+                    moco = 31;
+                }
+                if (moth == 4 || moth == 6 || moth == 9 || moth == 11)
+                {
+                    moco = 30;
+                }
+                if (sum > moco)
+                {
+                    sum = 1;
+                    moth++;
+
+                    if (moth > 12)
+                    {
+                        moth = 1;
+                        y++;
+                    }
+                    mo = moth.ToString();
+                }
+                int fan = BLL.isLogin.calender(y.ToString(),moth.ToString(),sum.ToString(),we,(i+1));
+                if(fan==1)
+                {
+                    Label5.Visible = true;
+                    Label5.Text = "成功";
+                }
+            }
+        }
+    }
 }
