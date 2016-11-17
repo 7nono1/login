@@ -20,7 +20,7 @@
          <br />
          <br />
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-         <asp:Button ID="Button1" runat="server" BorderStyle="None" Height="21px" OnClick="Button1_Click" Text="删除已勾选的历史信息" />
+         <asp:Button ID="Button1" runat="server" BorderStyle="None" Height="21px" OnClick="Button1_Click" Text="删除已勾选的历史信息" BackColor="#66FF33" />
     </div>
     <div class="main">
         <asp:Panel ID="Panel1" cssClass="panel" runat="server" Height="548px" Width="828px" ScrollBars="Auto">

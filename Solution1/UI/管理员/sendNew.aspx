@@ -4,7 +4,6 @@
     <style type="text/css">
         .check {
             margin-left:150px;
-            margin-top:50px;
             width:656px;
             height:446px;
             background-color:#2b2b36;

@@ -28,7 +28,7 @@ public partial class login_login : System.Web.UI.Page
         }
         if (i.Rows.Count == 1)
         {
-            if (i.Rows[0][1].ToString() == pwdBox.Value.ToString())
+            if (i.Rows[0][2].ToString() == BLL.PWDProcess.MD5Encrypt(pwdBox.Value.ToString(),BLL.PWDProcess.CreateKey(userBox.Value.ToString())))
             {
                 if (Session["ValiDateCode"].ToString() == codeBox.Value)
                 {

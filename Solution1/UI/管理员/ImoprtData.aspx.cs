@@ -12,7 +12,7 @@ public partial class 管理员_ImoprtData : System.Web.UI.Page
     {
         Label1.Visible = false;
         Label2.Visible = false;
-        Label2.Text = "失败!";
+        Label6.Visible = false;
     }
     
     protected void Button1_Click(object sender, EventArgs e)
@@ -79,19 +79,28 @@ public partial class 管理员_ImoprtData : System.Web.UI.Page
 
     protected void Button5_Click(object sender, EventArgs e)
     {
-        if (Label2.Text == "失败!")
+        Label2.Visible = true;
+            Label2.Text = "正在解析教师数据...";
+            int j = BLL.Datasplit.jiami();
+        if (j == 1)
         {
+            Label2.Text = "成功!";
+        }
+        if (j == 2)
+        {
+            Label2.Text = "无教师数据";
+        }
+        Label6.Visible = true;
+            Label6.Text = "请您稍等。。。正在解析课程";
             int i = BLL.Datasplit.a();
-            Label2.Text = "请您稍等。。。";
             if (i == 1)
             {
-                Label2.Text = "成功！";
+                Label6.Text = "成功！";
             }
-        }
-        else
-        {
-            Response.Redirect("<Script Language=JavaScript>alert('不可以重复分析哦');</Script>");
-        }
+            if (i == 2)
+            {
+                Label6.Text = "您已解析过课程";
+            }
     }
 
     protected void DropDownList1_SelectedIndexChanged(object sender, EventArgs e)

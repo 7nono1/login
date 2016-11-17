@@ -67,18 +67,7 @@ public partial class 管理员_wipeData : System.Web.UI.Page
 
     protected void Button1_Click(object sender, EventArgs e)
     {
-        BLL.isLogin.wipe(CheckBox1.Text.Trim());
-        BLL.isLogin.wipe(CheckBox2.Text.Trim());
-        BLL.isLogin.wipe(CheckBox3.Text.Trim());
-        BLL.isLogin.wipe(CheckBox4.Text.Trim());
-        BLL.isLogin.wipe(CheckBox5.Text.Trim());
-        BLL.isLogin.wipe(CheckBox6.Text.Trim());
-        BLL.isLogin.wipe(CheckBox7.Text.Trim());
-        BLL.isLogin.wipe(CheckBox8.Text.Trim());
-        BLL.isLogin.wipe(CheckBox9.Text.Trim());
-        BLL.isLogin.wipe(CheckBox10.Text.Trim());
-        BLL.isLogin.wipe(CheckBox11.Text.Trim());
-        BLL.isLogin.wipe(CheckBox12.Text.Trim());
+        BLL.isLogin.de();
         Button1.Text = "清除成功";
     }
 

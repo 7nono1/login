@@ -62,6 +62,7 @@
       <div id="div3">
      <asp:Button ID="Button5" runat="server" Text="分析导入数据" Height="23px" Width="134px" OnClick="Button5_Click" />
           <asp:Label ID="Label2" runat="server" Text="Label"></asp:Label>
+          <asp:Label ID="Label6" runat="server" Text="Label"></asp:Label>
           <br />
           <br />
           <br />

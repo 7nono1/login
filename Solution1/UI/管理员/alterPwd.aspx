@@ -24,7 +24,7 @@
         <a href="message.aspx" style="text-decoration:none; color:cyan;">首页</a>><a href="alterPwd.aspx" style="text-decoration:none;color:cyan;">修改密码</a>
     </div>
     <div style="height: 606px">
-        <div style="height:323px; width:496px; margin-left:28%; margin-top:150px; background-color:#2b2b36; border-radius:15px;">
+        <div style="height:323px; width:496px; margin-left:28%; border-radius:15px;">
             <div style=" margin-left:50px;">
 
                 原密码：<input type="text" id="userID" runat="server"

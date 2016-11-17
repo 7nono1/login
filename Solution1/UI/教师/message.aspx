@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/管理员/sdbi_MasterPage.master" AutoEventWireup="true" CodeFile="message.aspx.cs" Inherits="管理员_message" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/教师/sdbi_MasterPage.master" AutoEventWireup="true" CodeFile="message.aspx.cs" Inherits="管理员_message" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" Runat="Server">
     <style type="text/css">

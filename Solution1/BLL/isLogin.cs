@@ -55,7 +55,7 @@ namespace BLL
             {
                 YN = "否";
             }
-            string str = "INSERT INTO 教师(工号,密码,姓名,权限,性别,部门,是否外聘教师)VALUES('" + usrid + "','" + Pwd + "','" + userName + "','" + permissions + "','" + sex + "','" + dpm + "','" + YN + "')";
+            string str = "INSERT INTO 教师(工号,密码,姓名,权限,性别,部门,是否外聘教师)VALUES('" + usrid + "','" + PWDProcess.MD5Encrypt(Pwd,PWDProcess.CreateKey(usrid)) + "','" + userName + "','" + permissions + "','" + sex + "','" + dpm + "','" + YN + "')";
 
             DAL.DBHelper.Getdt(str);
             DataTable dt = DAL.DBHelper.getDt("SELECT * FROM 教师 WHERE 工号='" + usrid + "'");
@@ -74,7 +74,7 @@ namespace BLL
          */
         public static int updt(string pwd, string id, string ypwd)
         {
-            string str = "UPDATE 教师 SET 密码='" + pwd.Trim() + "' WHERE 工号='" + id.Trim() + "'";
+            string str = "UPDATE 教师 SET 密码='" + PWDProcess.MD5Encrypt(pwd.Trim(),PWDProcess.CreateKey(id.Trim())) + "' WHERE 工号='" + id.Trim() + "'";
             DAL.DBHelper.Getdt(str);
             DataTable dtt = DAL.DBHelper.getDt("SELECT 密码 FROM 教师 WHERE 工号='" + id.Trim() + "'");
             if (dtt.Rows[0][0].ToString() == ypwd.Trim())
@@ -166,6 +166,10 @@ namespace BLL
                 DataTable dtt = DAL.DBHelper.getDt("SELECT * FROM 教师 WHERE 工号='"+dt.Rows[5][1]+"'");
                 if (dtt.Rows.Count == 0)
                 {
+                    for (int i = 0; i < dt.Rows.Count; i++)
+                    {
+
+                    }
                     DAL.DBHelper.SQLBulkCopy(dt, "教师");
                     DAL.DBHelper.getDt("DELETE FROM 教师 WHERE 部门='部门'");
                 }

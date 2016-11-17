@@ -66,7 +66,7 @@ public partial class sdbi_MasterPage : System.Web.UI.MasterPage
             case "缺勤分析":
                 Response.Redirect("Queqinfenxi.aspx"); break;
             case "考勤信息":
-                Response.Redirect("#"); break;
+                Response.Redirect("Default.aspx"); break;
             case "录入考勤":
                 Response.Redirect("#"); break;
             case "以往记录":
