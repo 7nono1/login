@@ -36,9 +36,9 @@ public partial class 管理员_Queqinfenxi : System.Web.UI.Page
     {
         Charting c = new Charting();
 
-        c.Title = "缺勤情况";
+        c.Title = "作业情况";
        c.XTitle = "周次";
-        c.YTitle = "人数（人）";
+        c.YTitle = "未完成作业次数（次）";
         c.PicHight = 250;        c.PicWidth = 400;
         c.PhaysicalImagePath = "ChartImages";//统计图片存放的文件夹名称，缺少对应的文件夹生成不了统计图片
        c.FileName = "Statistics51aspx";

@@ -95,6 +95,7 @@ public partial class 领导_FTRform : System.Web.UI.Page
         c.CreateStatisticPic(this.Chart1);
  
      }
+
     private void Department(string department)
     {
       

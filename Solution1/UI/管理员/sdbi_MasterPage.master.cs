@@ -47,6 +47,8 @@ public partial class sdbi_MasterPage : System.Web.UI.MasterPage
         {
             case "首页消息":
                 Response.Redirect("message.aspx"); break;
+            case "本校教师":
+                Response.Redirect("jiaoshichaxun.aspx"); break;
             case "修改密码":
                 Response.Redirect("alterPwd.aspx"); break;
             case "新增用户":
