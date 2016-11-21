@@ -58,6 +58,8 @@ public partial class sdbi_MasterPage : System.Web.UI.MasterPage
                 Response.Redirect("message.aspx"); break;
             case "本校教师":
                 Response.Redirect("jiaoshichaxun.aspx"); break;
+            case "外聘教师":
+                Response.Redirect("#"); break;
             case "修改密码":
                 Response.Redirect("alterPwd.aspx"); break;
             case "新增用户":
@@ -71,18 +73,35 @@ public partial class sdbi_MasterPage : System.Web.UI.MasterPage
             case "清空数据":
                 Response.Redirect("wipeData.aspx"); break;
 
-            case "缺勤分析":
-                Response.Redirect("Queqinfenxi.aspx"); break;
-            case "考勤信息":
-                Response.Redirect("Default.aspx"); break;
-            case "录入考勤":
+
+            case "异动处理":
                 Response.Redirect("#"); break;
-            case "以往记录":
+            case "学生情况":
                 Response.Redirect("#"); break;
+            case "教师情况":
+                Response.Redirect("#"); break;
+            case "作业情况":
+                Response.Redirect("#"); break;
+
+            case "数据分析":
+                Response.Redirect("Kaoqinfenxi.aspx"); break;
+            case "考勤分析":
+                Response.Redirect("Kaoqinfenxi.aspx"); break;
             case "作业分析":
                 Response.Redirect("Zuoyefenxi.aspx"); break;
             case "漏报分析":
                 Response.Redirect("Loubaofenxi.aspx"); break;
+            case "缺勤分析":
+                Response.Redirect("Queqinfenxi.aspx"); break;
+            case "作业统计":
+                Response.Redirect("#"); break;
+
+            case "考勤信息":
+                Response.Redirect("#"); break;
+            case "录入考勤":
+                Response.Redirect("#"); break;
+            case "以往记录":
+                Response.Redirect("#"); break;
         }
     }
 }

@@ -22,7 +22,7 @@
             width: 1288px;
             height:95px;
             background-image:url(../images/top.jpg);
-            float:leftt;
+            float:left;
             
         }
      #left{
