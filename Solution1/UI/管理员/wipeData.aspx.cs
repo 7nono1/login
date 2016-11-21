@@ -56,7 +56,7 @@ public partial class 管理员_wipeData : System.Web.UI.Page
         }
         if (CheckBox11.Checked == true)
         {
-            BLL.isLogin.wipe(CheckBox11.Text + " where 工号!='12'");
+            BLL.isLogin.wipe(CheckBox11.Text);
         }
         if (CheckBox12.Checked == true)
         {

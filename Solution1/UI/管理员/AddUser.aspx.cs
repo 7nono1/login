@@ -10,8 +10,15 @@ public partial class 管理员_AddUser : System.Web.UI.Page
 {
     protected void Page_Load(object sender, EventArgs e)
     {
-        Label1.Visible = false;
-        Label2.Visible = false;
+        if (Session["userID"].ToString() != null && Session["userID"].ToString() != "")
+        {
+            Label1.Visible = false;
+            Label2.Visible = false;
+        }
+        else
+        {
+            Response.Redirect("../login/login-form.aspx");
+        }
     }
 
     protected void Button2_Click(object sender, EventArgs e)
@@ -25,13 +32,13 @@ public partial class 管理员_AddUser : System.Web.UI.Page
             string pawd11 = Password1.Value.ToString().Trim();//密码
             string pawd1 = Password2.Value.ToString().Trim();//确认密码
             string sex = DropDownList4.SelectedValue.ToString().Trim();//性别
-            string pms = DropDownList3.SelectedValue.ToString().Trim();//权限
+            int pms = DropDownList3.SelectedIndex;//权限
             if (pawd1 == pawd11)
             {
                 DataTable dt = BLL.isLogin.login(userID111);
                 if (dt.Rows.Count == 0)
                 {
-                    int i = BLL.isLogin.creatTeach(YN, dpm, userID111, userName111, sex, pawd1, pms);
+                    int i = BLL.isLogin.creatTeach(YN, dpm, userID111, userName111, sex, pawd1, (pms+1).ToString().Trim());
                     if (i == 1)
                     {
                         Response.Write("<Script Language=JavaScript>alert('修改成功！');</Script>");

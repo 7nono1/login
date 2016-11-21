@@ -10,10 +10,17 @@ public partial class sdbi_MasterPage : System.Web.UI.MasterPage
 {
     protected void Page_Load(object sender, EventArgs e)
     {
-        if (!IsPostBack)
+        if (Session["userID"].ToString() != null && Session["userID"].ToString() != "")
         {
-            tree();
-            Label1.Text = Session["stuweek"].ToString();
+            if (!IsPostBack)
+            {
+                tree();
+                Label1.Text = Session["stuweek"].ToString();
+            }
+        }
+        else
+        {
+            Response.Redirect("../login/login-form.aspx");
         }
     }
 

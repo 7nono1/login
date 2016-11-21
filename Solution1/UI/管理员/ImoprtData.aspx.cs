@@ -10,9 +10,16 @@ public partial class 管理员_ImoprtData : System.Web.UI.Page
 {
     protected void Page_Load(object sender, EventArgs e)
     {
-        Label1.Visible = false;
-        Label2.Visible = false;
-        Label6.Visible = false;
+        if (Session["userID"].ToString() != null && Session["userID"].ToString() != "")
+        {
+            Label1.Visible = false;
+            Label2.Visible = false;
+            Label6.Visible = false;
+        }
+        else
+        {
+            Response.Redirect("../login/login-form.aspx");
+        }
     }
     
     protected void Button1_Click(object sender, EventArgs e)

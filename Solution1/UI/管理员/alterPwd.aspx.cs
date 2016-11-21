@@ -9,9 +9,16 @@ public partial class 管理员_alterPwd : System.Web.UI.Page
 {
     protected void Page_Load(object sender, EventArgs e)
     {
-        Label6.Visible = false;
-        Label5.Visible = false;
-        Label4.Visible = false;
+        if (Session["userID"].ToString() != null && Session["userID"].ToString() != "")
+        {
+            Label6.Visible = false;
+            Label5.Visible = false;
+            Label4.Visible = false;
+        }
+        else
+        {
+            Response.Redirect("../login/login-form.aspx");
+        }
     }
 
     protected void Button1_Click(object sender, EventArgs e)

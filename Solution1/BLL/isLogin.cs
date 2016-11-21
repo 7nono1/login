@@ -24,6 +24,19 @@ namespace BLL
             DataTable dt = DAL.DBHelper.getDt(strSQL);
             return dt;
         }
+        public static DataTable getStudent(string department, int Weeked, string state)
+        {
+            String strSQL = "SELECT*FROM 考勤课程 WHERE 承担单位='" + department + "' AND 周次='" + Weeked + "'AND 出勤= '" + state + "' ";
+            DataTable dt = DAL.DBHelper.getDt(strSQL);
+            return dt;
+        }
+        
+        public static DataTable getStudent()
+        {
+            String strSQL = "SELECT * FROM  考勤课程";
+            DataTable dt = DAL.DBHelper.getDt(strSQL);
+            return dt;
+        }
         public static DataTable getWork(string department, int Weeked)
         {
             String strSQL = "SELECT '" + department + "' FROM 考勤课程 WHERE 作业 <> '正常'AND 周次='" + Weeked + "'";
@@ -68,7 +81,27 @@ namespace BLL
                 return 0;
             }
         }
+        public static void getStudent(string depatmentnt,int Student,int late, string late1,int Early,string Early1,int Attendance, string Attendance1, int Leave,string Leave1,int sum,string sum1)
+        {
 
+
+            string str = "INSERT INTO 缺勤分析(系部,在校人次,旷课人次,旷课率,迟到人次,迟到率,早退人次,早退率,请假人次,请假率,总缺勤人次,总缺勤率)VALUES('" +depatmentnt + "','" +Student+ "','" + late + "','" + late1 + "','" + Early + "','" + Early1+ "','" + Leave + "','" + Leave1 + "','" +Attendance + "','" + Attendance1 + "','" +sum + "','" + sum1+ "')";
+
+            DAL.DBHelper.Getdt(str);
+            DataTable dt = DAL.DBHelper.getDt("select * from 缺勤分析");
+           
+        }
+        public static DataTable getStudent1()
+        {
+
+            DataTable dt = DAL.DBHelper.getDt("select * from 缺勤分析");
+            return dt;
+
+        }
+        public static void deleteStudent()
+        {
+            DAL.DBHelper.getDt("DELETE FROM 缺勤分析");
+        }
         /*
          * 修改教师密码
          */
@@ -248,7 +281,7 @@ namespace BLL
 
         public static void wipe(string tb)
         {
-            if (tb == "教师 where 工号!='12'" || tb == "外聘教师"||tb=="校历")
+            if (tb == "教师" || tb == "外聘教师"||tb=="校历")
             {
                 DAL.DBHelper.Getdt("DELETE FROM " + tb);
             }
@@ -262,7 +295,7 @@ namespace BLL
         {
 
             DAL.DBHelper.Getdt("DELETE FROM 初始信息");
-            DAL.DBHelper.Getdt("DELETE FROM 教师 where 工号!='12'");
+            DAL.DBHelper.Getdt("DELETE FROM 教师");
             DAL.DBHelper.Getdt("DELETE FROM 消息");
             DAL.DBHelper.Getdt("DELETE FROM 外聘教师");
             DAL.DBHelper.Getdt("DELETE FROM 考勤课程");

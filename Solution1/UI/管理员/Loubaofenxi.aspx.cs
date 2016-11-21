@@ -7,28 +7,36 @@ using System.Web.UI.WebControls;
  using System.Drawing;
  using dotnetCHARTING;
 using System.Data;
+using BLL;
 public partial class 管理员_Queqinfenxi : System.Web.UI.Page
 {
     protected void Page_Load(object sender, EventArgs e)
     {
-        
 
-        if (!Page.IsPostBack)
+        if (Session["userID"].ToString() != null && Session["userID"].ToString() != "")
         {
-           Drawing("Column","1");
-           Drawing("Column", "1");
-            DropDownList1.Items.Add(new ListItem("柱状图", "Column"));
-           DropDownList1.Items.Add(new ListItem("折线图", "Spline"));
+            if (!Page.IsPostBack)
+            {
+               Drawing("Column","1");
+               Drawing("Column", "1");
+                DropDownList1.Items.Add(new ListItem("柱状图", "Column"));
+               DropDownList1.Items.Add(new ListItem("折线图", "Spline"));
 
-            DropDownList2.Items.Add(new ListItem("全院情况", "1"));
-            DropDownList2.Items.Add(new ListItem("信息与艺术系", "2"));
-            DropDownList2.Items.Add(new ListItem("建筑系", "3"));
-            DropDownList2.Items.Add(new ListItem("机械工程系", "4"));
-            DropDownList2.Items.Add(new ListItem("会计系", "5"));
-            DropDownList2.Items.Add(new ListItem("食品工程系", "6"));
-            DropDownList2.Items.Add(new ListItem("经济管理系", "7"));
-            DropDownList2.Items.Add(new ListItem("商务外语系", "8"));
+                DropDownList2.Items.Add(new ListItem("全院情况", "1"));
+                DropDownList2.Items.Add(new ListItem("信息与艺术系", "2"));
+                DropDownList2.Items.Add(new ListItem("建筑系", "3"));
+                DropDownList2.Items.Add(new ListItem("机械工程系", "4"));
+                DropDownList2.Items.Add(new ListItem("会计系", "5"));
+                DropDownList2.Items.Add(new ListItem("食品工程系", "6"));
+                DropDownList2.Items.Add(new ListItem("经济管理系", "7"));
+                DropDownList2.Items.Add(new ListItem("商务外语系", "8"));
+            }
         }
+        else
+        {
+            Response.Redirect("../login/login-form.aspx");
+        }
+
       
     }
 
@@ -39,7 +47,7 @@ public partial class 管理员_Queqinfenxi : System.Web.UI.Page
         c.Title = "缺勤情况";
        c.XTitle = "周次";
         c.YTitle = "人数（人）";
-        c.PicHight = 250;        c.PicWidth = 400;
+        c.PicHight = 250;        c.PicWidth = 600;
         c.PhaysicalImagePath = "ChartImages";//统计图片存放的文件夹名称，缺少对应的文件夹生成不了统计图片
        c.FileName = "Statistics51aspx";
         if (type== "Column")
@@ -173,148 +181,7 @@ public partial class 管理员_Queqinfenxi : System.Web.UI.Page
         //SC[3].DefaultElement.Color = Color.FromArgb(0, 156, 255);
     }
  
-     public class Charting
-     {
-         private string _phaysicalimagepath;//图片存放路径
-         private string _title; //图片标题
-        private string _xtitle;//图片x座标名称
-         private string _ytitle;//图片y座标名称
-        private string _seriesname;//图例名称
-         private int _picwidth;//图片宽度
-       private int _pichight;//图片高度
-         private SeriesType _type;//统计图类型(柱形,线形等)
-        private bool _use3d;//是否显示成3维图片
-         private SeriesCollection _dt;//统计图数据源
-        private string _filename;//统计图片的名称(不包括后缀名)
-
-         /**/
-        /// <summary>
-        /// 图片存放路径
-         /// </summary>
-         public string PhaysicalImagePath
-        {
-             set { _phaysicalimagepath = value; }
-            get { return _phaysicalimagepath; }
-         }
-        /**/
-        /// <summary>
-         /// 图片标题
-         /// </summary>
-        public string Title
-         {
-             set { _title = value; }
-             get { return _title; }
-         }
-         /**/
-        /// <summary>
-         /// 图片x座标名称
-        /// </summary>
-        public string XTitle
-         {
-             set { _xtitle = value; }
-             get { return _xtitle; }
-         }
-        /**/
-        /// <summary>
-         /// 图片y座标名称
-         /// </summary>
-         public string YTitle
-        {
-             set { _ytitle = value; }
-            get { return _ytitle; }
-         }
- 
-         /**/
-         /// <summary>
-        /// 图例名称
-         /// </summary>
-        public string SeriesName
-         {
-             set { _seriesname = value; }
-            get { return _seriesname; }
-        }
-         /**/
-        /// <summary>
-         /// 图片宽度
-         /// </summary>
-         public int PicWidth
-         {
-             set { _picwidth = value; }
-             get { return _picwidth; }
-         }
-        /**/
-        /// <summary>
-         /// 图片高度
-        /// </summary>
-         public int PicHight
-         {
-            set { _pichight = value; }
-             get { return _pichight; }
-         }
- 
-         /// <summary>
-         /// 统计图类型(柱形,线形等)
-         /// </summary>
-         public SeriesType Type
-        {
-             set { _type = value; }
-             get { return _type; }
-        }
- 
-        /// <summary>
-         /// 是否将输出的图片显示成三维
-         /// </summary>
-         public bool Use3D
-         {
-             set { _use3d = value; }
-             get { return _use3d; }
-        }
- 
-        /// <summary>
-        /// 对比图形数据源
-         /// </summary>
-         public SeriesCollection DataSource
-         {
- 
-             set { _dt = value; }
-             get { return _dt; }
-         }
- 
-         /// <summary>
-         /// 生成统计图片的名称
-        /// </summary>
-         public string FileName
-         {
-            set { _filename = value; }
-             get { return _filename; }
-        }
- 
- 
-         /// <summary>
-         /// 生成统计图片
-         /// </summary>
-         /// <param name="chart"></param>
-         /// <param name="type">图形类别,如柱状，折线型</param>
-         public void CreateStatisticPic(dotnetCHARTING.Chart chart)
-         {
-             chart.Title = this.Title;
-             chart.XAxis.Label.Text = this.XTitle;
-             chart.YAxis.Label.Text = this.YTitle;
-             chart.TempDirectory = this.PhaysicalImagePath;
-            chart.FileManager.FileName = this.FileName;
-             chart.Width = this.PicWidth;
-             chart.Height = this.PicHight;
-             chart.Type = ChartType.Combo;
-             //chart.Series.Type = this.Type;//生成对比的线型图时不适用
-             chart.DefaultSeries.Type = this.Type; //统一使用默认的序列图类型属性
-             chart.Series.Name = this.SeriesName;
-             chart.SeriesCollection.Add(this.DataSource);
-             chart.DefaultSeries.DefaultElement.ShowValue = true;
-             chart.ShadingEffect = true;
-             chart.Use3D = this.Use3D;
-            chart.Series.DefaultElement.ShowValue = true;
-        }
-    }
+    
  
 
     protected void DropDownList1_TextChanged(object sender, EventArgs e)
