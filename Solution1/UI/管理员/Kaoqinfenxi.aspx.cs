@@ -7,60 +7,127 @@ using System.Web.UI.WebControls;
  using System.Drawing;
  using dotnetCHARTING;
 using System.Data;
+using System.Data.SqlClient;
+using BLL;
 public partial class 管理员_Queqinfenxi : System.Web.UI.Page
 {
     protected void Page_Load(object sender, EventArgs e)
     {
-        if (Session["userID"].ToString() != null && Session["userID"].ToString() != "")
+
+
+        if (!Page.IsPostBack)
         {
-            if (!Page.IsPostBack)
-            {
-               Drawing("Column","1");
-               Drawing("Column", "1");
-                DropDownList1.Items.Add(new ListItem("柱状图", "Column"));
-               DropDownList1.Items.Add(new ListItem("折线图", "Spline"));
+            DataTable dt = BLL.isLogin.getStudent();
+            GridView1.DataSource = initialDatattable();
+            GridView1.DataKeyNames = new string[] { "系部" };//主键
+            GridView1.DataBind();
 
-                DropDownList2.Items.Add(new ListItem("全院情况", "1"));
-                DropDownList2.Items.Add(new ListItem("信息与艺术系情况", "2"));
-                DropDownList2.Items.Add(new ListItem("建筑系", "3"));
-                DropDownList2.Items.Add(new ListItem("机电系", "4"));
-                DropDownList2.Items.Add(new ListItem("粮食工程系", "5"));
-                DropDownList2.Items.Add(new ListItem("食品工程系", "6"));
-                DropDownList2.Items.Add(new ListItem("经济管理系", "7"));
-                DropDownList2.Items.Add(new ListItem("商务外语系", "8"));
-            }
-        }
-        else
-        {
-            Response.Redirect("../login/login-form.aspx");
+            Drawing("Column", "1");
+
+            DropDownList1.Items.Add(new ListItem("柱状图", "Column"));
+            DropDownList1.Items.Add(new ListItem("折线图", "Spline"));
+
+            DropDownList2.Items.Add(new ListItem("全院情况", "1"));
+            DropDownList2.Items.Add(new ListItem("信息与艺术系情况", "2"));
+            DropDownList2.Items.Add(new ListItem("建筑系", "3"));
+            DropDownList2.Items.Add(new ListItem("机电系", "4"));
+            DropDownList2.Items.Add(new ListItem("粮食工程系", "5"));
+            DropDownList2.Items.Add(new ListItem("食品工程系", "6"));
+            DropDownList2.Items.Add(new ListItem("经济管理系", "7"));
+            DropDownList2.Items.Add(new ListItem("商务外语系", "8"));
         }
 
-
-      
     }
+    //private void getData()
+    //{
+    //    DataTable dtCount = isLogin.getStudent();
+    //    string[] allCount = new string[dtCount.Rows.Count];
+    //    for(int i=0;i<dtCount.Rows.Count;i++)
+    //    {
+    //        allCount[i] = dtCount.Rows[i]["Sum"].ToString();
+    //    }
+        
+    //    string[] allData = new string[allDepartment.Length];
+    //    string[] allLate= new string[allDepartment.Length];
+    //    string[] allAttendance = new string[allDepartment.Length];
+    //    string[] allEarly = new string[allDepartment.Length];
+    //    string[] allLeave = new string[allDepartment.Length];
+    //    for(int i=0;i<allDepartment.Length;i++)
+    //    { 
+    //    }
+    //}
+    private DataTable initialDatattable()
+    {
 
-    private void Drawing(string type,string department)
+
+        double good = 0;
+        double late = 0;
+        double Early = 0;
+        double Attendance = 0;
+        double Leave = 0;
+        double School = 0;
+        BLL.isLogin.deleteStudent();
+        string[] allDepartment = { "会计系", "信息工程系", "经济管理系", "食品工程系", "机械工程系", "商务外语系", "建筑工程系" };
+        for (int j=0;j<7 ;j++) {
+                for (int i = 0; i < 20; i++)
+                {
+                if (i==0)
+                    {
+                    good = 0;
+                    late = 0;
+                    Early = 0;
+                    Attendance = 0;
+                    Leave = 0;
+                    School = 0;
+                    good = BLL.isLogin.getStudent(allDepartment[j], i, "正常").Rows.Count + good;
+                    late = BLL.isLogin.getStudent(allDepartment[j], i, "迟到").Rows.Count + late;
+                    Early = BLL.isLogin.getStudent(allDepartment[j], i, "早退").Rows.Count + Early;
+                    Attendance = BLL.isLogin.getStudent(allDepartment[j], i, "旷课").Rows.Count + Attendance;
+                    Leave = BLL.isLogin.getStudent(allDepartment[j], i, "请假").Rows.Count + Leave;
+                 }
+                   else
+                {   good = BLL.isLogin.getStudent(allDepartment[j],i, "正常").Rows.Count + good;
+                    late = BLL.isLogin.getStudent(allDepartment[j],i, "迟到").Rows.Count + late;
+                    Early = BLL.isLogin.getStudent(allDepartment[j],i, "早退").Rows.Count + Early;
+                    Attendance = BLL.isLogin.getStudent(allDepartment[j], i, "旷课").Rows.Count + Attendance;
+                    Leave = BLL.isLogin.getStudent(allDepartment[j], i, "请假").Rows.Count + Leave;
+                }
+                }
+                School = good + late + Early + Attendance + Leave;
+                double late1 = late/School;
+                double Early1 = Early/School;
+                double Attendance1 = Attendance/School;
+                double Leave1 = Leave/School;
+                double sum = late + Early + Attendance + Leave;
+                double sum1 = sum/School;
+                isLogin.getStudent(allDepartment[j], (int)School,(int)late, late1.ToString(), (int)Early, Early1.ToString(), (int)Attendance, Attendance1.ToString(), (int)Leave, Leave1.ToString(), (int)sum, sum1.ToString());
+                
+            }
+            DataTable dt = isLogin.getStudent1();
+            return dt;
+    }
+    private void Drawing(string type, string department)
     {
         Charting c = new Charting();
 
         c.Title = "考勤情况";
-       c.XTitle = "周次";
+        c.XTitle = "周次";
         c.YTitle = "未考勤教师人数（人）";
-        c.PicHight = 250;        c.PicWidth = 400;
+        c.PicHight = 250; c.PicWidth = 600;
         c.PhaysicalImagePath = "ChartImages";//统计图片存放的文件夹名称，缺少对应的文件夹生成不了统计图片
-       c.FileName = "Statistics51aspx";
-        if (type== "Column")
-         {
+        c.FileName = "Statistics51aspx";
+        if (type == "Column")
+        {
             c.Type = SeriesType.Column;
         }
         else
-       {
-             c.Type = SeriesType.Spline;
-             
+        {
+            c.Type = SeriesType.Spline;
+
         }
 
-        if (department =="1")
-        { 
+        if (department == "1")
+        {
             c.DataSource = GetDataSource(1, 7);
         }
         else if (department == "2")
@@ -98,11 +165,7 @@ public partial class 管理员_Queqinfenxi : System.Web.UI.Page
         c.Use3D = true;
 
         c.CreateStatisticPic(this.Chart1);
- 
-     }
-    private void Department(string department)
-    {
-      
+
     }
 
 
@@ -166,7 +229,6 @@ public partial class 管理员_Queqinfenxi : System.Web.UI.Page
         {
             DataTable dt = BLL.isLogin.getStudent(departement, b);
             int i = dt.Rows.Count;
-
             Element e = new Element();
             e.Name = b.ToString();//对应于X轴个尺度的名称
             e.YValue = i;//与X轴对应的Y轴的数值
@@ -180,161 +242,33 @@ public partial class 管理员_Queqinfenxi : System.Web.UI.Page
         //SC[2].DefaultElement.Color = Color.FromArgb(255, 99, 49);
         //SC[3].DefaultElement.Color = Color.FromArgb(0, 156, 255);
     }
- 
-     public class Charting
-     {
-         private string _phaysicalimagepath;//图片存放路径
-         private string _title; //图片标题
-        private string _xtitle;//图片x座标名称
-         private string _ytitle;//图片y座标名称
-        private string _seriesname;//图例名称
-         private int _picwidth;//图片宽度
-       private int _pichight;//图片高度
-         private SeriesType _type;//统计图类型(柱形,线形等)
-        private bool _use3d;//是否显示成3维图片
-         private SeriesCollection _dt;//统计图数据源
-        private string _filename;//统计图片的名称(不包括后缀名)
 
-         /**/
-        /// <summary>
-        /// 图片存放路径
-         /// </summary>
-         public string PhaysicalImagePath
-        {
-             set { _phaysicalimagepath = value; }
-            get { return _phaysicalimagepath; }
-         }
-        /**/
-        /// <summary>
-         /// 图片标题
-         /// </summary>
-        public string Title
-         {
-             set { _title = value; }
-             get { return _title; }
-         }
-         /**/
-        /// <summary>
-         /// 图片x座标名称
-        /// </summary>
-        public string XTitle
-         {
-             set { _xtitle = value; }
-             get { return _xtitle; }
-         }
-        /**/
-        /// <summary>
-         /// 图片y座标名称
-         /// </summary>
-         public string YTitle
-        {
-             set { _ytitle = value; }
-            get { return _ytitle; }
-         }
- 
-         /**/
-         /// <summary>
-        /// 图例名称
-         /// </summary>
-        public string SeriesName
-         {
-             set { _seriesname = value; }
-            get { return _seriesname; }
-        }
-         /**/
-        /// <summary>
-         /// 图片宽度
-         /// </summary>
-         public int PicWidth
-         {
-             set { _picwidth = value; }
-             get { return _picwidth; }
-         }
-        /**/
-        /// <summary>
-         /// 图片高度
-        /// </summary>
-         public int PicHight
-         {
-            set { _pichight = value; }
-             get { return _pichight; }
-         }
- 
-         /// <summary>
-         /// 统计图类型(柱形,线形等)
-         /// </summary>
-         public SeriesType Type
-        {
-             set { _type = value; }
-             get { return _type; }
-        }
- 
-        /// <summary>
-         /// 是否将输出的图片显示成三维
-         /// </summary>
-         public bool Use3D
-         {
-             set { _use3d = value; }
-             get { return _use3d; }
-        }
- 
-        /// <summary>
-        /// 对比图形数据源
-         /// </summary>
-         public SeriesCollection DataSource
-         {
- 
-             set { _dt = value; }
-             get { return _dt; }
-         }
- 
-         /// <summary>
-         /// 生成统计图片的名称
-        /// </summary>
-         public string FileName
-         {
-            set { _filename = value; }
-             get { return _filename; }
-        }
- 
- 
-         /// <summary>
-         /// 生成统计图片
-         /// </summary>
-         /// <param name="chart"></param>
-         /// <param name="type">图形类别,如柱状，折线型</param>
-         public void CreateStatisticPic(dotnetCHARTING.Chart chart)
-         {
-             chart.Title = this.Title;
-             chart.XAxis.Label.Text = this.XTitle;
-             chart.YAxis.Label.Text = this.YTitle;
-             chart.TempDirectory = this.PhaysicalImagePath;
-            chart.FileManager.FileName = this.FileName;
-             chart.Width = this.PicWidth;
-             chart.Height = this.PicHight;
-             chart.Type = ChartType.Combo;
-             //chart.Series.Type = this.Type;//生成对比的线型图时不适用
-             chart.DefaultSeries.Type = this.Type; //统一使用默认的序列图类型属性
-             chart.Series.Name = this.SeriesName;
-             chart.SeriesCollection.Add(this.DataSource);
-             chart.DefaultSeries.DefaultElement.ShowValue = true;
-             chart.ShadingEffect = true;
-             chart.Use3D = this.Use3D;
-            chart.Series.DefaultElement.ShowValue = true;
-        }
-    }
- 
+
+
 
     protected void DropDownList1_TextChanged(object sender, EventArgs e)
     {
-        Drawing(DropDownList1.SelectedValue,DropDownList2.SelectedValue);
+        Drawing(DropDownList1.SelectedValue, DropDownList2.SelectedValue);
     }
 
 
     protected void DropDownList2_TextChanged(object sender, EventArgs e)
     {
-        Drawing(DropDownList2.SelectedValue,DropDownList1.SelectedValue);
+        Drawing(DropDownList2.SelectedValue, DropDownList1.SelectedValue);
     }
 
+    protected void GridView1_SelectedIndexChanged(object sender, EventArgs e)
+    {
 
+    }
+
+    protected void GridView1_RowEditing(object sender, GridViewEditEventArgs e)
+    {
+        GridView1.EditIndex = e.NewEditIndex;
+       
+    }
+    protected void GridView1_Sorting(object sender, GridViewSortEventArgs e)
+    {
+
+    }
 }

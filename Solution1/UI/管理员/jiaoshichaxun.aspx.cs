@@ -10,7 +10,7 @@ using System.Data.SqlClient;
 
 public partial class 管理员_jiaoshichaxun : System.Web.UI.Page
 {
-   
+
 
     protected void Inquire()
     {

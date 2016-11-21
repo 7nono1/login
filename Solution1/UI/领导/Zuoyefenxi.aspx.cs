@@ -7,6 +7,7 @@ using System.Web.UI.WebControls;
  using System.Drawing;
  using dotnetCHARTING;
 using System.Data;
+using BLL;
 public partial class 领导_FTRform : System.Web.UI.Page
 {
     int i = 0;
@@ -18,7 +19,7 @@ public partial class 领导_FTRform : System.Web.UI.Page
         {
            Drawing("Column","1");
            Drawing("Column", "1");
-            DropDownList1.Items.Add(new ListItem("柱状图", "Column"));
+           DropDownList1.Items.Add(new ListItem("柱状图", "Column"));
            DropDownList1.Items.Add(new ListItem("折线图", "Spline"));
 
             DropDownList2.Items.Add(new ListItem("全院情况", "1"));
