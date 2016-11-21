@@ -4,7 +4,7 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" Runat="Server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" Runat="Server">
-    <asp:GridView ID="GridView1" runat="server" AllowPaging="True" CellPadding="3" AutoGenerateColumns="False" OnRowEditing="GridView1_RowEditing" OnSorting="GridView1_Sorting">
+    <asp:GridView ID="GridView1" runat="server" AllowPaging="True" CellPadding="3" AutoGenerateColumns="False" Height="200px" Width="800px">
         <Columns>
             <asp:BoundField HeaderText="系部" DataField="系部" />
             <asp:BoundField HeaderText="在校人数" DataField="在校人次" />

@@ -113,7 +113,7 @@ public partial class 管理员_Queqinfenxi : System.Web.UI.Page
         c.Title = "考勤情况";
         c.XTitle = "周次";
         c.YTitle = "未考勤教师人数（人）";
-        c.PicHight = 250; c.PicWidth = 600;
+        c.PicHight = 300; c.PicWidth = 800;
         c.PhaysicalImagePath = "ChartImages";//统计图片存放的文件夹名称，缺少对应的文件夹生成不了统计图片
         c.FileName = "Statistics51aspx";
         if (type == "Column")
@@ -255,20 +255,5 @@ public partial class 管理员_Queqinfenxi : System.Web.UI.Page
     protected void DropDownList2_TextChanged(object sender, EventArgs e)
     {
         Drawing(DropDownList2.SelectedValue, DropDownList1.SelectedValue);
-    }
-
-    protected void GridView1_SelectedIndexChanged(object sender, EventArgs e)
-    {
-
-    }
-
-    protected void GridView1_RowEditing(object sender, GridViewEditEventArgs e)
-    {
-        GridView1.EditIndex = e.NewEditIndex;
-       
-    }
-    protected void GridView1_Sorting(object sender, GridViewSortEventArgs e)
-    {
-
     }
 }
