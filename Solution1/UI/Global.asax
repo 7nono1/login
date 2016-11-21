@@ -23,7 +23,11 @@
     void Session_Start(object sender, EventArgs e)
     {
         // Code that runs when a new session is started
-        Session["windowss"] = "";
+        Session["userID"] = "";
+        Session["userPwd"] = "";
+        Session["userName"] = "";
+        Session["userCols"] = "";
+        Session["stuweek"] = "";
     }
 
     void Session_End(object sender, EventArgs e)

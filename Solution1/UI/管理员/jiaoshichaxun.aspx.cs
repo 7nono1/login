@@ -125,14 +125,21 @@ public partial class 管理员_jiaoshichaxun : System.Web.UI.Page
     }
     protected void Page_Load(object sender, EventArgs e)
     {
-        if (!IsPostBack)
+        if (Session["userID"].ToString() != null && Session["userID"].ToString() != "")
         {
-            DataTable dt = cxjs.find();
-            BindToGridView(dt);
-            Label2.Visible = false;
-            TextBox1.Visible = false;
+            if (!IsPostBack)
+            {
+                DataTable dt = cxjs.find();
+                BindToGridView(dt);
+                Label2.Visible = false;
+                TextBox1.Visible = false;
 
 
+            }
+        }
+        else
+        {
+            Response.Redirect("../login/login-form.aspx");
         }
     }
 }

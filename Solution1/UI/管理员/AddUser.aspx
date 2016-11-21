@@ -71,10 +71,10 @@
         <br />
         <br />
         权&nbsp;&nbsp; 限:<asp:DropDownList ID="DropDownList3" runat="server" Height="19px" Width="190px">
-            <asp:ListItem Value="1"></asp:ListItem>
-            <asp:ListItem Value="2"></asp:ListItem>
-            <asp:ListItem Value="3"></asp:ListItem>
-            <asp:ListItem Selected="True" Value="4"></asp:ListItem>
+            <asp:ListItem Value="(01)管理员"></asp:ListItem>
+            <asp:ListItem Value="(02)院系领导"></asp:ListItem>
+            <asp:ListItem Value="(03)辅导员"></asp:ListItem>
+            <asp:ListItem Value="(04)普通教师"></asp:ListItem>
         </asp:DropDownList>
         <br />
         <br />

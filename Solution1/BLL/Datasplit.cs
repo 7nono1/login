@@ -146,7 +146,7 @@ namespace BLL
          */
         public static DataTable teadata()
         {
-            DataTable dt = DAL.DBHelper.getDt("SELECT 工号,密码 FROM 教师 WHERE 工号!='12'");
+            DataTable dt = DAL.DBHelper.getDt("SELECT 工号,密码 FROM 教师");
             return dt;
         }
         public static int jiami()
