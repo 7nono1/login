@@ -184,5 +184,23 @@ namespace DAL
             SqlCommand cmd = new SqlCommand(strSQL, conn);
             cmd.ExecuteNonQuery();
         }
+
+        //录入考勤基础数据
+        public static void datakaoqin(DataTable dt,string ta)
+        {
+            using (SqlConnection conn = new SqlConnection(getConn()))
+            {
+                conn.Open();
+                using (SqlBulkCopy bulkCopy = new SqlBulkCopy(conn))
+                {
+                    bulkCopy.DestinationTableName = ta;
+                    for (int i = 0; i < 11; i++)
+                    {
+                        bulkCopy.ColumnMappings.Add(dt.Columns[i].ColumnName, dt.Columns[i].ColumnName);
+                    }
+                    bulkCopy.WriteToServer(dt);
+                }
+            }
+        }
     }
 }

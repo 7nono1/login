@@ -185,10 +185,18 @@ namespace BLL
         /*
          *生成录入考勤表
          */
-        public static int kaoqin()
+        public static DataTable chakaoqin()
         {
+            String strSQL = "SELECT distinct 承担单位,工号,教师姓名,课程号,课程,星期,周次,节次,地点,布置作业,是否考勤 FROM 考勤课程 ";
+            DataTable dt = DAL.DBHelper.getDt(strSQL);
+            return dt;
 
         }
-       
+        public static int kaoqin()
+        {
+            DataTable dt = chakaoqin();
+            DAL.DBHelper.datakaoqin(dt,"录入考勤");
+            return 1;
+        }
     }
 }

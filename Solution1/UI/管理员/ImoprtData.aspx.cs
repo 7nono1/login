@@ -15,6 +15,7 @@ public partial class 管理员_ImoprtData : System.Web.UI.Page
             Label1.Visible = false;
             Label2.Visible = false;
             Label6.Visible = false;
+            Label7.Visible = false;
         }
         else
         {
@@ -175,6 +176,8 @@ public partial class 管理员_ImoprtData : System.Web.UI.Page
 
     protected void Button8_Click(object sender, EventArgs e)
     {
-
+        int i=BLL.Datasplit.kaoqin();
+        Label7.Visible = true;
+        Label7.Text = "成功！";
     }
 }

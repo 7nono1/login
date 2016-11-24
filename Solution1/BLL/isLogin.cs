@@ -49,6 +49,7 @@ namespace BLL
             DataTable dt = DAL.DBHelper.getDt(strSQL);
             return dt;
         }
+     
         public static void SETTeacher(int sum)
         {
 
