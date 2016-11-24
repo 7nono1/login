@@ -229,7 +229,10 @@ namespace BLL
                     DAL.DBHelper.waipinTea(dt, "教师");
                     DAL.DBHelper.getDt("DELETE FROM 教师 WHERE 部门='部门'");
                 }
-                return 3;
+                else
+                {
+                    return 3;
+                }
             }
             if (tb == "信息艺术系" || tb == "会计系" || tb == "商务外语系" || tb == "食品工程系" || tb == "建筑工程系" || tb == "机械工程系" || tb == "经济管理系" || tb == "教务处" || tb == "基础教学部")
             {
