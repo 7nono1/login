@@ -101,7 +101,7 @@ public partial class 管理员_jiaoshichaxun : System.Web.UI.Page
     protected void GridView1_RowUpdating(object sender, GridViewUpdateEventArgs e)
     {
 
-        string strUserRole = ((TextBox)(GridView1.Rows[e.RowIndex].Cells[4].Controls[0])).Text.ToString();
+        string strUserRole = ((TextBox)(GridView1.Rows[e.RowIndex].Cells[3].Controls[0])).Text.ToString();
         string strUserID = GridView1.DataKeys[e.RowIndex].Value.ToString();
         cxjs.rowupdate("权限", strUserRole, "工号", strUserID);
 

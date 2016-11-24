@@ -9,27 +9,27 @@ namespace BLL
 {
     public class xsqk
     {
-        public static void rowupdate(string stuname , string stuid , string week, string kecheng )
+        public static void rowupdate(string role, string struserrole, string userid, string struserid)
         {
 
-            string SQL = "update 考勤课程 set " + stuname + "='" + stuid + "'where " + week +  "'";
+            string SQL = "update 学生考勤 set " + role + "='" + struserrole + "' where " + userid + "='" + struserid + "'";
             DBHelper.Getdt(SQL);
 
         }
         public static void rowdelete(string id, string key)
         {
-            string SQL = "delete from 考勤课程 where " + id + "='" + key + "'";
+            string SQL = "delete from 学生考勤 where " + id + "='" + key + "'";
             DBHelper.Getdt(SQL);
         }
         public static DataTable find()
         {
-            string SQL = "select * from 考勤课程";
+            string SQL = "select * from 学生考勤";
             DataTable dt = DBHelper.getDt(SQL);
             return dt;
         }
         public static DataTable Griview(string column, string name)
         {
-            string SQL = "select * from 考勤课程 where " + column + "='" + name + "'";
+            string SQL = "select * from 学生考勤 where " + column + "='" + name + "'";
 
             DataTable dt = DBHelper.getDt(SQL);
             return dt;

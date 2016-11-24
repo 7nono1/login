@@ -3,14 +3,17 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" Runat="Server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" Runat="Server">
-    <div class="top1">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;查询范围
+     <div class="top1">&nbsp;
+         <br />
+         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;查询范围
     <asp:DropDownList ID="DropDownList1"
         runat="server" AutoPostBack="True" Font-Size="12pt" Width="135px" 
         onselectedindexchanged="DropDownList1_SelectedIndexChanged">
         <asp:ListItem>所有记录</asp:ListItem>
-        <asp:ListItem>按学号查询</asp:ListItem>
         <asp:ListItem>按姓名查询</asp:ListItem>
-        <asp:ListItem>按周次查询</asp:ListItem>
+        <asp:ListItem>按学号查询</asp:ListItem>
+        <asp:ListItem>按课程查询</asp:ListItem>
+         <asp:ListItem>按周次查询</asp:ListItem>
     </asp:DropDownList>
         <asp:Label ID="Label2" runat="server" Text="查询条件"></asp:Label><asp:TextBox ID="TextBox1"
             runat="server"></asp:TextBox>
@@ -22,26 +25,26 @@
         onrowcancelingedit="GridView1_RowCancelingEdit" 
         onrowdeleting="GridView1_RowDeleting" onrowediting="GridView1_RowEditing" 
         onrowupdating="GridView1_RowUpdating" 
-            onrowdatabound="GridView1_RowDataBound" BackColor="#DEBA84" BorderColor="#DEBA84" BorderStyle="None" BorderWidth="1px" CellSpacing="2" Height="16px" Width="732px">
+            onrowdatabound="GridView1_RowDataBound" BackColor="#DEBA84" BorderColor="#DEBA84" BorderStyle="None" BorderWidth="1px" CellSpacing="2">
         <Columns>
-            <asp:BoundField DataField="学号" HeaderText="学生学号" ReadOnly="True">
+            <asp:BoundField DataField="学号" HeaderText="学号" ReadOnly="True">
             <ControlStyle Width="100px" />
             <ItemStyle Width="100px" HorizontalAlign="Center" VerticalAlign="Middle" />
             </asp:BoundField>
-            <asp:BoundField DataField="姓名" HeaderText="学生姓名" ReadOnly="True">
+            <asp:BoundField DataField="姓名" HeaderText="姓名" ReadOnly="True">
             <ControlStyle Width="100px" />
             <ItemStyle Width="100px" HorizontalAlign="Center" VerticalAlign="Middle" />
             </asp:BoundField>
-            <asp:BoundField DataField="周次" HeaderText="周次" ReadOnly="True">
+            <asp:BoundField DataField="课程" HeaderText="课程" ReadOnly="True">
             <ControlStyle Width="100px" />
             <ItemStyle Width="100px" HorizontalAlign="Center" VerticalAlign="Middle" />
             </asp:BoundField>
-            <asp:BoundField DataField="课程" HeaderText="课程">
+            <asp:BoundField DataField="周次" HeaderText="周次" ReadOnly="True" SortExpression="周次" />
+            <asp:BoundField DataField="节次" HeaderText="节次" ReadOnly="True" SortExpression="节次" />
+            <asp:BoundField DataField="出勤" HeaderText="出勤">
             <ControlStyle Width="100px" />
             <ItemStyle Width="100px" HorizontalAlign="Center" VerticalAlign="Middle" />
             </asp:BoundField>
-            <asp:BoundField DataField="星期" HeaderText="星期" SortExpression="星期" />
-            <asp:BoundField DataField="出勤" HeaderText="出勤" SortExpression="出勤" />
             <asp:CommandField HeaderText="编辑" ShowEditButton="True">
             <ControlStyle Width="100px" />
             <ItemStyle Width="70px" HorizontalAlign="Center" VerticalAlign="Middle" />
