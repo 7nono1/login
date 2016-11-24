@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/管理员/sdbi_MasterPage.master" AutoEventWireup="true" CodeFile="jiaoshichaxun.aspx.cs" Inherits="管理员_jiaoshichaxun" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/管理员/sdbi_MasterPage.master" AutoEventWireup="true" CodeFile="waipinjiaoshi.aspx.cs" Inherits="管理员_waipinjiaoshi" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" Runat="Server">
 </asp:Content>
@@ -11,7 +11,6 @@
         <asp:ListItem>按部门查询</asp:ListItem>
         <asp:ListItem>按教师工号查询</asp:ListItem>
         <asp:ListItem>按权限查询</asp:ListItem>
-         <asp:ListItem>按教师姓名查询</asp:ListItem>
     </asp:DropDownList>
         <asp:Label ID="Label2" runat="server" Text="查询条件"></asp:Label><asp:TextBox ID="TextBox1"
             runat="server"></asp:TextBox>
@@ -23,7 +22,7 @@
         onrowcancelingedit="GridView1_RowCancelingEdit" 
         onrowdeleting="GridView1_RowDeleting" onrowediting="GridView1_RowEditing" 
         onrowupdating="GridView1_RowUpdating" 
-           BackColor="#DEBA84" BorderColor="#DEBA84" BorderStyle="None" BorderWidth="1px" CellSpacing="2">
+            onrowdatabound="GridView1_RowDataBound" BackColor="#DEBA84" BorderColor="#DEBA84" BorderStyle="None" BorderWidth="1px" CellSpacing="2">
         <Columns>
             <asp:BoundField DataField="部门" HeaderText="所属部门" ReadOnly="True">
             <ControlStyle Width="100px" />
@@ -34,6 +33,10 @@
             <ItemStyle Width="100px" HorizontalAlign="Center" VerticalAlign="Middle" />
             </asp:BoundField>
             <asp:BoundField DataField="姓名" HeaderText="教师姓名" ReadOnly="True">
+            <ControlStyle Width="100px" />
+            <ItemStyle Width="100px" HorizontalAlign="Center" VerticalAlign="Middle" />
+            </asp:BoundField>
+            <asp:BoundField DataField="密码" HeaderText="用户密码" Visible="False">
             <ControlStyle Width="100px" />
             <ItemStyle Width="100px" HorizontalAlign="Center" VerticalAlign="Middle" />
             </asp:BoundField>
@@ -61,8 +64,5 @@
         <SortedDescendingHeaderStyle BackColor="#93451F" />
     </asp:GridView>
         <br />
-    </div>
-
-
 </asp:Content>
 

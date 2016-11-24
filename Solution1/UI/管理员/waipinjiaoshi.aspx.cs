@@ -6,41 +6,38 @@ using System.Web.UI;
 using System.Web.UI.WebControls;
 using BLL;
 using System.Data;
-using System.Data.SqlClient;
 
-public partial class 管理员_jiaoshichaxun : System.Web.UI.Page
+public partial class 管理员_waipinjiaoshi : System.Web.UI.Page
 {
-
-
     protected void Inquire()
     {
         if (DropDownList1.SelectedItem.ToString() == "所有记录")
         {
-            DataTable dt = cxjs.find();
+            DataTable dt = wpjs.find();
             BindToGridView(dt);
-
+            
         }
         else if (DropDownList1.SelectedItem.ToString() != "所有记录" && TextBox1.Text != "")
         {
             if (DropDownList1.SelectedItem.Text == "按部门查询")
             {
-                DataTable dt = cxjs.Griview("部门", TextBox1.Text);
+                DataTable dt = wpjs.Griview("部门", TextBox1.Text);
                 BindToGridView(dt);
 
             }
             else if (DropDownList1.SelectedItem.Text == "按教师工号查询")
             {
-                DataTable dt = cxjs.Griview("工号", TextBox1.Text);
+                DataTable dt = wpjs.Griview("工号", TextBox1.Text);
                 BindToGridView(dt);
             }
             else if (DropDownList1.SelectedItem.Text == "按教师姓名查询")
             {
-                DataTable dt = cxjs.Griview("姓名", TextBox1.Text);
+                DataTable dt = wpjs.Griview("姓名", TextBox1.Text);
                 BindToGridView(dt);
             }
             else if (DropDownList1.SelectedItem.Text == "按权限查询")
             {
-                DataTable dt = cxjs.Griview("权限", TextBox1.Text);
+                DataTable dt = wpjs.Griview("权限", TextBox1.Text);
                 BindToGridView(dt);
             }
 
@@ -91,8 +88,8 @@ public partial class 管理员_jiaoshichaxun : System.Web.UI.Page
     }
     protected void GridView1_RowDeleting(object sender, GridViewDeleteEventArgs e)
     {
-        
-        cxjs.rowdelete("工号", GridView1.DataKeys[e.RowIndex].Value.ToString());
+
+        wpjs.rowdelete("工号", GridView1.DataKeys[e.RowIndex].Value.ToString());
         {
             Inquire();
         }
@@ -101,15 +98,21 @@ public partial class 管理员_jiaoshichaxun : System.Web.UI.Page
     protected void GridView1_RowUpdating(object sender, GridViewUpdateEventArgs e)
     {
 
-        string strUserRole = ((TextBox)(GridView1.Rows[e.RowIndex].Cells[3].Controls[0])).Text.ToString();
+        string strUserRole = ((TextBox)(GridView1.Rows[e.RowIndex].Cells[4].Controls[0])).Text.ToString();
         string strUserID = GridView1.DataKeys[e.RowIndex].Value.ToString();
-        cxjs.rowupdate("权限", strUserRole, "工号", strUserID);
+        wpjs.rowupdate("权限", strUserRole, "工号", strUserID);
 
 
 
 
         GridView1.EditIndex = -1;
         Inquire();
+
+
+    }
+    protected void GridView1_RowDataBound(object sender, GridViewRowEventArgs e)
+    {
+
 
 
     }
@@ -123,7 +126,7 @@ public partial class 管理员_jiaoshichaxun : System.Web.UI.Page
         {
             if (!IsPostBack)
             {
-                DataTable dt = cxjs.find();
+                DataTable dt = wpjs.find();
                 BindToGridView(dt);
                 Label2.Visible = false;
                 TextBox1.Visible = false;

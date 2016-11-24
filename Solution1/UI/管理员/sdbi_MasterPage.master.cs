@@ -59,7 +59,7 @@ public partial class sdbi_MasterPage : System.Web.UI.MasterPage
             case "本校教师":
                 Response.Redirect("jiaoshichaxun.aspx"); break;
             case "外聘教师":
-                Response.Redirect("#"); break;
+                Response.Redirect("waipinjiaoshi.aspx"); break;
             case "修改密码":
                 Response.Redirect("alterPwd.aspx"); break;
             case "新增用户":
@@ -77,7 +77,7 @@ public partial class sdbi_MasterPage : System.Web.UI.MasterPage
             case "异动处理":
                 Response.Redirect("#"); break;
             case "学生情况":
-                Response.Redirect("#"); break;
+                Response.Redirect("xueshengqingkuang.aspx"); break;
             case "教师情况":
                 Response.Redirect("#"); break;
             case "作业情况":

@@ -6,7 +6,7 @@ using System.Web.UI;
 using System.Web.UI.WebControls;
 using BLL;
 using System.Data;
-using System.Data.SqlClient;
+using System.Data.SqlClient; 
 
 public partial class 管理员_学生情况 : System.Web.UI.Page
 {
@@ -15,7 +15,7 @@ public partial class 管理员_学生情况 : System.Web.UI.Page
     {
         if (DropDownList1.SelectedItem.ToString() == "所有记录")
         {
-            DataTable dt =xsqk.find();
+            DataTable dt = xsqk.find();
             BindToGridView(dt);
 
         }
@@ -37,7 +37,11 @@ public partial class 管理员_学生情况 : System.Web.UI.Page
                 DataTable dt = xsqk.Griview("周次", TextBox1.Text);
                 BindToGridView(dt);
             }
-         
+            else if (DropDownList1.SelectedItem.Text == "按课程查询")
+            {
+                DataTable dt = xsqk.Griview("课程", TextBox1.Text);
+                BindToGridView(dt);
+            }
 
         }
     }
@@ -86,7 +90,7 @@ public partial class 管理员_学生情况 : System.Web.UI.Page
     }
     protected void GridView1_RowDeleting(object sender, GridViewDeleteEventArgs e)
     {
-        
+
         xsqk.rowdelete("学号", GridView1.DataKeys[e.RowIndex].Value.ToString());
         {
             Inquire();
@@ -96,9 +100,9 @@ public partial class 管理员_学生情况 : System.Web.UI.Page
     protected void GridView1_RowUpdating(object sender, GridViewUpdateEventArgs e)
     {
 
-        string weeks = ((TextBox)(GridView1.Rows[e.RowIndex].Cells[4].Controls[0])).Text.ToString();
-        string stuID = GridView1.DataKeys[e.RowIndex].Value.ToString();
-        xsqk.rowupdate("周次", weeks, "学号", stuID);
+        string strUserRole = ((TextBox)(GridView1.Rows[e.RowIndex].Cells[5].Controls[0])).Text.ToString();
+        string strUserID = GridView1.DataKeys[e.RowIndex].Value.ToString();
+        xsqk.rowupdate("出勤", strUserRole, "学号", strUserID);
 
 
 
@@ -120,14 +124,21 @@ public partial class 管理员_学生情况 : System.Web.UI.Page
     }
     protected void Page_Load(object sender, EventArgs e)
     {
-        if (!IsPostBack)
+        if (Session["userID"].ToString() != null && Session["userID"].ToString() != "")
         {
-            DataTable dt = xsqk.find();
-            BindToGridView(dt);
-            Label2.Visible = false;
-            TextBox1.Visible = false;
+            if (!IsPostBack)
+            {
+                DataTable dt = xsqk.find();
+                BindToGridView(dt);
+                Label2.Visible = false;
+                TextBox1.Visible = false;
 
 
+            }
+        }
+        else
+        {
+            Response.Redirect("../login/login-form.aspx");
         }
     }
 }
