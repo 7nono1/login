@@ -281,7 +281,7 @@ namespace BLL
 
         public static void wipe(string tb)
         {
-            if (tb == "教师 where 工号!='12'" || tb == "外聘教师"||tb=="校历")
+            if (tb == "教师" || tb == "外聘教师"||tb=="校历")
             {
                 DAL.DBHelper.Getdt("DELETE FROM " + tb);
             }
@@ -295,7 +295,7 @@ namespace BLL
         {
 
             DAL.DBHelper.Getdt("DELETE FROM 初始信息");
-            DAL.DBHelper.Getdt("DELETE FROM 教师 where 工号!='12'");
+            DAL.DBHelper.Getdt("DELETE FROM 教师");
             DAL.DBHelper.Getdt("DELETE FROM 消息");
             DAL.DBHelper.Getdt("DELETE FROM 外聘教师");
             DAL.DBHelper.Getdt("DELETE FROM 考勤课程");

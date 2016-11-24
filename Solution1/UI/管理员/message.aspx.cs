@@ -11,9 +11,16 @@ public partial class 管理员_message : System.Web.UI.Page
 {
     protected void Page_Load(object sender, EventArgs e)
     {
-        if (!IsPostBack)
+        if (Session["userID"].ToString() != null && Session["userID"].ToString() != "")
         {
-            getdata();
+            if (!IsPostBack)
+            {
+                getdata();
+            }
+        }
+        else
+        {
+            Response.Redirect("../login/login-form.aspx");
         }
     }
 

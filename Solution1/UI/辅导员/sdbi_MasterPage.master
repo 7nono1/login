@@ -22,7 +22,7 @@
             width: 1288px;
             height:95px;
             background-image:url(../images/top.jpg);
-            float:leftt;
+            float:left;
             
         }
      #left{
@@ -88,7 +88,7 @@
          <div id="header">
              <div id="png">
                   <a>
-                            <img src="../images/top_3.jpg" id="imgmain" onclick="display()" /></a>
+                            <img src="../images/top_3.jpg" id="imgmain" onclick="display()"/></a>
                  </div>
                     <div id="we">
                     <asp:Label ID="Label1" runat="server" Text="Label"></asp:Label>

@@ -12,24 +12,31 @@ public partial class 管理员_Queqinfenxi : System.Web.UI.Page
 {
     protected void Page_Load(object sender, EventArgs e)
     {
-        
 
-        if (!Page.IsPostBack)
+        if (Session["userID"].ToString() != null && Session["userID"].ToString() != "")
         {
-           Drawing("Column","1");
-           Drawing("Column", "1");
-            DropDownList1.Items.Add(new ListItem("柱状图", "Column"));
-           DropDownList1.Items.Add(new ListItem("折线图", "Spline"));
+            if (!Page.IsPostBack)
+            {
+               Drawing("Column","1");
+               Drawing("Column", "1");
+                DropDownList1.Items.Add(new ListItem("柱状图", "Column"));
+               DropDownList1.Items.Add(new ListItem("折线图", "Spline"));
 
-            DropDownList2.Items.Add(new ListItem("全院情况", "1"));
-            DropDownList2.Items.Add(new ListItem("信息与艺术系", "2"));
-            DropDownList2.Items.Add(new ListItem("建筑系", "3"));
-            DropDownList2.Items.Add(new ListItem("机械工程系", "4"));
-            DropDownList2.Items.Add(new ListItem("会计系", "5"));
-            DropDownList2.Items.Add(new ListItem("食品工程系", "6"));
-            DropDownList2.Items.Add(new ListItem("经济管理系", "7"));
-            DropDownList2.Items.Add(new ListItem("商务外语系", "8"));
+                DropDownList2.Items.Add(new ListItem("全院情况", "1"));
+                DropDownList2.Items.Add(new ListItem("信息与艺术系", "2"));
+                DropDownList2.Items.Add(new ListItem("建筑系", "3"));
+                DropDownList2.Items.Add(new ListItem("机械工程系", "4"));
+                DropDownList2.Items.Add(new ListItem("会计系", "5"));
+                DropDownList2.Items.Add(new ListItem("食品工程系", "6"));
+                DropDownList2.Items.Add(new ListItem("经济管理系", "7"));
+                DropDownList2.Items.Add(new ListItem("商务外语系", "8"));
+            }
         }
+        else
+        {
+            Response.Redirect("../login/login-form.aspx");
+        }
+
       
     }
 

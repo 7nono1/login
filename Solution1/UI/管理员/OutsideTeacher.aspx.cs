@@ -10,6 +10,13 @@ public partial class 管理员_OutsideTeacher : System.Web.UI.Page
     protected void Page_Load(object sender, EventArgs e)
     {
 
+        if (Session["userID"].ToString() != null && Session["userID"].ToString() != "")
+        {
+        }
+        else
+        {
+            Response.Redirect("../login/login-form.aspx");
+        }
     }
 
     protected void Button1_Click(object sender, EventArgs e)

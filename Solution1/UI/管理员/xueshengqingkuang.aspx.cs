@@ -8,48 +8,43 @@ using BLL;
 using System.Data;
 using System.Data.SqlClient;
 
-public partial class 管理员_jiaoshichaxun : System.Web.UI.Page
+public partial class 管理员_学生情况 : System.Web.UI.Page
 {
-
 
     protected void Inquire()
     {
         if (DropDownList1.SelectedItem.ToString() == "所有记录")
         {
-            DataTable dt = cxjs.find();
+            DataTable dt =xsqk.find();
             BindToGridView(dt);
 
         }
         else if (DropDownList1.SelectedItem.ToString() != "所有记录" && TextBox1.Text != "")
         {
-            if (DropDownList1.SelectedItem.Text == "按部门查询")
+            if (DropDownList1.SelectedItem.Text == "按学号查询")
             {
-                DataTable dt = cxjs.Griview("部门", TextBox1.Text);
+                DataTable dt = xsqk.Griview("学号", TextBox1.Text);
                 BindToGridView(dt);
 
             }
-            else if (DropDownList1.SelectedItem.Text == "按教师工号查询")
+            else if (DropDownList1.SelectedItem.Text == "按姓名查询")
             {
-                DataTable dt = cxjs.Griview("工号", TextBox1.Text);
+                DataTable dt = xsqk.Griview("姓名", TextBox1.Text);
                 BindToGridView(dt);
             }
-            else if (DropDownList1.SelectedItem.Text == "按教师姓名查询")
+            else if (DropDownList1.SelectedItem.Text == "按周次查询")
             {
-                DataTable dt = cxjs.Griview("姓名", TextBox1.Text);
+                DataTable dt = xsqk.Griview("周次", TextBox1.Text);
                 BindToGridView(dt);
             }
-            else if (DropDownList1.SelectedItem.Text == "按权限查询")
-            {
-                DataTable dt = cxjs.Griview("权限", TextBox1.Text);
-                BindToGridView(dt);
-            }
+         
 
         }
     }
     protected void BindToGridView(DataTable dt)
     {
         GridView1.DataSource = dt;
-        GridView1.DataKeyNames = new string[] { "工号" };
+        GridView1.DataKeyNames = new string[] { "学号" };
         GridView1.DataBind();
     }
     protected void GridView1_SelectedIndexChanged(object sender, EventArgs e)
@@ -92,7 +87,7 @@ public partial class 管理员_jiaoshichaxun : System.Web.UI.Page
     protected void GridView1_RowDeleting(object sender, GridViewDeleteEventArgs e)
     {
         
-        cxjs.rowdelete("工号", GridView1.DataKeys[e.RowIndex].Value.ToString());
+        xsqk.rowdelete("学号", GridView1.DataKeys[e.RowIndex].Value.ToString());
         {
             Inquire();
         }
@@ -101,9 +96,9 @@ public partial class 管理员_jiaoshichaxun : System.Web.UI.Page
     protected void GridView1_RowUpdating(object sender, GridViewUpdateEventArgs e)
     {
 
-        string strUserRole = ((TextBox)(GridView1.Rows[e.RowIndex].Cells[4].Controls[0])).Text.ToString();
-        string strUserID = GridView1.DataKeys[e.RowIndex].Value.ToString();
-        cxjs.rowupdate("权限", strUserRole, "工号", strUserID);
+        string weeks = ((TextBox)(GridView1.Rows[e.RowIndex].Cells[4].Controls[0])).Text.ToString();
+        string stuID = GridView1.DataKeys[e.RowIndex].Value.ToString();
+        xsqk.rowupdate("周次", weeks, "学号", stuID);
 
 
 
@@ -115,7 +110,7 @@ public partial class 管理员_jiaoshichaxun : System.Web.UI.Page
     }
     protected void GridView1_RowDataBound(object sender, GridViewRowEventArgs e)
     {
-        
+
 
 
     }
@@ -125,21 +120,14 @@ public partial class 管理员_jiaoshichaxun : System.Web.UI.Page
     }
     protected void Page_Load(object sender, EventArgs e)
     {
-        if (Session["userID"].ToString() != null && Session["userID"].ToString() != "")
+        if (!IsPostBack)
         {
-            if (!IsPostBack)
-            {
-                DataTable dt = cxjs.find();
-                BindToGridView(dt);
-                Label2.Visible = false;
-                TextBox1.Visible = false;
+            DataTable dt = xsqk.find();
+            BindToGridView(dt);
+            Label2.Visible = false;
+            TextBox1.Visible = false;
 
 
-            }
-        }
-        else
-        {
-            Response.Redirect("../login/login-form.aspx");
         }
     }
 }

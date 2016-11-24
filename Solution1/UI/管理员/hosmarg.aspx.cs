@@ -10,7 +10,14 @@ public partial class 管理员_hosmarg : System.Web.UI.Page
 {
     protected void Page_Load(object sender, EventArgs e)
     {
-        getmarg();
+        if (Session["userID"].ToString() != null && Session["userID"].ToString() != "")
+        {
+            getmarg();
+        }
+        else
+        {
+            Response.Redirect("../login/login-form.aspx");
+        }
     }
 
     private void getmarg()
