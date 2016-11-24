@@ -28,7 +28,7 @@ public partial class 管理员_Queqinfenxi : System.Web.UI.Page
             DropDownList1.Items.Add(new ListItem("折线图", "Spline"));
 
             DropDownList2.Items.Add(new ListItem("全院情况", "1"));
-            DropDownList2.Items.Add(new ListItem("信息与艺术系情况", "2"));
+            DropDownList2.Items.Add(new ListItem("信息与艺术系", "2"));
             DropDownList2.Items.Add(new ListItem("建筑系", "3"));
             DropDownList2.Items.Add(new ListItem("机电系", "4"));
             DropDownList2.Items.Add(new ListItem("粮食工程系", "5"));
@@ -86,11 +86,11 @@ public partial class 管理员_Queqinfenxi : System.Web.UI.Page
                     Leave = BLL.isLogin.getStudent(allDepartment[j], i, "请假").Rows.Count + Leave;
                  }
                    else
-                {   good = BLL.isLogin.getStudent(allDepartment[j],i, "正常").Rows.Count + good;
-                    late = BLL.isLogin.getStudent(allDepartment[j],i, "迟到").Rows.Count + late;
-                    Early = BLL.isLogin.getStudent(allDepartment[j],i, "早退").Rows.Count + Early;
-                    Attendance = BLL.isLogin.getStudent(allDepartment[j], i, "旷课").Rows.Count + Attendance;
-                    Leave = BLL.isLogin.getStudent(allDepartment[j], i, "请假").Rows.Count + Leave;
+                {   good = BLL.isLogin.getStudent(allDepartment[j],i,"正常").Rows.Count + good;
+                    late = BLL.isLogin.getStudent(allDepartment[j],i,"迟到").Rows.Count + late;
+                    Early = BLL.isLogin.getStudent(allDepartment[j],i,"早退").Rows.Count + Early;
+                    Attendance = BLL.isLogin.getStudent(allDepartment[j], i,"旷课").Rows.Count + Attendance;
+                    Leave = BLL.isLogin.getStudent(allDepartment[j], i,"请假").Rows.Count + Leave;
                 }
                 }
                 School = good + late + Early + Attendance + Leave;
@@ -113,7 +113,7 @@ public partial class 管理员_Queqinfenxi : System.Web.UI.Page
         c.Title = "考勤情况";
         c.XTitle = "周次";
         c.YTitle = "未考勤教师人数（人）";
-        c.PicHight = 250; c.PicWidth = 600;
+        c.PicHight = 300; c.PicWidth = 800;
         c.PhaysicalImagePath = "ChartImages";//统计图片存放的文件夹名称，缺少对应的文件夹生成不了统计图片
         c.FileName = "Statistics51aspx";
         if (type == "Column")
@@ -227,7 +227,7 @@ public partial class 管理员_Queqinfenxi : System.Web.UI.Page
         s.Name = (departement);
         for (int b = 1; b <= 19; b++) //X轴尺度个数，如19个周表示有19个尺度数
         {
-            DataTable dt = BLL.isLogin.getStudent(departement, b);
+            DataTable dt = BLL.isLogin.getStudent(departement,b);
             int i = dt.Rows.Count;
             Element e = new Element();
             e.Name = b.ToString();//对应于X轴个尺度的名称
@@ -258,16 +258,6 @@ public partial class 管理员_Queqinfenxi : System.Web.UI.Page
     }
 
     protected void GridView1_SelectedIndexChanged(object sender, EventArgs e)
-    {
-
-    }
-
-    protected void GridView1_RowEditing(object sender, GridViewEditEventArgs e)
-    {
-        GridView1.EditIndex = e.NewEditIndex;
-       
-    }
-    protected void GridView1_Sorting(object sender, GridViewSortEventArgs e)
     {
 
     }

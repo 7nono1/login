@@ -20,26 +20,75 @@ namespace BLL
         }
         public static DataTable getStudent(string department,int Weeked)
         {
-            String strSQL = "SELECT '"+department+ "' FROM 考勤课程 WHERE 出勤 <> '正常'AND 周次='" + Weeked + "'";   
+            String strSQL = "SELECT * FROM 考勤课程 WHERE  承担单位='" + department + "' AND 周次='" + Weeked + "'AND  出勤<>'正常'";
             DataTable dt = DAL.DBHelper.getDt(strSQL);
             return dt;
         }
         public static DataTable getStudent(string department, int Weeked, string state)
         {
-            String strSQL = "SELECT*FROM 考勤课程 WHERE 承担单位='" + department + "' AND 周次='" + Weeked + "'AND 出勤= '" + state + "' ";
+            String strSQL = "SELECT*FROM 考勤课程 WHERE 承担单位='"+ department +"' AND 周次='" + Weeked + "'AND 出勤= '" + state + "' ";
             DataTable dt = DAL.DBHelper.getDt(strSQL);
             return dt;
         }
-        
+        //public static DataTable getTeacher(string department)/*AND 周次='" + Weeked + "'*/
+        //{
+        //    String strSQL = "SELECT * FROM 考勤课程 WHERE 所属部门='"+department+"'AND 是否考勤 = 'null' ";
+        //    DataTable dt = DAL.DBHelper.getDt(strSQL);
+        ////    return dt;
+        //}
+        //public static DataTable getTeacher(string department,string Weeked)
+        //{
+        //    String strSQL = "SELECT * FROM 考勤课程  WHERE  承担单位='" + department + "' AND 周次='" + Weeked + "'AND 是否考勤<>'是'";
+        //    DataTable dt = DAL.DBHelper.getDt(strSQL);
+        //    return dt;
+        //}
+
+        public static DataTable getTeacher(string department)
+        {
+            String strSQL = "SELECT distinct 承担单位,工号,教师姓名,周次,星期,节次 FROM 考勤课程 WHERE 承担单位='" + department + "'AND 是否考勤 <> '是'";
+            DataTable dt = DAL.DBHelper.getDt(strSQL);
+            return dt;
+        }
+        public static void SETTeacher(int sum)
+        {
+
+
+            string str = "UPDATA 漏报分析 SET (未考勤次数)=('" + sum + "')";
+            DAL.DBHelper.Getdt(str);
+
+        }
+        //public static DataTable getTeacher()
+        //{
+        //    String strSQL = "SELECT * FROM 漏报分析 WHERE 教师工号 IN(WHERE 工号 FROM 漏报分析 GROUP BY 工号 HAVING COUNT(*)>1)";
+        //    DataTable dt = DAL.DBHelper.getDt(strSQL);
+        //    return dt;
+        //}
+        public static DataTable setWeiKaoqin()
+        { 
+            string str = "select distinct 承担单位,工号,教师姓名,周次,星期,节次,未考勤次数=COUNT(*) over (partition by 教师姓名) from  漏报分析 order by 教师姓名";
+          return  DAL.DBHelper.getDt(str);
+           
+        }
+        public static void getTeacher1()
+        {
+            DAL.DBHelper.getDt("DELETE FROM 漏报分析");
+           
+        }
         public static DataTable getStudent()
         {
             String strSQL = "SELECT * FROM  考勤课程";
             DataTable dt = DAL.DBHelper.getDt(strSQL);
             return dt;
         }
+        public static DataTable getTeacherTable()
+        {
+            String strSQL = "SELECT  distinct 承担单位,工号,教师姓名,未考勤次数 FROM  漏报分析";
+            DataTable dt = DAL.DBHelper.getDt(strSQL);
+            return dt;
+        }
         public static DataTable getWork(string department, int Weeked)
         {
-            String strSQL = "SELECT '" + department + "' FROM 考勤课程 WHERE 作业 <> '正常'AND 周次='" + Weeked + "'";
+            String strSQL = "SELECT * FROM 考勤课程 WHERE  承担单位='" + department + "' AND 周次='" + Weeked + "'AND 作业 <> '正常'";
             DataTable dt = DAL.DBHelper.getDt(strSQL);
             return dt;
         }
@@ -81,15 +130,15 @@ namespace BLL
                 return 0;
             }
         }
-        public static void getStudent(string depatmentnt,int Student,int late, string late1,int Early,string Early1,int Attendance, string Attendance1, int Leave,string Leave1,int sum,string sum1)
+        public static void getStudent(string depatmentnt, int Student, int late, string late1, int Early, string Early1, int Attendance, string Attendance1, int Leave, string Leave1, int sum, string sum1)
         {
 
 
-            string str = "INSERT INTO 缺勤分析(系部,在校人次,旷课人次,旷课率,迟到人次,迟到率,早退人次,早退率,请假人次,请假率,总缺勤人次,总缺勤率)VALUES('" +depatmentnt + "','" +Student+ "','" + late + "','" + late1 + "','" + Early + "','" + Early1+ "','" + Leave + "','" + Leave1 + "','" +Attendance + "','" + Attendance1 + "','" +sum + "','" + sum1+ "')";
+            string str = "INSERT INTO 缺勤分析(系部,在校人次,旷课人次,旷课率,迟到人次,迟到率,早退人次,早退率,请假人次,请假率,总缺勤人次,总缺勤率)VALUES('" + depatmentnt + "','" + Student + "','" + late + "','" + late1 + "','" + Early + "','" + Early1 + "','" + Leave + "','" + Leave1 + "','" + Attendance + "','" + Attendance1 + "','" + sum + "','" + sum1 + "')";
 
             DAL.DBHelper.Getdt(str);
             DataTable dt = DAL.DBHelper.getDt("select * from 缺勤分析");
-           
+
         }
         public static DataTable getStudent1()
         {
@@ -241,7 +290,14 @@ namespace BLL
             }
             return 1;
         }
-
+        public static void inster(DataTable dt,string tableName)
+        {
+            DAL.DBHelper.Loubaochaxun(dt, tableName);
+        }
+        public static void inster1(DataTable dt, string tableName)
+        {
+            DAL.DBHelper.Loubaochaxun1(dt, tableName);
+        }
         //导入日历
         public static int calender(string y,string m,string d,string w,int sweek)
         {
