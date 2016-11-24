@@ -143,7 +143,35 @@ namespace DAL
                 }
             }
         }
-
+        public static void Loubaochaxun(DataTable dt, string table1)
+        {
+            using (SqlConnection conn = new SqlConnection(getConn()))
+            {
+                conn.Open();
+                using (SqlBulkCopy bulkCopy = new SqlBulkCopy(conn))
+                {
+                    bulkCopy.DestinationTableName = table1;
+                    for (int i = 0; i <6; i++)
+                    {
+                        bulkCopy.ColumnMappings.Add(dt.Columns[i].ColumnName, dt.Columns[i].ColumnName);
+                    }//对应表导入
+                    bulkCopy.WriteToServer(dt);
+                }
+            }
+        }
+        public static void Loubaochaxun1(DataTable dt, string table1)
+        {
+            using (SqlConnection conn = new SqlConnection(getConn()))
+            {
+                conn.Open();
+                using (SqlBulkCopy bulkCopy = new SqlBulkCopy(conn))
+                {
+                    bulkCopy.DestinationTableName = table1;
+                    bulkCopy.ColumnMappings.Add("未考勤次数", "未考勤次数");
+                    bulkCopy.WriteToServer(dt);
+                }
+            }
+        }
         /*
          * 拆分初始数据
          */

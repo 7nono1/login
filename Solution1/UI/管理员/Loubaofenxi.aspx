@@ -5,11 +5,25 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" Runat="Server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" Runat="Server">
-    <dotnetCHARTING:Chart ID="Chart1" runat="server" Height="355px" Width="375px">
-    </dotnetCHARTING:Chart>
-    <asp:DropDownList ID="DropDownList2" runat="server"  AutoPostBack="True" OnTextChanged="DropDownList1_TextChanged">
-    </asp:DropDownList>
-    <asp:DropDownList ID="DropDownList1" runat="server"  AutoPostBack="True" OnTextChanged="DropDownList1_TextChanged"  >
-    </asp:DropDownList>
+    <asp:Label ID="Label1" runat="server" Text="Label"></asp:Label>
+    <asp:GridView ID="GridView1" runat="server" CellPadding="4" ForeColor="#333333" AutoGenerateColumns="False" GridLines="None" Height="345px" Width="602px">
+        <AlternatingRowStyle BackColor="White" />
+        <Columns>
+            <asp:BoundField DataField="承担单位" HeaderText="系部" />
+            <asp:BoundField DataField="工号" HeaderText="教师工号" />
+            <asp:BoundField DataField="教师姓名" HeaderText="教师姓名" />
+            <asp:BoundField DataField="未考勤次数" HeaderText="未考勤次数" />
+            <asp:ButtonField Text="详细" ButtonType="Button" />
+        </Columns>
+        <FooterStyle BackColor="#990000" Font-Bold="True" ForeColor="White" />
+        <HeaderStyle BackColor="#990000" Font-Bold="True" ForeColor="White" />
+        <PagerStyle BackColor="#FFCC66" ForeColor="#333333" HorizontalAlign="Center" />
+        <RowStyle BackColor="#FFFBD6" ForeColor="#333333" />
+        <SelectedRowStyle BackColor="#FFCC66" Font-Bold="True" ForeColor="Navy" />
+        <SortedAscendingCellStyle BackColor="#FDF5AC" />
+        <SortedAscendingHeaderStyle BackColor="#4D0000" />
+        <SortedDescendingCellStyle BackColor="#FCF6C0" />
+        <SortedDescendingHeaderStyle BackColor="#820000" />
+    </asp:GridView>
     </asp:Content>
 
