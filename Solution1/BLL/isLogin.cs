@@ -26,7 +26,7 @@ namespace BLL
         }
         public static DataTable getStudent(string department, int Weeked, string state)
         {
-            String strSQL = "SELECT*FROM 考勤课程 WHERE 承担单位='" + department + "' AND 周次='" + Weeked + "'AND 出勤= '" + state + "' ";
+            String strSQL = "SELECT*FROM 考勤课程 WHERE 承担单位='"+ department +"' AND 周次='" + Weeked + "'AND 出勤= '" + state + "' ";
             DataTable dt = DAL.DBHelper.getDt(strSQL);
             return dt;
         }
@@ -49,14 +49,12 @@ namespace BLL
             DataTable dt = DAL.DBHelper.getDt(strSQL);
             return dt;
         }
-        public static void SETTeacher( int sum)
+        public static void SETTeacher(int sum)
         {
 
 
-            string str = "INSERT INTO 漏报分析(未考勤次数) VALUES('"+sum+"')";
-
+            string str = "UPDATA 漏报分析 SET (未考勤次数)=('" + sum + "')";
             DAL.DBHelper.Getdt(str);
-            DataTable dt = DAL.DBHelper.getDt("select * from 缺勤分析");
 
         }
         //public static DataTable getTeacher()

@@ -12,6 +12,11 @@ public partial class 管理员_Queqinfenxi : System.Web.UI.Page
 {
     protected void Page_Load(object sender, EventArgs e)
     {
+        getTAble();
+
+    }
+    public  void getTAble()
+    {
         string[] allDepartment = { "会计系", "信息工程系", "经济管理系", "食品工程系", "机械工程系", "商务外语系", "建筑工程系" };
         BLL.isLogin.getTeacher1();
         DataTable dt = new DataTable();
@@ -26,18 +31,27 @@ public partial class 管理员_Queqinfenxi : System.Web.UI.Page
             { }
             else
             {
-                BLL.isLogin.inster(dt,"漏报分析");
-            }  
-        }string aa="";
-        dt=BLL.isLogin.setWeiKaoqin();
-        for(int x=1;x<dt.Rows.Count;x++)
-        {
-          BLL.isLogin.SETTeacher((int)dt.Rows[x]["未考勤次数"]);
+                BLL.isLogin.inster(dt, "漏报分析");
+            }
         }
-
-  
-        GridView1.DataSource = dt ;
+        string aa = "";
+        dt = BLL.isLogin.setWeiKaoqin();
+        BLL.isLogin.getTeacher1();
+        //int n = (int)dt.Rows.Count;
+        //int[] arry = new int[n];
+        BLL.isLogin.inster1(dt, "漏报分析");
+        GridView1.DataSource = BLL.isLogin.getTeacherTable();
         GridView1.DataBind();
+    }
+
+    protected void GridView1_PageIndexChanging(object sender, GridViewPageEventArgs e)
+    {
+        GridView1.PageIndex = e.NewPageIndex;
+        getTAble();
+    }
+
+    protected void GridView1_SelectedIndexChanged(object sender, EventArgs e)
+    {
 
     }
 }

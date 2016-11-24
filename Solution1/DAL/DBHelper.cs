@@ -167,7 +167,10 @@ namespace DAL
                 using (SqlBulkCopy bulkCopy = new SqlBulkCopy(conn))
                 {
                     bulkCopy.DestinationTableName = table1;
-                    bulkCopy.ColumnMappings.Add("未考勤次数", "未考勤次数");
+                    for (int i = 0; i < 7; i++)
+                    {
+                        bulkCopy.ColumnMappings.Add(dt.Columns[i].ColumnName, dt.Columns[i].ColumnName);
+                    }
                     bulkCopy.WriteToServer(dt);
                 }
             }

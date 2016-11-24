@@ -212,7 +212,7 @@ public partial class 管理员_Queqinfenxi : System.Web.UI.Page
         s.Name = (departement);
         for (int b = 1; b <= 19; b++) //X轴尺度个数，如19个周表示有19个尺度数
         {
-            DataTable dt = BLL.isLogin.getStudent(departement, b);
+            DataTable dt = BLL.isLogin.getStudent(departement,b);
             int i = dt.Rows.Count;
 
             Element e = new Element();
