@@ -76,9 +76,11 @@ namespace DAL
          */
         public static void SQLBulkCopy(DataTable dt,string table1)
         {
-            using (SqlConnection conn = new SqlConnection(getConn())) {
+            using (SqlConnection conn = new SqlConnection(getConn()))
+            {
                 conn.Open();
-                using (SqlBulkCopy bulkCopy = new SqlBulkCopy(conn)) {
+                using (SqlBulkCopy bulkCopy = new SqlBulkCopy(conn))
+                {
                     bulkCopy.DestinationTableName = table1;
                     for (int i = 0; i < 13; i++)
                     {

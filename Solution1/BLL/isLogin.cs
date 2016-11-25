@@ -349,6 +349,7 @@ namespace BLL
             {
                 DAL.DBHelper.Getdt("DELETE FROM 初始信息 WHERE 承担单位='" + tb + "'");
                 DAL.DBHelper.Getdt("DELETE FROM 考勤课程 WHERE 承担单位='" + tb + "'");
+                DAL.DBHelper.Getdt("DELETE FROM 录入考勤 WHERE 承担单位='" + tb + "'");
             }
         }
         public static void de()
@@ -360,6 +361,7 @@ namespace BLL
             DAL.DBHelper.Getdt("DELETE FROM 外聘教师");
             DAL.DBHelper.Getdt("DELETE FROM 考勤课程");
             DAL.DBHelper.Getdt("DELETE FROM 校历");
+            DAL.DBHelper.Getdt("DELETE FROM 录入考勤");
         }
 
         /*

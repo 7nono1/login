@@ -46,6 +46,7 @@
   <ItemGroup>
     <Compile Include="charting.cs" />
     <Compile Include="Datasplit.cs" />
+    <Compile Include="ExportDate.cs" />
     <Compile Include="isLogin.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="cxjs.cs" />

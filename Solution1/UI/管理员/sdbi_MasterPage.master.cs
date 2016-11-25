@@ -74,6 +74,8 @@ public partial class sdbi_MasterPage : System.Web.UI.MasterPage
                 Response.Redirect("ImoprtData.aspx"); break;
             case "清空数据":
                 Response.Redirect("wipeData.aspx"); break;
+            case "导出数据":
+                Response.Redirect("exportData.aspx"); break;
 
 
             case "异动处理":
