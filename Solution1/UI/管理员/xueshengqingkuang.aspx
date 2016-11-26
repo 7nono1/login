@@ -27,7 +27,7 @@
         onrowupdating="GridView1_RowUpdating" 
             onrowdatabound="GridView1_RowDataBound" BackColor="#DEBA84" BorderColor="#DEBA84" BorderStyle="None" BorderWidth="1px" CellSpacing="2">
         <Columns>
-            <asp:BoundField DataField="学号" HeaderText="学号" ReadOnly="True">
+            <asp:BoundField DataField="学号" HeaderText="学号" ReadOnly="True"><ItemStyle Width="100px" Height="20px" />
             <ControlStyle Width="100px" />
             <ItemStyle Width="100px" HorizontalAlign="Center" VerticalAlign="Middle" />
             </asp:BoundField>

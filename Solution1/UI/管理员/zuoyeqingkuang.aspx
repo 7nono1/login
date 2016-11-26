@@ -1,17 +1,19 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/管理员/sdbi_MasterPage.master" AutoEventWireup="true" CodeFile="jiaoshichaxun.aspx.cs" Inherits="管理员_jiaoshichaxun" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/管理员/sdbi_MasterPage.master" AutoEventWireup="true" CodeFile="zuoyeqingkuang.aspx.cs" Inherits="管理员_zuoyeqingkuang" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" Runat="Server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" Runat="Server">
-    <div class="top1">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;查询范围
+     <div class="top1">&nbsp;
+         <br />
+         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;查询范围
     <asp:DropDownList ID="DropDownList1"
         runat="server" AutoPostBack="True" Font-Size="12pt" Width="135px" 
         onselectedindexchanged="DropDownList1_SelectedIndexChanged">
         <asp:ListItem>所有记录</asp:ListItem>
-        <asp:ListItem>按部门查询</asp:ListItem>
-        <asp:ListItem>按教师工号查询</asp:ListItem>
-        <asp:ListItem>按权限查询</asp:ListItem>
-         <asp:ListItem>按教师姓名查询</asp:ListItem>
+        <asp:ListItem>按姓名查询</asp:ListItem>
+        <asp:ListItem>按教工号查询</asp:ListItem>
+        <asp:ListItem>按课程查询</asp:ListItem>
+         <asp:ListItem>按周次查询</asp:ListItem>
     </asp:DropDownList>
         <asp:Label ID="Label2" runat="server" Text="查询条件"></asp:Label><asp:TextBox ID="TextBox1"
             runat="server"></asp:TextBox>
@@ -25,19 +27,21 @@
         onrowupdating="GridView1_RowUpdating" 
             onrowdatabound="GridView1_RowDataBound" BackColor="#DEBA84" BorderColor="#DEBA84" BorderStyle="None" BorderWidth="1px" CellSpacing="2">
         <Columns>
-            <asp:BoundField DataField="部门" HeaderText="所属部门" ReadOnly="True" >
+            <asp:BoundField DataField="工号" HeaderText="教工号" ReadOnly="True"><ItemStyle Width="100px" Height="20px" />
             <ControlStyle Width="100px" />
             <ItemStyle Width="100px" HorizontalAlign="Center" VerticalAlign="Middle" />
             </asp:BoundField>
-            <asp:BoundField DataField="工号" HeaderText="教师工号" ReadOnly="True">
+            <asp:BoundField DataField="教师姓名" HeaderText="姓名" ReadOnly="True">
             <ControlStyle Width="100px" />
             <ItemStyle Width="100px" HorizontalAlign="Center" VerticalAlign="Middle" />
             </asp:BoundField>
-            <asp:BoundField DataField="姓名" HeaderText="教师姓名" ReadOnly="True">
+            <asp:BoundField DataField="课程" HeaderText="课程" ReadOnly="True">
             <ControlStyle Width="100px" />
             <ItemStyle Width="100px" HorizontalAlign="Center" VerticalAlign="Middle" />
             </asp:BoundField>
-            <asp:BoundField DataField="权限" HeaderText="教师权限" >
+            <asp:BoundField DataField="周次" HeaderText="周次" ReadOnly="True" SortExpression="周次" />
+            <asp:BoundField DataField="节次" HeaderText="节次" ReadOnly="True" SortExpression="节次" />
+            <asp:BoundField DataField="布置作业" HeaderText="作业情况">
             <ControlStyle Width="100px" />
             <ItemStyle Width="100px" HorizontalAlign="Center" VerticalAlign="Middle" />
             </asp:BoundField>
@@ -62,7 +66,5 @@
     </asp:GridView>
         <br />
     </div>
-
-
 </asp:Content>
 

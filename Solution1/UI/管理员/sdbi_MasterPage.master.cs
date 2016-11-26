@@ -79,9 +79,9 @@ public partial class sdbi_MasterPage : System.Web.UI.MasterPage
             case "学生情况":
                 Response.Redirect("xueshengqingkuang.aspx"); break;
             case "教师情况":
-                Response.Redirect("#"); break;
+                Response.Redirect("jiaoshiqingkuang.aspx"); break;
             case "作业情况":
-                Response.Redirect("#"); break;
+                Response.Redirect("zuoyeqingkuang.aspx"); break;
 
             case "数据分析":
                 Response.Redirect("Kaoqinfenxi.aspx"); break;
