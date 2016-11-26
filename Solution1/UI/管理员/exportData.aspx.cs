@@ -25,7 +25,9 @@ public partial class 管理员_exportData : System.Web.UI.Page
         {
             try
             {
-                ex(dt, "学生缺勤");
+                string Filename = System.DateTime.Now.ToString("yyyyMMddhhmmssffff")+"学生缺勤";
+                ex(dt, Filename);
+                Response.Redirect("../导出数据/"+Filename+".xlsx");
                 Label4.Visible = true;
                 Label4.Text = "成功！";
             }
@@ -50,7 +52,9 @@ public partial class 管理员_exportData : System.Web.UI.Page
         {
             try
             {
-                ex(dt,"教师漏报");
+                string Filename = System.DateTime.Now.ToString("yyyyMMddhhmmssffff")+"教师漏报";
+                ex(dt,Filename);
+                Response.Redirect("../导出数据/" + Filename + ".xlsx");
                 Label5.Visible = true;
                 Label5.Text = "成功！";
             }
@@ -75,7 +79,9 @@ public partial class 管理员_exportData : System.Web.UI.Page
         {
             try
             {
-                ex(dt, "教师作业");
+                string Filename = System.DateTime.Now.ToString("yyyyMMddhhmmssffff")+"教师作业";
+                ex(dt, Filename);
+                Response.Redirect("../导出数据/" + Filename + ".xlsx");
                 Label6.Visible = true;
                 Label6.Text = "成功！";
             }
@@ -100,7 +106,9 @@ public partial class 管理员_exportData : System.Web.UI.Page
         {
             try
             {
-                ex(dt, "学生作业");
+                string Filename = System.DateTime.Now.ToString("yyyyMMddhhmmssffff")+"学生作业";
+                ex(dt, Filename);
+                Response.Redirect("../导出数据/" + Filename + ".xlsx");
                 Label7.Visible = true;
                 Label7.Text = "成功！";
             }
@@ -119,7 +127,6 @@ public partial class 管理员_exportData : System.Web.UI.Page
 
     private void ex(System.Data.DataTable dt,string name)
     {
-        string Filename = System.DateTime.Now.ToString("yyyyMMddhhmmssffff");
         object miss = Missing.Value;
         Application excelApp = new Application();
         excelApp.Workbooks.Add(miss);
@@ -153,7 +160,7 @@ public partial class 管理员_exportData : System.Web.UI.Page
         //保存
         Workbook workBook = excelApp.Workbooks[1];
         workBook.RefreshAll();
-        workBook.SaveAs(Server.MapPath("../ ") + "导出数据/"+Filename+name, miss, miss, miss, miss, miss, XlSaveAsAccessMode.xlNoChange, miss, miss, miss, miss, miss);
+        workBook.SaveAs(Server.MapPath("../ ") + "导出数据/"+name, miss, miss, miss, miss, miss, XlSaveAsAccessMode.xlNoChange, miss, miss, miss, miss, miss);
         workBook.Close(false, miss, miss);
         workBook = null;
         excelApp.Quit();
