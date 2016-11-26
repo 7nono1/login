@@ -62,6 +62,14 @@ public partial class sdbi_MasterPage : System.Web.UI.MasterPage
             case "修改密码":
                 Response.Redirect("alterPwd.aspx"); break;
 
+            case "数据分析":
+                Response.Redirect("#");break;
+            case "本系分析":
+                Response.Redirect("#"); break;
+            case "缺勤汇总":
+                Response.Redirect("#"); break;
+            case "导出数据":
+                Response.Redirect("exportData.aspx"); break;
 
             case "考勤信息":
                 Response.Redirect("#"); break;

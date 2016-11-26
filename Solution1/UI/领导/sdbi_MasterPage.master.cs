@@ -76,7 +76,7 @@ public partial class sdbi_MasterPage : System.Web.UI.MasterPage
             case "缺勤汇总":
                 Response.Redirect("lack.aspx"); break;
             case "导出数据":
-                Response.Redirect("leadform.aspx"); break;
+                Response.Redirect("exportData.aspx"); break;
 
 
             case "考勤信息":

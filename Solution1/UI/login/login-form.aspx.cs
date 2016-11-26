@@ -45,6 +45,7 @@ public partial class login_login : System.Web.UI.Page
                     Session["userPwd"] = i.Rows[0][2];
                     Session["userName"] = i.Rows[0][3];
                     Session["userCols"] = i.Rows[0][5];
+                    Session["bumen"] = i.Rows[0][0];
                     Session["stuweek"] =BLL.isLogin.dweek();
                     switch (i.Rows[0][5].ToString())
                     {

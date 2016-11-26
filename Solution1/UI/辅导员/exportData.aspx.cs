@@ -20,7 +20,7 @@ public partial class 管理员_exportData : System.Web.UI.Page
     protected void Button1_Click(object sender, EventArgs e)
     {
         //学生缺勤
-        System.Data.DataTable dt = BLL.ExportDate.stukaoqin("");
+        System.Data.DataTable dt = BLL.ExportDate.stukaoqin("WHERE 部门='" + Session["bumen"].ToString().Trim() + "'");
         if (dt.Rows.Count > 0)
         {
             try
@@ -47,7 +47,7 @@ public partial class 管理员_exportData : System.Web.UI.Page
     protected void Button2_Click(object sender, EventArgs e)
     {
         //教师漏报
-        System.Data.DataTable dt = BLL.ExportDate.tealoubao("");
+        System.Data.DataTable dt = BLL.ExportDate.tealoubao("WHERE 部门='" + Session["bumen"].ToString().Trim() + "'");
         if (dt.Rows.Count > 0)
         {
             try
@@ -74,7 +74,7 @@ public partial class 管理员_exportData : System.Web.UI.Page
     protected void Button3_Click(object sender, EventArgs e)
     {
         //教师作业
-        System.Data.DataTable dt = BLL.ExportDate.teazuoye("");
+        System.Data.DataTable dt = BLL.ExportDate.teazuoye("WHERE 部门='" + Session["bumen"].ToString().Trim() + "'");
         if (dt.Rows.Count > 0)
         {
             try
@@ -101,7 +101,7 @@ public partial class 管理员_exportData : System.Web.UI.Page
     protected void Button4_Click(object sender, EventArgs e)
     {
         //学生作业
-        System.Data.DataTable dt = BLL.ExportDate.stuzuoye("");
+        System.Data.DataTable dt = BLL.ExportDate.stuzuoye("WHERE 部门='"+Session["bumen"].ToString().Trim()+"'");
         if (dt.Rows.Count > 0)
         {
             try
