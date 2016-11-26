@@ -15,6 +15,7 @@ public partial class 管理员_ImoprtData : System.Web.UI.Page
             Label1.Visible = false;
             Label2.Visible = false;
             Label6.Visible = false;
+            Label7.Visible = false;
         }
         else
         {
@@ -86,17 +87,7 @@ public partial class 管理员_ImoprtData : System.Web.UI.Page
 
     protected void Button5_Click(object sender, EventArgs e)
     {
-        Label2.Visible = true;
-            Label2.Text = "正在解析教师数据...";
-            int j = BLL.Datasplit.jiami();
-        if (j == 1)
-        {
-            Label2.Text = "成功!";
-        }
-        if (j == 2)
-        {
-            Label2.Text = "无教师数据";
-        }
+       
         Label6.Visible = true;
             Label6.Text = "请您稍等。。。正在解析课程";
             int i = BLL.Datasplit.a();
@@ -162,5 +153,31 @@ public partial class 管理员_ImoprtData : System.Web.UI.Page
                 }
             }
         }
+    }
+
+    protected void Button7_Click(object sender, EventArgs e)
+    {
+        Label2.Visible = true;
+        Label2.Text = "正在解析教师数据...";
+        int j = BLL.Datasplit.jiami();
+        if (j == 1)
+        {
+            Label2.Text = "成功!";
+        }
+        if (j == 2)
+        {
+            Label2.Text = "无教师数据";
+        }
+        if (j == 3)
+        {
+            Label2.Text = "密码已解析";
+        }
+    }
+
+    protected void Button8_Click(object sender, EventArgs e)
+    {
+        int i=BLL.Datasplit.kaoqin();
+        Label7.Visible = true;
+        Label7.Text = "成功！";
     }
 }

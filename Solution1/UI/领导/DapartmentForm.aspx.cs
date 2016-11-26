@@ -22,7 +22,7 @@ public partial class 领导_FTRform : System.Web.UI.Page
            DropDownList1.Items.Add(new ListItem("折线图", "Spline"));
 
             DropDownList2.Items.Add(new ListItem("全院情况", "1"));
-            DropDownList2.Items.Add(new ListItem("信息与艺术系情况", "2"));
+            DropDownList2.Items.Add(new ListItem("信息与艺术系", "2"));
             DropDownList2.Items.Add(new ListItem("建筑系", "3"));
             DropDownList2.Items.Add(new ListItem("机电系", "4"));
             DropDownList2.Items.Add(new ListItem("粮食工程系", "5"));

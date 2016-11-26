@@ -16,6 +16,8 @@ public partial class sdbi_MasterPage : System.Web.UI.MasterPage
             {
                 tree();
                 Label1.Text = Session["stuweek"].ToString();
+                Label2.Text = "在线人数:";
+                Label3.Text = Application["online"].ToString();
             }
         }
         else
@@ -67,5 +69,12 @@ public partial class sdbi_MasterPage : System.Web.UI.MasterPage
             case "以往记录":
                 Response.Redirect("#"); break;
         }
+    }
+
+    protected void ImageButton1_Click(object sender, ImageClickEventArgs e)
+    {
+
+        Session["userID"] = "";
+        Response.Redirect("/login/login-form.aspx");
     }
 }
