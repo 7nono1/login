@@ -32,7 +32,7 @@ namespace DAL
             conn.Close();
             return dt;
         }
-
+         
         public static void Getdt(string strSQL)
         {
             SqlConnection conn = new SqlConnection(getConn());

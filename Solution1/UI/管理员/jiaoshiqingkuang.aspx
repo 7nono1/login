@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/管理员/sdbi_MasterPage.master" AutoEventWireup="true" CodeFile="xueshengqingkuang.aspx.cs" Inherits="管理员_学生情况" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/管理员/sdbi_MasterPage.master" AutoEventWireup="true" CodeFile="jiaoshiqingkuang.aspx.cs" Inherits="管理员_jiaoshiqingkuang" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" Runat="Server">
 </asp:Content>
@@ -11,7 +11,7 @@
         onselectedindexchanged="DropDownList1_SelectedIndexChanged">
         <asp:ListItem>所有记录</asp:ListItem>
         <asp:ListItem>按姓名查询</asp:ListItem>
-        <asp:ListItem>按学号查询</asp:ListItem>
+        <asp:ListItem>按教工号查询</asp:ListItem>
         <asp:ListItem>按课程查询</asp:ListItem>
          <asp:ListItem>按周次查询</asp:ListItem>
     </asp:DropDownList>
@@ -27,11 +27,11 @@
         onrowupdating="GridView1_RowUpdating" 
             onrowdatabound="GridView1_RowDataBound" BackColor="#DEBA84" BorderColor="#DEBA84" BorderStyle="None" BorderWidth="1px" CellSpacing="2">
         <Columns>
-            <asp:BoundField DataField="学号" HeaderText="学号" ReadOnly="True"><ItemStyle Width="100px" Height="20px" />
+            <asp:BoundField DataField="工号" HeaderText="教工号" ReadOnly="True"><ItemStyle Width="100px" Height="20px" />
             <ControlStyle Width="100px" />
             <ItemStyle Width="100px" HorizontalAlign="Center" VerticalAlign="Middle" />
             </asp:BoundField>
-            <asp:BoundField DataField="姓名" HeaderText="姓名" ReadOnly="True">
+            <asp:BoundField DataField="教师姓名" HeaderText="姓名" ReadOnly="True">
             <ControlStyle Width="100px" />
             <ItemStyle Width="100px" HorizontalAlign="Center" VerticalAlign="Middle" />
             </asp:BoundField>
@@ -41,7 +41,7 @@
             </asp:BoundField>
             <asp:BoundField DataField="周次" HeaderText="周次" ReadOnly="True" SortExpression="周次" />
             <asp:BoundField DataField="节次" HeaderText="节次" ReadOnly="True" SortExpression="节次" />
-            <asp:BoundField DataField="出勤" HeaderText="出勤">
+            <asp:BoundField DataField="是否考勤" HeaderText="考勤情况">
             <ControlStyle Width="100px" />
             <ItemStyle Width="100px" HorizontalAlign="Center" VerticalAlign="Middle" />
             </asp:BoundField>
@@ -66,6 +66,5 @@
     </asp:GridView>
         <br />
     </div>
-
 </asp:Content>
 

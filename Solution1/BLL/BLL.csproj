@@ -48,6 +48,7 @@
     <Compile Include="Datasplit.cs" />
     <Compile Include="ExportDate.cs" />
     <Compile Include="isLogin.cs" />
+    <Compile Include="jsqk.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="cxjs.cs" />
     <Compile Include="PWDProcess.cs" />
