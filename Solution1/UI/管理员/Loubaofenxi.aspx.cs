@@ -11,7 +11,8 @@ using BLL;
 public partial class 管理员_Queqinfenxi : System.Web.UI.Page
 {
     protected void Page_Load(object sender, EventArgs e)
-    { getTAble();
+    {
+        getTAble();
         if(!IsPostBack)
         {  
             getBind(DropDownList1.SelectedValue);
@@ -109,6 +110,20 @@ public partial class 管理员_Queqinfenxi : System.Web.UI.Page
         {
 
             TextBox1.Visible = true;
+        }
+    }
+
+    protected void GridView1_RowCommand(object sender, GridViewCommandEventArgs e)
+    {
+
+        if (e.CommandName == "详细")
+        {
+             
+            //string sno = GridView1.Rows[Convert.ToInt32(e.CommandArgument)].Cells[1].Text.ToString().Trim();
+            //    Bind(BLL.zytj.getWorkTable("学号", sno));
+            Session["UidID"] = GridView1.Rows[Convert.ToInt32(e.CommandArgument)].Cells[1].Text.ToString().Trim();;
+            Response.Redirect("XiangxiXinxi.aspx");
+
         }
     }
 }

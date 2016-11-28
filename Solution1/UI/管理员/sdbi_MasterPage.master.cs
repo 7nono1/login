@@ -104,4 +104,9 @@ public partial class sdbi_MasterPage : System.Web.UI.MasterPage
                 Response.Redirect("#"); break;
         }
     }
+
+    protected void ImageButton1_Click(object sender, ImageClickEventArgs e)
+    {
+
+    }
 }

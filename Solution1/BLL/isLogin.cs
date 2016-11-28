@@ -49,6 +49,12 @@ namespace BLL
             DataTable dt = DAL.DBHelper.getDt(strSQL);
             return dt;
         }
+        public static DataTable getTeacher1(string UidID)
+        {
+            String strSQL = "SELECT  承担单位,工号,教师姓名,周次,星期,节次 FROM 漏报分析 WHERE 工号='" + UidID + "'";
+            DataTable dt = DAL.DBHelper.getDt(strSQL);
+            return dt;
+        }
         public static DataTable getTeacher(string SelectIndex,string SelectIndex1)
         {
             String strSQL = "SELECT distinct 承担单位,工号,教师姓名,未考勤次数 FROM 漏报分析 WHERE "+SelectIndex+"='" + SelectIndex1+"'";
