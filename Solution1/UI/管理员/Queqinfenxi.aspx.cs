@@ -10,7 +10,6 @@ using System.Data;
 using BLL;
 public partial class 管理员_Queqinfenxi : System.Web.UI.Page
 {
-    int i = 0;
     protected void Page_Load(object sender, EventArgs e)
     {
         GridView1.DataSource = initialDatattable();
@@ -244,9 +243,7 @@ public partial class 管理员_Queqinfenxi : System.Web.UI.Page
         Drawing(DropDownList2.SelectedValue,DropDownList1.SelectedValue);
     }
 
-
-
-    protected void Button1_Click(object sender, EventArgs e)
+    protected void Button1_Click1(object sender, EventArgs e)
     {
 
     }

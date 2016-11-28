@@ -37,7 +37,7 @@
             <ControlStyle Width="100px" />
             <ItemStyle Width="100px" HorizontalAlign="Center" VerticalAlign="Middle" />
             </asp:BoundField>
-            <asp:BoundField DataField="权限" HeaderText="教师权限" >
+            <asp:BoundField DataField="权限" HeaderText="教师权限"  ControlStyle-Width="50px" ItemStyle-Width="50px">
             <ControlStyle Width="100px" />
             <ItemStyle Width="100px" HorizontalAlign="Center" VerticalAlign="Middle" />
             </asp:BoundField>

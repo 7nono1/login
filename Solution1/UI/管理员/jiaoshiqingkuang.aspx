@@ -25,7 +25,7 @@
         onrowcancelingedit="GridView1_RowCancelingEdit" 
         onrowdeleting="GridView1_RowDeleting" onrowediting="GridView1_RowEditing" 
         onrowupdating="GridView1_RowUpdating" 
-            onrowdatabound="GridView1_RowDataBound" BackColor="#DEBA84" BorderColor="#DEBA84" BorderStyle="None" BorderWidth="1px" CellSpacing="2">
+            onrowdatabound="GridView1_RowDataBound" BackColor="#DEBA84" BorderColor="#DEBA84" BorderStyle="None" BorderWidth="1px" CellSpacing="2" Width="882px">
         <Columns>
             <asp:BoundField DataField="工号" HeaderText="教工号" ReadOnly="True"><ItemStyle Width="100px" Height="20px" />
             <ControlStyle Width="100px" />
@@ -36,12 +36,12 @@
             <ItemStyle Width="100px" HorizontalAlign="Center" VerticalAlign="Middle" />
             </asp:BoundField>
             <asp:BoundField DataField="课程" HeaderText="课程" ReadOnly="True">
-            <ControlStyle Width="100px" />
-            <ItemStyle Width="100px" HorizontalAlign="Center" VerticalAlign="Middle" />
+            <ControlStyle Width="200px" />
+            <ItemStyle Width="200px" HorizontalAlign="Center" VerticalAlign="Middle" />
             </asp:BoundField>
             <asp:BoundField DataField="周次" HeaderText="周次" ReadOnly="True" SortExpression="周次" />
             <asp:BoundField DataField="节次" HeaderText="节次" ReadOnly="True" SortExpression="节次" />
-            <asp:BoundField DataField="是否考勤" HeaderText="考勤情况">
+            <asp:BoundField DataField="是否考勤" HeaderText="考勤情况" ControlStyle-Width="50px" ItemStyle-Width="50px">
             <ControlStyle Width="100px" />
             <ItemStyle Width="100px" HorizontalAlign="Center" VerticalAlign="Middle" />
             </asp:BoundField>
