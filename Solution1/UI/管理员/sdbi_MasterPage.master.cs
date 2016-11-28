@@ -17,6 +17,9 @@ public partial class sdbi_MasterPage : System.Web.UI.MasterPage
             {
                 tree();
                 Label1.Text = Session["stuweek"].ToString();
+                Label2.Text = "在线人数:";
+                Label3.Text = Application["online"].ToString();
+                namela.Text = "管理员" + "[" + Session["userID"].ToString() + "]" + Session["userName"].ToString() + " " + "您好!";
             }
         }
         else
@@ -72,19 +75,21 @@ public partial class sdbi_MasterPage : System.Web.UI.MasterPage
                 Response.Redirect("ImoprtData.aspx"); break;
             case "清空数据":
                 Response.Redirect("wipeData.aspx"); break;
+            case "导出数据":
+                Response.Redirect("exportData.aspx"); break;
 
 
             case "异动处理":
-                Response.Redirect("#"); break;
+                Response.Redirect("xueshengqingkuang.aspx"); break;
             case "学生情况":
                 Response.Redirect("xueshengqingkuang.aspx"); break;
             case "教师情况":
-                Response.Redirect("#"); break;
+                Response.Redirect("jiaoshiqingkuang.aspx"); break;
             case "作业情况":
-                Response.Redirect("#"); break;
+                Response.Redirect("zuoyeqingkuang.aspx"); break;
 
             case "数据分析":
-                Response.Redirect("#"); break;
+                Response.Redirect("Kaoqinfenxi.aspx"); break;
             case "考勤分析":
                 Response.Redirect("Kaoqinfenxi.aspx"); break;
             case "作业分析":
@@ -103,5 +108,11 @@ public partial class sdbi_MasterPage : System.Web.UI.MasterPage
             case "以往记录":
                 Response.Redirect("#"); break;
         }
+    }
+
+    protected void ImageButton1_Click(object sender, ImageClickEventArgs e)
+    {
+        Session["userID"] = "";
+        Response.Redirect("/login/login-form.aspx");
     }
 }

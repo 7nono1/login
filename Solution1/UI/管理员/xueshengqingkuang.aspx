@@ -41,7 +41,7 @@
             </asp:BoundField>
             <asp:BoundField DataField="周次" HeaderText="周次" ReadOnly="True" SortExpression="周次" />
             <asp:BoundField DataField="节次" HeaderText="节次" ReadOnly="True" SortExpression="节次" />
-            <asp:BoundField DataField="出勤" HeaderText="出勤">
+            <asp:BoundField DataField="出勤" HeaderText="出勤" ControlStyle-Width="50px" ItemStyle-Width="50px">
             <ControlStyle Width="100px" />
             <ItemStyle Width="100px" HorizontalAlign="Center" VerticalAlign="Middle" />
             </asp:BoundField>

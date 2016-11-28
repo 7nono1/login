@@ -10,7 +10,6 @@ using System.Data;
 using BLL;
 public partial class 领导_FTRform : System.Web.UI.Page
 {
-    int i = 0;
     protected void Page_Load(object sender, EventArgs e)
     {
         
