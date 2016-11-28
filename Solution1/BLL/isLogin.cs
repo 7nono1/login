@@ -49,9 +49,15 @@ namespace BLL
             DataTable dt = DAL.DBHelper.getDt(strSQL);
             return dt;
         }
+        public static DataTable getTeacher(string SelectIndex,string SelectIndex1)
+        {
+            String strSQL = "SELECT distinct 承担单位,工号,教师姓名,未考勤次数 FROM 漏报分析 WHERE "+SelectIndex+"='" + SelectIndex1+"'";
+            DataTable dt = DAL.DBHelper.getDt(strSQL);
+            return dt;
+        }
+    
         public static void SETTeacher(int sum)
         {
-
 
             string str = "UPDATA 漏报分析 SET (未考勤次数)=('" + sum + "')";
             DAL.DBHelper.Getdt(str);
@@ -74,6 +80,7 @@ namespace BLL
             DAL.DBHelper.getDt("DELETE FROM 漏报分析");
            
         }
+
         public static DataTable getStudent()
         {
             String strSQL = "SELECT * FROM  考勤课程";

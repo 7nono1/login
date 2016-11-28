@@ -24,21 +24,27 @@ namespace BLL
             private bool _use3d;//是否显示成3维图片
             private SeriesCollection _dt;//统计图数据源
             private string _filename;//统计图片的名称(不包括后缀名)
+            private bool _enabled;
 
             /**/
             /// <summary>
             /// 图片存放路径
             /// </summary>
-            public string PhaysicalImagePath
+        public string PhaysicalImagePath
             {
                 set { _phaysicalimagepath = value; }
                 get { return _phaysicalimagepath; }
             }
+        public bool Enabled
+        {
+            set { _enabled = value; }
+            get { return _enabled; }
+        }
             /**/
             /// <summary>
             /// 图片标题
             /// </summary>
-            public string Title
+        public string Title
             {
                 set { _title = value; }
                 get { return _title; }
@@ -149,6 +155,7 @@ namespace BLL
                 chart.SeriesCollection.Add(this.DataSource);
                 chart.DefaultSeries.DefaultElement.ShowValue = true;
                 chart.ShadingEffect = true;
+                chart.Enabled = false;
                 chart.Use3D = this.Use3D;
                 chart.Series.DefaultElement.ShowValue = true;
             }

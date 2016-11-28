@@ -11,6 +11,14 @@ body{
 	background-repeat:no-repeat;
 	margin:0 auto;
 	font-family: 'Open Sans', sans-serif;}
+.flish{
+        maegin-left:1200px;
+        width:500px;
+        height:300px;
+        position:absolute;
+        top:0px;
+        }
+        
 h1{
 	font-family: 'Exo 2', sans-serif;
 	  text-align: center;
@@ -105,6 +113,8 @@ h1{
 
 </head>
 <body id="body">
+    <embed type="application/x-shockwave-flash" src="flish/f4.swf" aria-hidden="true" wmode="transparent" style="position:; top: 0px; width: 1800px; height: 800px;"  />
+    <div class="flish">
     <form id="form1" runat="server">
     <h1>山东商务职业学院学生考勤系统</h1>
 <div id="login-form">
@@ -124,6 +134,7 @@ this.value='';" onblur="if(this.value==''){this.value='密码';}" />
 <img src="../ValidateImage.aspx" class="code" style="cursor: pointer; left: 0px; width: 124px;" height="35" onclick="this.src=this.src+'?'" />
     <img src="images/pass.png" title="请在输入框输入算数结果" />
 </div>
+     
     <div id="lab">
 
         <asp:Label ID="Label1" runat="server" Text="Label"></asp:Label>
@@ -135,5 +146,6 @@ this.value='';" onblur="if(this.value==''){this.value='密码';}" />
 
 </div>
     </form>
+        </div>
 </body>
 </html>

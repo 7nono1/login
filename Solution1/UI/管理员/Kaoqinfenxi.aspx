@@ -4,20 +4,13 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" Runat="Server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" Runat="Server">
+    <asp:Button ID="Button1" runat="server" Font-Size="XX-Large" ForeColor="Black" Height="50px" OnClick="Button1_Click1" style="margin-left: 91px" Text="生成图标" Width="630px" />
     <asp:GridView ID="GridView1" runat="server" AllowPaging="True" CellPadding="3" AutoGenerateColumns="False" Height="200px" Width="800px" OnSelectedIndexChanged="GridView1_SelectedIndexChanged">
         <Columns>
             <asp:BoundField HeaderText="系部" DataField="系部" />
-            <asp:BoundField HeaderText="在校人数" DataField="在校人次" />
-            <asp:BoundField HeaderText="旷课人次" DataField="旷课人次" />
-            <asp:BoundField HeaderText="旷课率" DataField="旷课率" />
-            <asp:BoundField HeaderText="迟到率" DataField="迟到率" />
-            <asp:BoundField HeaderText="早退人次" DataField="早退人次" />
-            <asp:BoundField HeaderText="早退率" DataField="早退率" />
-            <asp:BoundField HeaderText="请假人次" DataField="请假人次" />
-            <asp:BoundField HeaderText="请假率" DataField="请假率" />
-            <asp:BoundField HeaderText="总缺勤数" DataField="总缺勤人次" />
-            <asp:BoundField HeaderText="总缺勤率" DataField="总缺勤率" />
-            <asp:BoundField DataField="早退人次" HeaderText="早退人数" />
+            <asp:BoundField HeaderText="老师考勤总次数" DataField="老师考勤总次数" />
+            <asp:BoundField DataField="未考勤次数" HeaderText="未考勤人数" />
+            <asp:BoundField HeaderText="未考勤率" DataField="未考勤率" />
         </Columns>
         <FooterStyle BackColor="#F7DFB5" ForeColor="#8C4510" />
         <HeaderStyle BackColor="#A55129" Font-Bold="True" ForeColor="White" />
@@ -29,9 +22,8 @@
         <SortedDescendingCellStyle BackColor="#F1E5CE" />
         <SortedDescendingHeaderStyle BackColor="#93451F" />
     </asp:GridView>
-    <div></div>
     <asp:SqlDataSource ID="SqlDataSource1" runat="server"></asp:SqlDataSource>
-    <dotnetCHARTING:Chart ID="Chart1" runat="server" Height="355px" Width="375px">
+    <dotnetCHARTING:Chart ID="Chart1" runat="server" Height="355px" Width="375px" Enabled="False">
     </dotnetCHARTING:Chart>
     <asp:DropDownList ID="DropDownList2" runat="server"  AutoPostBack="True" OnTextChanged="DropDownList1_TextChanged">
     </asp:DropDownList>

@@ -11,8 +11,14 @@ using BLL;
 public partial class 管理员_Queqinfenxi : System.Web.UI.Page
 {
     protected void Page_Load(object sender, EventArgs e)
-    {
-        getTAble();
+    { getTAble();
+        if(!IsPostBack)
+        {  
+            getBind(DropDownList1.SelectedValue);
+        }
+        
+        
+
 
     }
     public  void getTAble()
@@ -34,25 +40,76 @@ public partial class 管理员_Queqinfenxi : System.Web.UI.Page
                 BLL.isLogin.inster(dt, "漏报分析");
             }
         }
-        string aa = "";
         dt = BLL.isLogin.setWeiKaoqin();
         BLL.isLogin.getTeacher1();
-        //int n = (int)dt.Rows.Count;
-        //int[] arry = new int[n];
         BLL.isLogin.inster1(dt, "漏报分析");
-        GridView1.DataSource = BLL.isLogin.getTeacherTable();
+        Bind(BLL.isLogin.getTeacherTable());
+    }
+    public void getBind(string SelectIdex)
+    {
+        SelectIdex = DropDownList1.SelectedValue;
+        if (SelectIdex == "所有数据")
+        {
+            Bind(BLL.isLogin.getTeacherTable());
+        }
+        else if (SelectIdex != "所有记录" && TextBox1.Text != "")
+        {
+          if (SelectIdex == "系部查询")
+            {
+                Bind(BLL.isLogin.getTeacher("承担单位", TextBox1.Text));
+            }
+            else if (SelectIdex == "工号查询")
+            {
+                Bind(BLL.isLogin.getTeacher("工号", TextBox1.Text));
+            }
+            else if (SelectIdex == "姓名查询")
+            {
+                Bind(BLL.isLogin.getTeacher("教师姓名", TextBox1.Text));
+            }
+        }
+    }
+    public void Bind(DataTable dt)
+    {
+        GridView1.DataSource = dt;
+        GridView1.DataKeyNames = new string[] { "工号" };
         GridView1.DataBind();
     }
 
     protected void GridView1_PageIndexChanging(object sender, GridViewPageEventArgs e)
     {
         GridView1.PageIndex = e.NewPageIndex;
-        getTAble();
+        getBind(DropDownList1.SelectedValue);
     }
 
     protected void GridView1_SelectedIndexChanged(object sender, EventArgs e)
     {
 
+    }
+
+    protected void Button1_Click(object sender, EventArgs e)
+    {
+        getBind(DropDownList1.SelectedValue);
+        TextBox1.Text = "";
+    }
+
+    protected void DropDownList1_TextChanged(object sender, EventArgs e)
+    {
+        
+    }
+
+    protected void DropDownList1_SelectedIndexChanged(object sender, EventArgs e)
+    {
+        if (DropDownList1.SelectedValue == "所有数据")
+
+        {
+
+            TextBox1.Visible = false;
+        }
+        else
+        {
+
+            TextBox1.Visible = true;
+        }
     }
 }
     

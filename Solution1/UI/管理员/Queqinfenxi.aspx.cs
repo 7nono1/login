@@ -13,26 +13,27 @@ public partial class 管理员_Queqinfenxi : System.Web.UI.Page
     int i = 0;
     protected void Page_Load(object sender, EventArgs e)
     {
-        
+        GridView1.DataSource = initialDatattable();
+            GridView1.DataKeyNames = new string[] { "系部" };//主键
+            GridView1.DataBind();
 
         if (!Page.IsPostBack)
         {
-            DataTable dt = BLL.isLogin.getStudent();
-            GridView1.DataSource = initialDatattable();
-            GridView1.DataKeyNames = new string[] { "系部" };//主键
-            GridView1.DataBind();
-           Drawing("Column", "1");
-            DropDownList1.Items.Add(new ListItem("柱状图", "Column"));
-           DropDownList1.Items.Add(new ListItem("折线图", "Spline"));
-
             DropDownList2.Items.Add(new ListItem("全院情况", "1"));
             DropDownList2.Items.Add(new ListItem("信息与艺术系情况", "2"));
             DropDownList2.Items.Add(new ListItem("建筑系", "3"));
             DropDownList2.Items.Add(new ListItem("机电系", "4"));
-            DropDownList2.Items.Add(new ListItem("粮食工程系", "5"));
+            DropDownList2.Items.Add(new ListItem("机械工程系", "5"));
             DropDownList2.Items.Add(new ListItem("食品工程系", "6"));
             DropDownList2.Items.Add(new ListItem("经济管理系", "7"));
             DropDownList2.Items.Add(new ListItem("商务外语系", "8"));
+            DataTable dt = BLL.isLogin.getStudent();
+            
+           Drawing("Column", "1");
+            DropDownList1.Items.Add(new ListItem("柱状图", "Column"));
+           DropDownList1.Items.Add(new ListItem("折线图", "Spline"));
+
+            
         }
       
     }
@@ -43,7 +44,7 @@ public partial class 管理员_Queqinfenxi : System.Web.UI.Page
         c.Title = "缺勤情况";
        c.XTitle = "周次";
         c.YTitle = "人数（人）";
-        c.PicHight = 300;        c.PicWidth = 884;
+        c.PicHight = 200;        c.PicWidth = 884;
         c.PhaysicalImagePath = "ChartImages";//统计图片存放的文件夹名称，缺少对应的文件夹生成不了统计图片
        c.FileName = "Statistics51aspx";
         if (type== "Column")
@@ -244,4 +245,9 @@ public partial class 管理员_Queqinfenxi : System.Web.UI.Page
     }
 
 
+
+    protected void Button1_Click(object sender, EventArgs e)
+    {
+
+    }
 }

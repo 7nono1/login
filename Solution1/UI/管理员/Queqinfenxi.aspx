@@ -5,7 +5,8 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" Runat="Server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" Runat="Server">
-    <asp:GridView ID="GridView1" runat="server" AllowPaging="True" CellPadding="3" AutoGenerateColumns="False" Height="106px" Width="884px">
+    <asp:Button ID="Button1" runat="server" Font-Size="XX-Large" ForeColor="Black" Height="101px" OnClick="Button1_Click1" style="margin-left: 68px" Text="生成图表" Width="845px" />
+    <asp:GridView ID="GridView1" runat="server" AllowPaging="True" CellPadding="3" AutoGenerateColumns="False" Height="100px" Width="1000px">
         <Columns>
             <asp:BoundField HeaderText="系部" DataField="系部" />
             <asp:BoundField HeaderText="在校人数" DataField="在校人次" />
