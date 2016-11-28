@@ -7,9 +7,9 @@
              <AlternatingRowStyle BackColor="PaleGoldenrod" />
              <Columns>
                  <asp:BoundField />
-                 <asp:BoundField DataField="系部" HeaderText="承担单位" />
-                 <asp:BoundField DataField="学号" HeaderText="工号" />
-                 <asp:BoundField DataField="姓名" HeaderText="教师姓名" />
+                 <asp:BoundField DataField="承担单位" HeaderText="系部" />
+                 <asp:BoundField DataField="工号" HeaderText="工号" />
+                 <asp:BoundField DataField="教师姓名" HeaderText="教师姓名" />
                  <asp:BoundField DataField="周次" HeaderText="周次" />
                  <asp:BoundField DataField="星期" HeaderText="星期" />
                  <asp:BoundField HeaderText="节次" DataField="节次" />
