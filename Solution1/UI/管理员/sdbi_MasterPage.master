@@ -85,6 +85,14 @@
         }
         #Label3 {
             font-size:26px;
+        } 
+        #quanxian {
+            width:365px;
+            float:right;
+            height: 27px;
+            font-size:24px;
+            margin-right:160px;
+            margin-top:54px;
         }
     </style>
     <%--<script type="text/javascript">
@@ -111,6 +119,9 @@
                     <asp:Label ID="Label2" runat="server" Text="Label"></asp:Label>
                     <asp:Label ID="Label3" runat="server" Text="Label"></asp:Label>
                    </div>
+             <div id="quanxian">
+                 <asp:Label ID="namela" runat="server" Text="Label"></asp:Label>
+             </div>
                 </div>
                 <div id="left">
                     <div id="left1">
