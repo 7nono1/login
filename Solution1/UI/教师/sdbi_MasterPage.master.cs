@@ -15,7 +15,27 @@ public partial class sdbi_MasterPage : System.Web.UI.MasterPage
             if (!IsPostBack)
             {
                 tree();
+                string co = Session["userCols"].ToString();
+                if (co == "1")
+                {
+                    co = "管理员";
+                }
+                if (co == "2")
+                {
+                    co = "院系领导";
+                }
+                if (co == "3")
+                {
+                    co = "辅导员";
+                }
+                if (co == "4")
+                {
+                    co = "教师";
+                }
                 Label1.Text = Session["stuweek"].ToString();
+                Label2.Text = "在线人数:";
+                Label3.Text = Application["online"].ToString();
+                namela.Text = co + "[" + Session["userID"].ToString() + "]" + Session["userName"].ToString() + " " + "您好!";
             }
         }
         else
@@ -67,5 +87,12 @@ public partial class sdbi_MasterPage : System.Web.UI.MasterPage
             case "以往记录":
                 Response.Redirect("#"); break;
         }
+    }
+
+    protected void ImageButton1_Click(object sender, ImageClickEventArgs e)
+    {
+
+        Session["userID"] = "";
+        Response.Redirect("/login/login-form.aspx");
     }
 }

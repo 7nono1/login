@@ -72,12 +72,34 @@
             top:57px;
             font-size:26px;
         }
+         #online {
+            float:right;
+            position:relative;
+            top:57px;
+        }
+        #Label2 {
+            font-size:28px;
+            font-weight:bold;
+            font-family:'Times New Roman', Times, serif;
+
+        }
+        #Label3 {
+            font-size:26px;
+        }
+        #quanxian {
+            width:390px;
+            float:right;
+            height: 27px;
+            font-size:24px;
+            margin-right:160px;
+            margin-top:54px;
+        }
     </style>
-   <script type="text/javascript">
+   <%--<script type="text/javascript">
     function display(imgmain) {
         window.location.href = "/login/login-form.aspx";
         }
-</script>
+</script>--%>
     <asp:ContentPlaceHolder id="head" runat="server">
     </asp:ContentPlaceHolder>
 </head>
@@ -88,11 +110,19 @@
          <div id="header">
              <div id="png">
                   <a>
+                            <asp:ImageButton ID="ImageButton1" runat="server" Height="93px" ImageUrl="~/images/top_3.jpg" OnClick="ImageButton1_Click" Width="129px" />
                             <img src="../images/top_3.jpg" id="imgmain" onclick="display()" /></a>
                  </div>
                     <div id="we">
                     <asp:Label ID="Label1" runat="server" Text="Label"></asp:Label>
                     </div>
+                   <div id="online">
+                    <asp:Label ID="Label2" runat="server" Text="Label"></asp:Label>
+                    <asp:Label ID="Label3" runat="server" Text="Label"></asp:Label>
+                   </div>
+             <div id="quanxian">
+                 <asp:Label ID="namela" runat="server" Text="Label"></asp:Label>
+             </div>
           </div>
           <div id="left">
               <div id="left1">

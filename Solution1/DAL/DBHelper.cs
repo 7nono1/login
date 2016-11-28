@@ -32,7 +32,7 @@ namespace DAL
             conn.Close();
             return dt;
         }
-
+         
         public static void Getdt(string strSQL)
         {
             SqlConnection conn = new SqlConnection(getConn());
@@ -76,9 +76,11 @@ namespace DAL
          */
         public static void SQLBulkCopy(DataTable dt,string table1)
         {
-            using (SqlConnection conn = new SqlConnection(getConn())) {
+            using (SqlConnection conn = new SqlConnection(getConn()))
+            {
                 conn.Open();
-                using (SqlBulkCopy bulkCopy = new SqlBulkCopy(conn)) {
+                using (SqlBulkCopy bulkCopy = new SqlBulkCopy(conn))
+                {
                     bulkCopy.DestinationTableName = table1;
                     for (int i = 0; i < 13; i++)
                     {
@@ -183,6 +185,24 @@ namespace DAL
         {
             SqlCommand cmd = new SqlCommand(strSQL, conn);
             cmd.ExecuteNonQuery();
+        }
+
+        //录入考勤基础数据
+        public static void datakaoqin(DataTable dt,string ta)
+        {
+            using (SqlConnection conn = new SqlConnection(getConn()))
+            {
+                conn.Open();
+                using (SqlBulkCopy bulkCopy = new SqlBulkCopy(conn))
+                {
+                    bulkCopy.DestinationTableName = ta;
+                    for (int i = 0; i < 11; i++)
+                    {
+                        bulkCopy.ColumnMappings.Add(dt.Columns[i].ColumnName, dt.Columns[i].ColumnName);
+                    }
+                    bulkCopy.WriteToServer(dt);
+                }
+            }
         }
     }
 }

@@ -113,6 +113,13 @@ public partial class 管理员_jiaoshichaxun : System.Web.UI.Page
 
 
     }
+    protected void GridView1_RowDataBound(object sender, GridViewRowEventArgs e)
+    {
+
+      
+
+
+    }
     protected void Button1_Click(object sender, EventArgs e)
     {
         Inquire();

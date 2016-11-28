@@ -25,7 +25,7 @@
         onrowupdating="GridView1_RowUpdating" 
            BackColor="#DEBA84" BorderColor="#DEBA84" BorderStyle="None" BorderWidth="1px" CellSpacing="2">
         <Columns>
-            <asp:BoundField DataField="部门" HeaderText="所属部门" ReadOnly="True">
+            <asp:BoundField DataField="部门" HeaderText="所属部门" ReadOnly="True" >
             <ControlStyle Width="100px" />
             <ItemStyle Width="100px" HorizontalAlign="Center" VerticalAlign="Middle" />
             </asp:BoundField>
@@ -37,7 +37,7 @@
             <ControlStyle Width="100px" />
             <ItemStyle Width="100px" HorizontalAlign="Center" VerticalAlign="Middle" />
             </asp:BoundField>
-            <asp:BoundField DataField="权限" HeaderText="教师权限">
+            <asp:BoundField DataField="权限" HeaderText="教师权限" >
             <ControlStyle Width="100px" />
             <ItemStyle Width="100px" HorizontalAlign="Center" VerticalAlign="Middle" />
             </asp:BoundField>

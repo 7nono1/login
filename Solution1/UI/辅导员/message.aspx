@@ -14,7 +14,7 @@
         .marglist {       
              height: 509px;
             width: 811px;
-            background-color:#00FF99;
+            background-color:#FFFF99;
         }
         .checklist {
             float:left;
@@ -28,29 +28,29 @@
         }
         .btn1 {
             border:none;
-            background-color:#00FF99;
+            background-color:#FFFF99;
             border-top-left-radius:10px;
             font-size:26px;
-            color:white;
+            color:#000000;
         }
             .btn1:hover {
                  background-color: #ff2775;
             }
         .btn2 {
             border:none;
-            background-color:#00FF99;
+            background-color:#FFFF99;
             font-size:26px;
-            color:white;
+            color:#000;
         }
             .btn2:hover {
                  background-color: #ff2775;
             }
         .btn3 {
             border:none;
-            background-color:#00FF99;
+            background-color:#FFFF99;
             border-top-right-radius:10px;
             font-size:26px;
-            color:white;
+            color:#000;
         }
             .btn3:hover {
                  background-color: #ff2775;

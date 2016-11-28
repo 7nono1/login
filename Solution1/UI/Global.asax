@@ -5,6 +5,9 @@
     void Application_Start(object sender, EventArgs e)
     {
         // Code that runs on application startup
+        Application.Lock();
+        Application["online"] = 0;
+        Application.UnLock();
 
     }
 
@@ -28,6 +31,10 @@
         Session["userName"] = "";
         Session["userCols"] = "";
         Session["stuweek"] = "";
+
+        Application.Lock();
+        Application["online"] = (int)Application["online"]+1;
+        Application.UnLock();
     }
 
     void Session_End(object sender, EventArgs e)
@@ -37,6 +44,10 @@
         // is set to InProc in the Web.config file. If session mode is set to StateServer 
         // or SQLServer, the event is not raised.
 
+        
+        Application.Lock();
+        Application["online"] = (int)Application["online"]-1;
+        Application.UnLock();
     }
 
 </script>
