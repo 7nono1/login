@@ -1,9 +1,9 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/管理员/sdbi_MasterPage.master" AutoEventWireup="true" CodeFile="XiangxiXinxi.aspx.cs" Inherits="Xiangxi" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/领导/sdbi_MasterPage.master" AutoEventWireup="true" CodeFile="XiangxiXinxi.aspx.cs" Inherits="领导_XiangxiXinxi" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" Runat="Server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" Runat="Server">
-      <asp:GridView ID="GridView1" runat="server" AllowPaging="True" AutoGenerateColumns="False" BackColor="LightGoldenrodYellow" BorderColor="Tan" BorderWidth="1px" CellPadding="2" ForeColor="Black" GridLines="None" Height="506px" style="margin-left: 88px" Width="582px" OnPageIndexChanged="GridView1_PageIndexChanged" OnPageIndexChanging="GridView1_PageIndexChanging" >
+    <asp:GridView ID="GridView1" runat="server" AllowPaging="True" AutoGenerateColumns="False" BackColor="LightGoldenrodYellow" BorderColor="Tan" BorderWidth="1px" CellPadding="2" ForeColor="Black" GridLines="None" Height="506px" style="margin-left: 88px" Width="582px" OnPageIndexChanged="GridView1_PageIndexChanged" OnPageIndexChanging="GridView1_PageIndexChanging" >
              <AlternatingRowStyle BackColor="PaleGoldenrod" />
              <Columns>
                  <asp:BoundField />
@@ -23,6 +23,5 @@
              <SortedDescendingCellStyle BackColor="#E1DB9C" />
              <SortedDescendingHeaderStyle BackColor="#C2A47B" />
          </asp:GridView>
-      <asp:Label ID="Label2" runat="server" Text="Label"></asp:Label>
 </asp:Content>
 

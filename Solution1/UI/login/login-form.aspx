@@ -7,12 +7,18 @@
     <title>山东商务职业学院学生考勤管理系统</title>
     <style type="text/css">
 body{
-    width:100%;
-    height:100%;
 	background-image:url(images/bg1.jpg);
 	background-repeat:no-repeat;
 	margin:0 auto;
-	font-family: 'Open Sans', sans-serif;}  
+	font-family: 'Open Sans', sans-serif;}
+.flish{
+        maegin-left:1200px;
+        width:500px;
+        height:300px;
+        position:absolute;
+        top:0px;
+        }
+        
 h1{
 	font-family: 'Exo 2', sans-serif;
 	  text-align: center;
@@ -93,6 +99,7 @@ h1{
              height:3em;
              line-height:3em;
         }
+
 </style>
 <script type="text/javascript">
     var b=1;
@@ -106,7 +113,7 @@ h1{
 
 </head>
 <body id="body">
-    <embed type="application/x-shockwave-flash" src="flish/f4.swf" aria-hidden="true" hidden="hidden" wmode="transparent" style="z-index:-100; position:absolute; width: 100%; height: 100%;" />
+    <embed type="application/x-shockwave-flash" src="flish/f4.swf" aria-hidden="true" wmode="transparent" style="position:; top: 0px; width: 1800px; height: 800px;"  />
     <div class="flish">
     <form id="form1" runat="server">
     <h1>山东商务职业学院学生考勤系统</h1>
