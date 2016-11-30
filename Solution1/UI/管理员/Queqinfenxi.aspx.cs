@@ -242,9 +242,4 @@ public partial class 管理员_Queqinfenxi : System.Web.UI.Page
     {
         Drawing(DropDownList2.SelectedValue,DropDownList1.SelectedValue);
     }
-
-    protected void Button1_Click1(object sender, EventArgs e)
-    {
-
-    }
 }

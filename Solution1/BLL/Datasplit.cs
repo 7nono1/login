@@ -98,7 +98,7 @@ namespace BLL
                                 {
                                     for (int danb = Convert.ToInt32(strSplit3[0]); danb <= Convert.ToInt32(strSplit3[1]); danb++)
                                     {
-                                        if (danb % 2 != 0)
+                                        if (danb % 2 == 0)
                                         {
                                             DAL.DBHelper.datasplit("INSERT INTO 考勤课程 VALUES('" + dt.Rows[i][0].ToString() + "','" + strtea1[0].ToString() + "','" + strtea1[1].ToString() + "','" + strtype1[0].ToString() + "','" + strtype1[1].ToString() + "','" + strclass2[1].ToString() + "','" + danb + "','" + strclass2[2].ToString() + "','" + classtype.ToString() + "','" + dt.Rows[i][4] + "','" + dt.Rows[i][5] + "','" + dt.Rows[i][6] + "','" + dt.Rows[i][7] + "','" + dt.Rows[i][8] + "','" + dt.Rows[i][9] + "','" + dt.Rows[i][10] + "','" + dt.Rows[i][11] + "','正常','完成','否','" + dt.Rows[i][12] + "','" + dt.Rows[i][13] + "','" + dt.Rows[i][14] + "','否')", conn);
                                         }
@@ -120,10 +120,7 @@ namespace BLL
                                 {
                                     for (int danb = Convert.ToInt32(strSplit3[0]); danb <= Convert.ToInt32(strSplit3[1]); danb++)
                                     {
-                                        if (danb % 2 != 0)
-                                        {
                                             DAL.DBHelper.datasplit("INSERT INTO 考勤课程 VALUES('" + dt.Rows[i][0].ToString() + "','" + strtea1[0].ToString() + "','" + strtea1[1].ToString() + "','" + strtype1[0].ToString() + "','" + strtype1[1].ToString() + "','" + strclass2[1].ToString() + "','" + danb + "','" + strclass2[2].ToString() + "','" + classtype.ToString() + "','" + dt.Rows[i][4] + "','" + dt.Rows[i][5] + "','" + dt.Rows[i][6] + "','" + dt.Rows[i][7] + "','" + dt.Rows[i][8] + "','" + dt.Rows[i][9] + "','" + dt.Rows[i][10] + "','" + dt.Rows[i][11] + "','正常','完成','否','" + dt.Rows[i][12] + "','" + dt.Rows[i][13] + "','" + dt.Rows[i][14] + "','否')", conn);
-                                        }
                                     }
                                 }
                             }

@@ -212,10 +212,4 @@ GridView1.DataSource =BLL.kqfx.initialDatattable();
     {
 
     }
-    
-
-    protected void Button1_Click1(object sender, EventArgs e)
-    {
-
-    }
 }

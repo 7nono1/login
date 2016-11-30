@@ -4,7 +4,6 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" Runat="Server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" Runat="Server">
-    <asp:Button ID="Button1" runat="server" Font-Size="XX-Large" ForeColor="Black" Height="50px" OnClick="Button1_Click1" style="margin-left: 91px" Text="生成图标" Width="630px" />
     <asp:GridView ID="GridView1" runat="server" AllowPaging="True" CellPadding="3" AutoGenerateColumns="False" Height="200px" Width="800px" OnSelectedIndexChanged="GridView1_SelectedIndexChanged">
         <Columns>
             <asp:BoundField HeaderText="系部" DataField="系部" />

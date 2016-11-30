@@ -50,6 +50,7 @@
     <Compile Include="ExportDate.cs" />
     <Compile Include="isLogin.cs" />
     <Compile Include="jsqk.cs" />
+    <Compile Include="kaoqin.cs" />
     <Compile Include="kqfx.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="cxjs.cs" />
