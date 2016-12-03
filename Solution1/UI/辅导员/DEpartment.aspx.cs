@@ -4,104 +4,80 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
- using System.Drawing;
- using dotnetCHARTING;
+using System.Drawing;
+using dotnetCHARTING;
 using System.Data;
 using BLL;
-using System.Threading;
-public partial class 管理员_Queqinfenxi : System.Web.UI.Page
+
+public partial class 辅导员_DEpartment : System.Web.UI.Page
 {
     protected void Page_Load(object sender, EventArgs e)
     {
-
-
      
-        if (!Page.IsPostBack)
+        if (!Page.IsPostBack)  
         {
+           
+            string str = Session["userName"].ToString();
+           DataTable dt= BLL.Department.getDepartment(str);
             initialDatattable();
-            Drawing("Column", "1");
-            dropListLoad();
-
-
+            DataTable dd = isLogin.getStudent2(dt.Rows[0][0].ToString());
+            GridView1.DataSource = dd;
+            GridView1.DataBind();
+            Drawing("Column", dt.Rows[0][0].ToString());
+          
         }
-      
-    }
-   public void dropListLoad()
-    {
-        DropDownList2.Items.Add(new ListItem("全院情况", "1"));
-        DropDownList2.Items.Add(new ListItem("信息与艺术系情况", "2"));
-        DropDownList2.Items.Add(new ListItem("建筑系", "3"));
-        DropDownList2.Items.Add(new ListItem("机电系", "4"));
-        DropDownList2.Items.Add(new ListItem("机械工程系", "5"));
-        DropDownList2.Items.Add(new ListItem("食品工程系", "6"));
-        DropDownList2.Items.Add(new ListItem("经济管理系", "7"));
-        DropDownList2.Items.Add(new ListItem("商务外语系", "8"));
 
-        DropDownList1.Items.Add(new ListItem("柱状图", "Column"));
-        DropDownList1.Items.Add(new ListItem("折线图", "Spline"));
     }
+
     private void Drawing(string type,string department)
     {
-       
-        Charting c= new Charting();
+
+        Charting c = new Charting();
         c.Title = "缺勤情况";
         c.XTitle = "周次";
         c.YTitle = "人数（人）";
         c.PicHight = 300;
-        c.PicWidth = 884;
+        c.PicWidth = 800;
         c.PhaysicalImagePath = "ChartImages";//统计图片存放的文件夹名称，缺少对应的文件夹生成不了统计图片
         c.FileName = "Statistics51aspx";
-        if (type== "Column")
-         {
-            c.Type = SeriesType.Column;
-        }
-        else
-       {
-             c.Type = SeriesType.Spline;
-             
-        }
-
-        if (department =="1")
-        { 
-            c.DataSource = GetDataSource(1, 7);
-        }
-        else if (department == "2")
+          c.Type = SeriesType.Column;
+        if (department == "信息与艺术系")
         {
             c.DataSource = GetDataSource(1, 1);
         }
-        else if (department == "3")
+        else if (department == "建筑系")
         {
             c.DataSource = GetDataSource(2, 2);
         }
-        else if (department == "4")
+        else if (department == "机电系")
         {
             c.DataSource = GetDataSource(3, 3);
         }
 
-        else if (department == "5")
+        else if (department == "机械工程系")
         {
             c.DataSource = GetDataSource(4, 4);
         }
 
-        else if (department == "6")
+        else if (department == "食品工程系")
         {
             c.DataSource = GetDataSource(5, 5);
         }
 
-        else if (department == "7")
+        else if (department == "经济管理系")
         {
             c.DataSource = GetDataSource(6, 6);
         }
 
-        else if (department == "8")
+        else if (department == "商务外语系")
         {
             c.DataSource = GetDataSource(7, 7);
         }
         c.Use3D = false;
 
         c.CreateStatisticPic(this.Chart1);
- 
-     }
+
+    }
     private void initialDatattable()
     {
 
@@ -144,16 +120,14 @@ public partial class 管理员_Queqinfenxi : System.Web.UI.Page
             School = good + late + Early + Attendance + Leave;
             double late1 = Math.Round(late / School, 3);
             double Early1 = Math.Round(Early / School, 3);
-            double Attendance1 = Math.Round(Attendance / School,3);
-            double Leave1 = Math.Round(Leave / School,3);
+            double Attendance1 = Math.Round(Attendance / School, 3);
+            double Leave1 = Math.Round(Leave / School, 3);
             double sum = late + Early + Attendance + Leave;
-            double sum1 = Math.Round(sum / School,3);
+            double sum1 = Math.Round(sum / School, 3);
             isLogin.getStudent(allDepartment[j], (int)School, (int)late, late1.ToString("0.000"), (int)Early, Early1.ToString("0.000"), (int)Attendance, Attendance1.ToString("0.000"), (int)Leave, Leave1.ToString("0.000"), (int)sum, sum1.ToString());
 
         }
-        DataTable dt = isLogin.getStudent1();
-        GridView1.DataSource = dt;
-        GridView1.DataBind();
+    
     }
 
 
@@ -161,7 +135,7 @@ public partial class 管理员_Queqinfenxi : System.Web.UI.Page
     private SeriesCollection GetDataSource(int i, int x)
     {
         SeriesCollection SC = new SeriesCollection();
-        string droplist1 = DropDownList2.SelectedValue;
+   
 
 
         for (int a = i; a <= x; a++) //对比的项数
@@ -214,7 +188,7 @@ public partial class 管理员_Queqinfenxi : System.Web.UI.Page
         s.Name = (departement);
         for (int b = 1; b <= 19; b++) //X轴尺度个数，如19个周表示有19个尺度数
         {
-            DataTable dt = BLL.isLogin.getStudent(departement,b);
+            DataTable dt = BLL.isLogin.getStudent(departement, b);
             int i = dt.Rows.Count;
 
             Element e = new Element();
@@ -222,24 +196,5 @@ public partial class 管理员_Queqinfenxi : System.Web.UI.Page
             e.YValue = i;//与X轴对应的Y轴的数值
             s.Elements.Add(e);
         }
-
-
-        
     }
- 
-    
- 
-
-    protected void DropDownList1_TextChanged(object sender, EventArgs e)
-    {
-        Drawing(DropDownList1.SelectedValue,DropDownList2.SelectedValue);
-    }
-
-
-    protected void DropDownList2_TextChanged(object sender, EventArgs e)
-    {
-        Drawing(DropDownList2.SelectedValue,DropDownList1.SelectedValue);
-    }
-
-    
 }

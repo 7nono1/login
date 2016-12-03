@@ -13,9 +13,8 @@ public partial class 管理员_Queqinfenxi : System.Web.UI.Page
 {
     protected void Page_Load(object sender, EventArgs e)
     {
-
-GridView1.DataSource =BLL.kqfx.initialDatattable();
-            GridView1.DataKeyNames = new string[] { "系部" };//主键
+            GridView1.DataSource =BLL.kqfx.initialDatattable();
+            GridView1.DataKeyNames = new string[] { "系部" };
             GridView1.DataBind();
         if (!Page.IsPostBack)
         {

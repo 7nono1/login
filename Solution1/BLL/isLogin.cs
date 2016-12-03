@@ -162,6 +162,13 @@ namespace BLL
             return dt;
 
         }
+        public static DataTable getStudent2(string str)
+        {
+
+            DataTable dt = DAL.DBHelper.getDt("select * from 缺勤分析 where 系部 ='"+ str + "'");
+            return dt;
+
+        }
         public static void deleteStudent()
         {
             DAL.DBHelper.getDt("DELETE FROM 缺勤分析");
