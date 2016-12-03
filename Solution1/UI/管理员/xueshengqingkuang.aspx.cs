@@ -91,7 +91,11 @@ public partial class 管理员_学生情况 : System.Web.UI.Page
     protected void GridView1_RowDeleting(object sender, GridViewDeleteEventArgs e)
     {
 
-        xsqk.rowdelete("学号", GridView1.DataKeys[e.RowIndex].Value.ToString());
+        string zc = GridView1.Rows[e.RowIndex].Cells[3].Text.ToString();
+        string zq = GridView1.Rows[e.RowIndex].Cells[4].Text.ToString();
+        string jc = GridView1.Rows[e.RowIndex].Cells[5].Text.ToString();
+        string kc = GridView1.Rows[e.RowIndex].Cells[2].Text.ToString();
+        xsqk.rowdelete("学号", GridView1.DataKeys[e.RowIndex].Value.ToString(), zc, zq, jc, kc);
         {
             Inquire();
         }
@@ -100,9 +104,13 @@ public partial class 管理员_学生情况 : System.Web.UI.Page
     protected void GridView1_RowUpdating(object sender, GridViewUpdateEventArgs e)
     {
 
-        string strUserRole = ((TextBox)(GridView1.Rows[e.RowIndex].Cells[5].Controls[0])).Text.ToString();
+        string strUserRole = ((TextBox)(GridView1.Rows[e.RowIndex].Cells[6].Controls[0])).Text.ToString();
+        string zc = GridView1.Rows[e.RowIndex].Cells[3].Text.ToString();
+        string zq = GridView1.Rows[e.RowIndex].Cells[4].Text.ToString();
+        string jc = GridView1.Rows[e.RowIndex].Cells[5].Text.ToString();
+        string kc = GridView1.Rows[e.RowIndex].Cells[2].Text.ToString();
         string strUserID = GridView1.DataKeys[e.RowIndex].Value.ToString();
-        xsqk.rowupdate("出勤", strUserRole, "学号", strUserID);
+        xsqk.rowupdate("出勤", strUserRole, "学号", strUserID,zc,zq,jc,kc);
 
 
 

@@ -26,12 +26,6 @@
     <div style="height: 606px">
         <div style="height:323px; width:496px; margin-left:28%; border-radius:15px;">
             <div style=" margin-left:50px;">
-
-                原密码：<input type="text" id="userID" runat="server"
-                    style="width: 44%; padding: 2em 1em 0em 2em; font-size: 18px; outline: none; background: no-repeat 10px 15px; font-weight: 100; border-bottom: 1px solid black; border-left-style: none; border-left-color: inherit; border-left-width: medium; border-right-style: none; border-right-color: inherit; border-right-width: medium; border-top-style: none; border-top-color: inherit; border-top-width: medium; margin-left:14px;" />
-
-                <asp:Label ID="Label4" runat="server" ForeColor="Red" Text="Label"></asp:Label>
-
             </div>
             <div style=" margin-left:50px;">
                 新密码：<input type="text" id="userPwd" runat="server"

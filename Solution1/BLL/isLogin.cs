@@ -181,7 +181,7 @@ namespace BLL
             string str = "UPDATE 教师 SET 密码='" + PWDProcess.MD5Encrypt(pwd.Trim(),PWDProcess.CreateKey(id.Trim())) + "' WHERE 工号='" + id.Trim() + "'";
             DAL.DBHelper.Getdt(str);
             DataTable dtt = DAL.DBHelper.getDt("SELECT 密码 FROM 教师 WHERE 工号='" + id.Trim() + "'");
-            if (dtt.Rows[0][0].ToString() == ypwd.Trim())
+            if (dtt.Rows[0][0].ToString() == PWDProcess.MD5Encrypt(pwd.Trim(), PWDProcess.CreateKey(id.Trim())))
             {
                 return 1;
             }
@@ -235,7 +235,7 @@ namespace BLL
          */
         public static void delemarg(string id, string marg, string timemarg)
         {
-            DAL.DBHelper.Getdt("DELECT FROM 消息 WHERE 用户名='" + id + "' AND 时间='" + timemarg + "' AND 信息='" + marg + "' AND 阅读状态='2'");
+            DAL.DBHelper.Getdt("DELETE FROM 消息 WHERE 用户名='" + id + "' AND 时间='" + timemarg + "' AND 信息='" + marg + "' AND 阅读状态='2'");
         }
 
         /*

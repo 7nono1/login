@@ -86,21 +86,25 @@ public partial class 管理员_zuoyeqingkuang : System.Web.UI.Page
         GridView1.EditIndex = -1;
         Inquire();
     }
-    protected void GridView1_RowDeleting(object sender, GridViewDeleteEventArgs e)
-    {
+    //protected void GridView1_RowDeleting(object sender, GridViewDeleteEventArgs e)
+    //{
 
-        jsqk.rowdelete("工号", GridView1.DataKeys[e.RowIndex].Value.ToString());
-        {
-            Inquire();
-        }
+    //    jsqk.rowdelete("工号", GridView1.DataKeys[e.RowIndex].Value.ToString());
+    //    {
+    //        Inquire();
+    //    }
 
-    }
+    //}
     protected void GridView1_RowUpdating(object sender, GridViewUpdateEventArgs e)
     {
 
-        string strUserRole = ((TextBox)(GridView1.Rows[e.RowIndex].Cells[5].Controls[0])).Text.ToString();
+        string strUserRole = ((TextBox)(GridView1.Rows[e.RowIndex].Cells[6].Controls[0])).Text.ToString();
+        string zc = GridView1.Rows[e.RowIndex].Cells[3].Text.ToString();
+        string zq = GridView1.Rows[e.RowIndex].Cells[4].Text.ToString();
+        string jc = GridView1.Rows[e.RowIndex].Cells[5].Text.ToString();
+        string kc = GridView1.Rows[e.RowIndex].Cells[2].Text.ToString();
         string strUserID = GridView1.DataKeys[e.RowIndex].Value.ToString();
-        jsqk.rowupdate("布置作业", strUserRole, "工号", strUserID);
+        jsqk.rowupdate("布置作业", strUserRole, "工号", strUserID, zc, zq, jc, kc);
 
 
 

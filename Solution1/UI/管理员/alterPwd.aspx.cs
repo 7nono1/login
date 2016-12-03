@@ -13,7 +13,6 @@ public partial class 管理员_alterPwd : System.Web.UI.Page
         {
             Label6.Visible = false;
             Label5.Visible = false;
-            Label4.Visible = false;
         }
         else
         {
@@ -23,8 +22,7 @@ public partial class 管理员_alterPwd : System.Web.UI.Page
 
     protected void Button1_Click(object sender, EventArgs e)
     {
-
-        if (Session["userPwd"].ToString().Trim() == userID.Value.ToString())
+        if (surePwd.Value.ToString() == userPwd.Value.Trim())
         {
             int i = BLL.isLogin.updt(userPwd.Value.ToString(), Session["userID"].ToString().Trim(), userPwd.Value.Trim());
             if (i == 0)
@@ -40,8 +38,8 @@ public partial class 管理员_alterPwd : System.Web.UI.Page
         }
         else
         {
-            Label4.Visible = true;
-            Label4.Text = "密码错误！";
+            Label5.Visible = true;
+            Label5.Text = "密码不一致";
         }
     }
 }

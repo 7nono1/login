@@ -9,16 +9,16 @@ namespace BLL
 {
     public class xsqk
     {
-        public static void rowupdate(string role, string struserrole, string userid, string struserid)
+        public static void rowupdate(string role, string struserrole, string userid, string struserid, string zc, string xq, string jc, string kc)
         {
 
-            string SQL = "update 考勤课程 set " + role + "='" + struserrole + "' where " + userid + "='" + struserid + "'";
+            string SQL = "update 考勤课程 set " + role + "='" + struserrole + "' where " + userid + "='" + struserid + "' and 周次='" + zc + "' and 星期='" + xq + "' and 节次='" + jc + "' and 课程='" + kc + "'";
             DBHelper.Getdt(SQL);
 
         }
-        public static void rowdelete(string id, string key)
+        public static void rowdelete(string id, string key, string zc, string xq, string jc, string kc)
         {
-            string SQL = "delete from 考勤课程 where " + id + "='" + key + "'";
+            string SQL = "delete from 考勤课程 where " + id + "='" + key + "' and 周次='" + zc + "' and 星期='" + xq + "' and 节次='" + jc + "' and 课程='" + kc + "'";
             DBHelper.Getdt(SQL);
         }
         public static DataTable find()

@@ -22,8 +22,8 @@
         AllowSorting="True" AutoGenerateColumns="False" CellPadding="3" PageSize="16" 
         onselectedindexchanged="GridView1_SelectedIndexChanged" 
         onpageindexchanging="GridView1_PageIndexChanging" 
-        onrowcancelingedit="GridView1_RowCancelingEdit" 
-        onrowdeleting="GridView1_RowDeleting" onrowediting="GridView1_RowEditing" 
+        onrowcancelingedit="GridView1_RowCancelingEdit"
+         onrowediting="GridView1_RowEditing" 
         onrowupdating="GridView1_RowUpdating" 
             onrowdatabound="GridView1_RowDataBound" BackColor="#DEBA84" BorderColor="#DEBA84" BorderStyle="None" BorderWidth="1px" CellSpacing="2" Width="859px">
         <Columns>
@@ -40,16 +40,13 @@
             <ItemStyle Width="200px" HorizontalAlign="Center" VerticalAlign="Middle" />
             </asp:BoundField>
             <asp:BoundField DataField="周次" HeaderText="周次" ReadOnly="True" SortExpression="周次" />
+            <asp:BoundField DataField="星期" HeaderText="星期" ReadOnly="true" />
             <asp:BoundField DataField="节次" HeaderText="节次" ReadOnly="True" SortExpression="节次" />
             <asp:BoundField DataField="布置作业" HeaderText="是否布置作业" ControlStyle-Width="50px" ItemStyle-Width="50px">
             <ControlStyle Width="100px" />
             <ItemStyle Width="100px" HorizontalAlign="Center" VerticalAlign="Middle" />
             </asp:BoundField>
             <asp:CommandField HeaderText="编辑" ShowEditButton="True">
-            <ControlStyle Width="100px" />
-            <ItemStyle Width="70px" HorizontalAlign="Center" VerticalAlign="Middle" />
-            </asp:CommandField>
-            <asp:CommandField HeaderText="删除" ShowDeleteButton="True">
             <ControlStyle Width="100px" />
             <ItemStyle Width="70px" HorizontalAlign="Center" VerticalAlign="Middle" />
             </asp:CommandField>

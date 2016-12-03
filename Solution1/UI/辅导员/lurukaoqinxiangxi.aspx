@@ -37,15 +37,15 @@
                 <asp:TemplateField HeaderText="出勤情况">
                     <ItemTemplate>
                         <asp:RadioButton ID="rdoNormal" runat="server" GroupName="g1" Text="正常" Checked="true"
-                    AutoPostBack="true" OnCheckedChanged="rdo_CheckChange" />
+                    AutoPostBack="false" OnCheckedChanged="rdo_CheckChange" />
                         <asp:RadioButton ID="rdoLate" runat="server" GroupName="g1" Text="迟到" 
-                    AutoPostBack="true" OnCheckedChanged="rdo_CheckChange" />
+                    AutoPostBack="false" OnCheckedChanged="rdo_CheckChange" />
                         <asp:RadioButton ID="rdoAbsence" runat="server" GroupName="g1" Text="旷课"
-                    AutoPostBack="true" OnCheckedChanged="rdo_CheckChange" />
+                    AutoPostBack="false" OnCheckedChanged="rdo_CheckChange" />
                         <asp:RadioButton ID="rdoEarly" runat="server" GroupName="g1" Text="早退" 
-                    AutoPostBack="true" OnCheckedChanged="rdo_CheckChange" />
+                    AutoPostBack="false" OnCheckedChanged="rdo_CheckChange" />
                         <asp:RadioButton ID="rdoLeave" runat="server" GroupName="g1" Text="请假" 
-                    AutoPostBack="true" OnCheckedChanged="rdo_CheckChange" />
+                    AutoPostBack="false" OnCheckedChanged="rdo_CheckChange" />
                     </ItemTemplate>
                 </asp:TemplateField>
             </Columns>
