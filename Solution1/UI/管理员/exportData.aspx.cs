@@ -131,32 +131,58 @@ public partial class 管理员_exportData : System.Web.UI.Page
         Application excelApp = new Application();
         excelApp.Workbooks.Add(miss);
         //导入数据
-        Worksheet workSheet = (Worksheet)excelApp.Worksheets[1];
-        object[,] dataArray = new object[dt.Rows.Count+1, dt.Columns.Count];
-        Random rand = new Random(DateTime.Now.Millisecond);
-        for (int i = 0; i <= dt.Rows.Count; i++)
+        int zongrow = dt.Rows.Count;
+        int z1 = zongrow / 60000;
+        int z2 = z1 * 60000;
+        int z4 = 0;
+        int z5 = 0;
+        int z6 = 0;
+        int z7 = 0;
+        int i1 = 0;
+        if (z2 < zongrow)
         {
-            for (int j = 0; j < dt.Columns.Count; j++)
+            z1 += 1;
+            z5 = zongrow - z2;
+        }
+        if (z2 > zongrow) { z5 = z2 - zongrow; }
+        if (z2 == zongrow) { z5 = 60000; }
+        if (z1 < 1) { z1 = 1; }
+        for (int z3 = 1; z3 <= z1; z3++)
+        {
+            i1 = 0;
+            if (z1 == 1)
+            { z4 = dt.Rows.Count; z6 = dt.Rows.Count; }
+            if (z1 > 1 && z3 != z1)
+            { z4 = 60000; z6 += 60000 * z3; if (z3 >= 2) { z7 += 60000 * (z3 - 1); } }
+            if (z3 == z1 && z1 > 1) { z4 = z5; z6 += z5; z7 += 60000 * (z3 - 1); }
+            Worksheet workSheet = (Worksheet)excelApp.Worksheets[z3];
+            object[,] dataArray = new object[z4 + 1, dt.Columns.Count];
+            workSheet.Columns.EntireColumn.AutoFit();//自适应列宽
+            for (int i = z7; i < z6 + 1; i++)
             {
-                if (i == 0)
+                for (int j = 0; j < dt.Columns.Count; j++)
                 {
-                    dataArray[i, j] = dt.Columns[j].ColumnName;
-                }
-                else
-                {
-                    if (j == 1)
+                    if (i == z7)
                     {
-                        dataArray[i, j] = "[" + dt.Rows[(i-1)][j].ToString() + "]";
+                        dataArray[i1, j] = dt.Columns[j].ColumnName;
                     }
                     else
                     {
-                        dataArray[i, j] = dt.Rows[(i-1)][j].ToString();
+                        if (j == 1)
+                        {
+                            dataArray[i1, j] = "[" + dt.Rows[i - 1][j].ToString() + "]";
+                        }
+                        else
+                        {
+                            dataArray[i1, j] = dt.Rows[i - 1][j].ToString();
+                        }
                     }
                 }
+                i1++;
             }
+            workSheet.get_Range(workSheet.Cells[1, 1], workSheet.Cells[z4 + 1, dt.Columns.Count]).Value2 = dataArray;
+            workSheet = null;
         }
-        workSheet.get_Range(workSheet.Cells[1, 1], workSheet.Cells[dt.Rows.Count+1, dt.Columns.Count]).Value2 = dataArray;
-        workSheet = null;
         //保存
         Workbook workBook = excelApp.Workbooks[1];
         workBook.RefreshAll();
