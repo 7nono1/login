@@ -124,15 +124,17 @@ namespace BLL
         {
             if (YN == "外聘教师")
             {
-                YN = "是";
+              string str = "INSERT INTO 教师(工号,密码,姓名,权限,性别,部门)VALUES('" + usrid + "','" + PWDProcess.MD5Encrypt(Pwd,PWDProcess.CreateKey(usrid)) + "','" + userName + "','" + permissions + "','" + sex + "','" + dpm + "')";
+                 DAL.DBHelper.Getdt(str);
+                string str1 = "INSERT INTO 外聘教师(工号,密码,姓名,权限,性别,部门)VALUES('" + usrid + "','" + PWDProcess.MD5Encrypt(Pwd, PWDProcess.CreateKey(usrid)) + "','" + userName + "','" + permissions + "','" + sex + "','" + dpm + "')";
+                DAL.DBHelper.Getdt(str1);
             }
             if (YN == "本校教师")
             {
-                YN = "否";
+                string str = "INSERT INTO 教师(工号,密码,姓名,权限,性别,部门)VALUES('" + usrid + "','" + PWDProcess.MD5Encrypt(Pwd, PWDProcess.CreateKey(usrid)) + "','" + userName + "','" + permissions + "','" + sex + "','" + dpm + "')";
+                DAL.DBHelper.Getdt(str);
             }
-            string str = "INSERT INTO 教师(工号,密码,姓名,权限,性别,部门,是否外聘教师)VALUES('" + usrid + "','" + PWDProcess.MD5Encrypt(Pwd,PWDProcess.CreateKey(usrid)) + "','" + userName + "','" + permissions + "','" + sex + "','" + dpm + "','" + YN + "')";
 
-            DAL.DBHelper.Getdt(str);
             DataTable dt = DAL.DBHelper.getDt("SELECT * FROM 教师 WHERE 工号='" + usrid + "'");
             if (dt.Rows.Count == 1)
             {
@@ -365,6 +367,7 @@ namespace BLL
             {
                 DAL.DBHelper.Getdt("DELETE FROM 初始信息 WHERE 承担单位='" + tb + "'");
                 DAL.DBHelper.Getdt("DELETE FROM 考勤课程 WHERE 承担单位='" + tb + "'");
+                DAL.DBHelper.Getdt("DELETE FROM 录入考勤 WHERE 承担单位='" + tb + "'");
             }
         }
         public static void de()
@@ -375,6 +378,7 @@ namespace BLL
             DAL.DBHelper.Getdt("DELETE FROM 消息");
             DAL.DBHelper.Getdt("DELETE FROM 外聘教师");
             DAL.DBHelper.Getdt("DELETE FROM 考勤课程");
+            DAL.DBHelper.Getdt("DELETE FROM 录入考勤");
             DAL.DBHelper.Getdt("DELETE FROM 校历");
         }
 

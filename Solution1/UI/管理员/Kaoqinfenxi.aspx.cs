@@ -211,10 +211,4 @@ public partial class 管理员_Queqinfenxi : System.Web.UI.Page
     {
 
     }
-    
-
-    protected void Button1_Click1(object sender, EventArgs e)
-    {
-
-    }
 }

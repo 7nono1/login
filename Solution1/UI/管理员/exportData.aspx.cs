@@ -30,13 +30,13 @@ public partial class 管理员_exportData : System.Web.UI.Page
                 Response.Redirect("../导出数据/"+Filename+".xlsx");
                 Label4.Visible = true;
                 Label4.Text = "成功！";
-            }
-            catch
-            {
-                Label4.Visible = true;
-                Label4.Text = "失败!";
-            }
         }
+            catch
+        {
+            Label4.Visible = true;
+            Label4.Text = "失败!";
+        }
+    }
         else
         {
             Label4.Visible = true;
@@ -111,13 +111,13 @@ public partial class 管理员_exportData : System.Web.UI.Page
                 Response.Redirect("../导出数据/" + Filename + ".xlsx");
                 Label7.Visible = true;
                 Label7.Text = "成功！";
-            }
-            catch
-            {
-                Label7.Visible = true;
-                Label7.Text = "失败!";
-            }
         }
+            catch
+        {
+            Label7.Visible = true;
+            Label7.Text = "失败!";
+        }
+    }
         else
         {
             Label7.Visible = true;
@@ -155,7 +155,7 @@ public partial class 管理员_exportData : System.Web.UI.Page
                 }
             }
         }
-        workSheet.get_Range(workSheet.Cells[1, 1], workSheet.Cells[dt.Rows.Count, dt.Columns.Count]).Value2 = dataArray;
+        workSheet.get_Range(workSheet.Cells[1, 1], workSheet.Cells[dt.Rows.Count+1, dt.Columns.Count]).Value2 = dataArray;
         workSheet = null;
         //保存
         Workbook workBook = excelApp.Workbooks[1];

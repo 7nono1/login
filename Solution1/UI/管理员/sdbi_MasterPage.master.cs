@@ -102,11 +102,11 @@ public partial class sdbi_MasterPage : System.Web.UI.MasterPage
                 Response.Redirect("Zuoyetongji.aspx"); break;
 
             case "考勤信息":
-                Response.Redirect("#"); break;
+                Response.Redirect("lurukaoqin.aspx"); break;
             case "录入考勤":
-                Response.Redirect("#"); break;
+                Response.Redirect("lurukaoqin.aspx"); break;
             case "以往记录":
-                Response.Redirect("#"); break;
+                Response.Redirect("yiwangjilu.aspx"); break;
         }
     }
 
