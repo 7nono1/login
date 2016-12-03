@@ -14,9 +14,12 @@ public partial class 领导_Queqin : System.Web.UI.Page
 {
     protected void Page_Load(object sender, EventArgs e)
     {
+        if(!IsPostBack)
+        { 
         GridView1.DataSource = initialDatattable();
         GridView1.DataKeyNames = new string[] { "系部" };//主键
         GridView1.DataBind();
+        }
     }
     private DataTable initialDatattable()
     {

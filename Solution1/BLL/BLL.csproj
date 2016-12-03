@@ -47,6 +47,7 @@
     <Compile Include="Admin11.cs" />
     <Compile Include="charting.cs" />
     <Compile Include="Datasplit.cs" />
+    <Compile Include="Department.cs" />
     <Compile Include="ExportDate.cs" />
     <Compile Include="isLogin.cs" />
     <Compile Include="jsqk.cs" />

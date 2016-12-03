@@ -28,13 +28,13 @@ namespace BLL
                         good = 0;
                         Attendance = 0;
                         School = 0;
-                        good = getWork(allDepartment[j], i, "是").Rows.Count + good;
-                        Attendance = getWork(allDepartment[j], i, "否").Rows.Count + Attendance;
+                        good = getWork(allDepartment[j], i, "完成").Rows.Count + good;
+                        Attendance = getWork(allDepartment[j], i, "未完成").Rows.Count + Attendance;
                     }
                     else
                     {
-                        good = getWork(allDepartment[j], i, "是").Rows.Count + good;
-                        Attendance = getWork(allDepartment[j], i, "否").Rows.Count + Attendance;
+                        good = getWork(allDepartment[j], i, "完成").Rows.Count + good;
+                        Attendance = getWork(allDepartment[j], i, "未完成").Rows.Count + Attendance;
                     }
                 }
                 School = good + Attendance;
@@ -48,13 +48,13 @@ namespace BLL
         public static DataTable getWork(string department, int week, string finish)
         {
 
-            return DAL.DBHelper.getDt("SELECT * FROM  录入考勤 WHERE  承担单位='" + department + "'AND 周次='" + week + "'AND 是否考勤 ='" + finish + "'");
+            return DAL.DBHelper.getDt("SELECT * FROM  考勤课程 WHERE  承担单位='" + department + "'AND 周次='" + week + "'AND 作业 ='" + finish + "'");
 
         }
         public static DataTable getWork(string department, int week)
         {
 
-            return DAL.DBHelper.getDt("SELECT * FROM  录入考勤 WHERE  承担单位='" + department + "'AND 周次='" + week + "'AND 是否考勤<>'是'");
+            return DAL.DBHelper.getDt("SELECT * FROM  考勤课程 WHERE  承担单位='" + department + "'AND 周次='" + week + "'AND 作业<>'完成'");
 
         }
         public static void getWork(string department, int School, int noFinish, string finish)
@@ -64,6 +64,10 @@ namespace BLL
         public static DataTable getWork()
         {
             return DAL.DBHelper.getDt("select * from 作业分析");
+        }
+        public static DataTable getWork(string str )
+        {
+            return DAL.DBHelper.getDt("select * from 作业分析 where 系部='"+str+"'");
         }
         public static void deleteWork()
         {
