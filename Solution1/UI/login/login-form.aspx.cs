@@ -15,6 +15,7 @@ public partial class login_login : System.Web.UI.Page
 
     protected void Button1_Click(object sender, EventArgs e)
     {
+        Label1.Visible = false;
         log();
     }
 
@@ -39,7 +40,7 @@ public partial class login_login : System.Web.UI.Page
         {
             if (i.Rows[0][2].ToString() == BLL.PWDProcess.MD5Encrypt(pwdBox.Value.ToString(),BLL.PWDProcess.CreateKey(userBox.Value.ToString())))
             {
-                if (Session["ValiDateCode"].ToString() == codeBox.Value)
+                if (yanz.Value=="100")
                 {
                     Session["userID"] = i.Rows[0][1];
                     Session["userPwd"] = i.Rows[0][2];
@@ -64,7 +65,7 @@ public partial class login_login : System.Web.UI.Page
                 else
                 {
                     Label1.Visible = true;
-                    Label1.Text = "验证码错误！";
+                    Label1.Text = "请将滑块拖到头";
 
                 }
             }

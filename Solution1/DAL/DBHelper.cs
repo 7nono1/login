@@ -181,10 +181,21 @@ namespace DAL
          * 拆分初始数据
          */
         //插入数据
-        public static void datasplit(string strSQL,SqlConnection conn)
+        public static void sqlbl(DataTable dt)
         {
-            SqlCommand cmd = new SqlCommand(strSQL, conn);
-            cmd.ExecuteNonQuery();
+            using (SqlConnection conn = new SqlConnection(getConn()))
+            {
+                conn.Open();
+                using (SqlBulkCopy bulkCopy = new SqlBulkCopy(conn))
+                {
+                    bulkCopy.DestinationTableName = "考勤课程";
+                    for (int i = 0; i < dt.Columns.Count; i++)
+                    {
+                        bulkCopy.ColumnMappings.Add(dt.Columns[i].ColumnName, dt.Columns[i].ColumnName);
+                    }//对应表导入
+                    bulkCopy.WriteToServer(dt);
+                }
+            }
         }
 
         //录入考勤基础数据

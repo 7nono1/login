@@ -18,14 +18,15 @@ namespace BLL
             string str = "SELECT * FROM 初始信息";
             return DAL.DBHelper.getDt(str);
         }
-
+        /*
+         * 拆分数据
+         */
         public static int a()
         {
             if (getdata().Rows.Count > 0)
             {
-                SqlConnection conn = new SqlConnection(DAL.DBHelper.getConn());
-                conn.Open();
                 DataTable dt = getdata();
+                DataTable dtt = DAL.DBHelper.getDt("select top(0)* from 考勤课程").Clone();
                 StringBuilder classtype = new StringBuilder();
                 for (int i = 0; i < dt.Rows.Count; i++)
                 {
@@ -69,7 +70,13 @@ namespace BLL
                                 string[] strSplit3 = strSplit2[dana].Split(new char[] { '-' }, StringSplitOptions.RemoveEmptyEntries);
                                 if (strSplit3.Length == 1)
                                 {
-                                    DAL.DBHelper.datasplit("INSERT INTO 考勤课程 VALUES('" + dt.Rows[i][0].ToString() + "','" + strtea1[0].ToString() + "','" + strtea1[1].ToString() + "','" + strtype1[0].ToString() + "','" + strtype1[1].ToString() + "','" + strclass2[1].ToString() + "','" + strSplit3[0].ToString() + "','" + strclass2[2].ToString() + "','" + classtype.ToString() + "','" + dt.Rows[i][4] + "','" + dt.Rows[i][5] + "','" + dt.Rows[i][6] + "','" + dt.Rows[i][7] + "','" + dt.Rows[i][8] + "','" + dt.Rows[i][9] + "','" + dt.Rows[i][10] + "','" + dt.Rows[i][11] + "','正常','完成','否','" + dt.Rows[i][12] + "','" + dt.Rows[i][13] + "','" + dt.Rows[i][14] + "','否')", conn);
+                                    DataRow row = dtt.NewRow();
+                                    string[] aa = { dt.Rows[i][0].ToString(), strtea1[0].ToString(), strtea1[1].ToString(), strtype1[0].ToString(), strtype1[1].ToString(), strclass2[1].ToString(), strSplit3[0].ToString(), strclass2[2].ToString(), classtype.ToString(), dt.Rows[i][4].ToString(), dt.Rows[i][5].ToString(), dt.Rows[i][6].ToString(), dt.Rows[i][7].ToString(), dt.Rows[i][8].ToString(), dt.Rows[i][9].ToString(), dt.Rows[i][10].ToString(), dt.Rows[i][11].ToString(), "正常", "完成", "否", dt.Rows[i][12].ToString(), dt.Rows[i][13].ToString(), dt.Rows[i][14].ToString(), "否" };
+                                    for (int addrow = 0; addrow < aa.Length; addrow++)
+                                    {
+                                        row[addrow] = aa[addrow];
+                                    }
+                                    dtt.Rows.Add(row);
                                 }
                                 if (strSplit3.Length == 2)
                                 {
@@ -77,7 +84,13 @@ namespace BLL
                                     {
                                         if (danb % 2 != 0)
                                         {
-                                            DAL.DBHelper.datasplit("INSERT INTO 考勤课程 VALUES('" + dt.Rows[i][0].ToString() + "','" + strtea1[0].ToString() + "','" + strtea1[1].ToString() + "','" + strtype1[0].ToString() + "','" + strtype1[1].ToString() + "','" + strclass2[1].ToString() + "','" + danb + "','" + strclass2[2].ToString() + "','" + classtype.ToString() + "','" + dt.Rows[i][4] + "','" + dt.Rows[i][5] + "','" + dt.Rows[i][6] + "','" + dt.Rows[i][7] + "','" + dt.Rows[i][8] + "','" + dt.Rows[i][9] + "','" + dt.Rows[i][10] + "','" + dt.Rows[i][11] + "','正常','完成','否','" + dt.Rows[i][12] + "','" + dt.Rows[i][13] + "','" + dt.Rows[i][14] + "','否')", conn);
+                                            DataRow row = dtt.NewRow();
+                                            string[] aa = { dt.Rows[i][0].ToString(), strtea1[0].ToString(), strtea1[1].ToString(), strtype1[0].ToString(), strtype1[1].ToString(), strclass2[1].ToString(), danb.ToString(), strclass2[2].ToString(), classtype.ToString(), dt.Rows[i][4].ToString(), dt.Rows[i][5].ToString(), dt.Rows[i][6].ToString(), dt.Rows[i][7].ToString(), dt.Rows[i][8].ToString(), dt.Rows[i][9].ToString(), dt.Rows[i][10].ToString(), dt.Rows[i][11].ToString(), "正常", "完成", "否", dt.Rows[i][12].ToString(), dt.Rows[i][13].ToString(), dt.Rows[i][14].ToString(), "否" };
+                                            for (int addrow = 0; addrow < aa.Length; addrow++)
+                                            {
+                                                row[addrow] = aa[addrow];
+                                            }
+                                            dtt.Rows.Add(row);
                                         }
                                     }
                                 }
@@ -92,7 +105,13 @@ namespace BLL
                                 string[] strSplit3 = strSplit2[dana].Split(new char[] { '-' }, StringSplitOptions.RemoveEmptyEntries);
                                 if (strSplit3.Length == 1)
                                 {
-                                    DAL.DBHelper.datasplit("INSERT INTO 考勤课程 VALUES('" + dt.Rows[i][0].ToString() + "','" + strtea1[0].ToString() + "','" + strtea1[1].ToString() + "','" + strtype1[0].ToString() + "','" + strtype1[1].ToString() + "','" + strclass2[1].ToString() + "','" + strSplit3[0].ToString() + "','" + strclass2[2].ToString() + "','" + classtype.ToString() + "','" + dt.Rows[i][4] + "','" + dt.Rows[i][5] + "','" + dt.Rows[i][6] + "','" + dt.Rows[i][7] + "','" + dt.Rows[i][8] + "','" + dt.Rows[i][9] + "','" + dt.Rows[i][10] + "','" + dt.Rows[i][11] + "','正常','完成','否','" + dt.Rows[i][12] + "','" + dt.Rows[i][13] + "','" + dt.Rows[i][14] + "','否')", conn);
+                                    DataRow row = dtt.NewRow();
+                                    string[] aa = { dt.Rows[i][0].ToString(), strtea1[0].ToString(), strtea1[1].ToString(), strtype1[0].ToString(), strtype1[1].ToString(), strclass2[1].ToString(), strSplit3[0].ToString(), strclass2[2].ToString(), classtype.ToString(), dt.Rows[i][4].ToString(), dt.Rows[i][5].ToString(), dt.Rows[i][6].ToString(), dt.Rows[i][7].ToString(), dt.Rows[i][8].ToString(), dt.Rows[i][9].ToString(), dt.Rows[i][10].ToString(), dt.Rows[i][11].ToString(), "正常", "完成", "否", dt.Rows[i][12].ToString(), dt.Rows[i][13].ToString(), dt.Rows[i][14].ToString(), "否" };
+                                    for (int addrow = 0; addrow < aa.Length; addrow++)
+                                    {
+                                        row[addrow] = aa[addrow];
+                                    }
+                                    dtt.Rows.Add(row);
                                 }
                                 if (strSplit3.Length == 2)
                                 {
@@ -100,7 +119,13 @@ namespace BLL
                                     {
                                         if (danb % 2 == 0)
                                         {
-                                            DAL.DBHelper.datasplit("INSERT INTO 考勤课程 VALUES('" + dt.Rows[i][0].ToString() + "','" + strtea1[0].ToString() + "','" + strtea1[1].ToString() + "','" + strtype1[0].ToString() + "','" + strtype1[1].ToString() + "','" + strclass2[1].ToString() + "','" + danb + "','" + strclass2[2].ToString() + "','" + classtype.ToString() + "','" + dt.Rows[i][4] + "','" + dt.Rows[i][5] + "','" + dt.Rows[i][6] + "','" + dt.Rows[i][7] + "','" + dt.Rows[i][8] + "','" + dt.Rows[i][9] + "','" + dt.Rows[i][10] + "','" + dt.Rows[i][11] + "','正常','完成','否','" + dt.Rows[i][12] + "','" + dt.Rows[i][13] + "','" + dt.Rows[i][14] + "','否')", conn);
+                                            DataRow row = dtt.NewRow();
+                                            string[] aa = { dt.Rows[i][0].ToString(), strtea1[0].ToString(), strtea1[1].ToString(), strtype1[0].ToString(), strtype1[1].ToString(), strclass2[1].ToString(), danb.ToString(), strclass2[2].ToString(), classtype.ToString(), dt.Rows[i][4].ToString(), dt.Rows[i][5].ToString(), dt.Rows[i][6].ToString(), dt.Rows[i][7].ToString(), dt.Rows[i][8].ToString(), dt.Rows[i][9].ToString(), dt.Rows[i][10].ToString(), dt.Rows[i][11].ToString(), "正常", "完成", "否", dt.Rows[i][12].ToString(), dt.Rows[i][13].ToString(), dt.Rows[i][14].ToString(), "否" };
+                                            for (int addrow = 0; addrow < aa.Length; addrow++)
+                                            {
+                                                row[addrow] = aa[addrow];
+                                            }
+                                            dtt.Rows.Add(row);
                                         }
                                     }
                                 }
@@ -114,13 +139,25 @@ namespace BLL
                                 string[] strSplit3 = strSplit2[dana].Split(new char[] { '-' }, StringSplitOptions.RemoveEmptyEntries);
                                 if (strSplit3.Length == 1)
                                 {
-                                    DAL.DBHelper.datasplit("INSERT INTO 考勤课程 VALUES('" + dt.Rows[i][0].ToString() + "','" + strtea1[0].ToString() + "','" + strtea1[1].ToString() + "','" + strtype1[0].ToString() + "','" + strtype1[1].ToString() + "','" + strclass2[1].ToString() + "','" + strSplit3[0].ToString() + "','" + strclass2[2].ToString() + "','" + classtype.ToString() + "','" + dt.Rows[i][4] + "','" + dt.Rows[i][5] + "','" + dt.Rows[i][6] + "','" + dt.Rows[i][7] + "','" + dt.Rows[i][8] + "','" + dt.Rows[i][9] + "','" + dt.Rows[i][10] + "','" + dt.Rows[i][11] + "','正常','完成','否','" + dt.Rows[i][12] + "','" + dt.Rows[i][13] + "','" + dt.Rows[i][14] + "','否')", conn);
+                                    DataRow row = dtt.NewRow();
+                                    string[] aa = { dt.Rows[i][0].ToString(), strtea1[0].ToString(), strtea1[1].ToString(), strtype1[0].ToString(), strtype1[1].ToString(), strclass2[1].ToString(), strSplit3[0].ToString(), strclass2[2].ToString(), classtype.ToString(), dt.Rows[i][4].ToString(), dt.Rows[i][5].ToString(), dt.Rows[i][6].ToString(), dt.Rows[i][7].ToString(), dt.Rows[i][8].ToString(), dt.Rows[i][9].ToString(), dt.Rows[i][10].ToString(), dt.Rows[i][11].ToString(), "正常", "完成", "否", dt.Rows[i][12].ToString(), dt.Rows[i][13].ToString(), dt.Rows[i][14].ToString(), "否" };
+                                    for (int addrow = 0; addrow < aa.Length; addrow++)
+                                    {
+                                        row[addrow] = aa[addrow];
+                                    }
+                                    dtt.Rows.Add(row);
                                 }
                                 if (strSplit3.Length == 2)
                                 {
                                     for (int danb = Convert.ToInt32(strSplit3[0]); danb <= Convert.ToInt32(strSplit3[1]); danb++)
                                     {
-                                            DAL.DBHelper.datasplit("INSERT INTO 考勤课程 VALUES('" + dt.Rows[i][0].ToString() + "','" + strtea1[0].ToString() + "','" + strtea1[1].ToString() + "','" + strtype1[0].ToString() + "','" + strtype1[1].ToString() + "','" + strclass2[1].ToString() + "','" + danb + "','" + strclass2[2].ToString() + "','" + classtype.ToString() + "','" + dt.Rows[i][4] + "','" + dt.Rows[i][5] + "','" + dt.Rows[i][6] + "','" + dt.Rows[i][7] + "','" + dt.Rows[i][8] + "','" + dt.Rows[i][9] + "','" + dt.Rows[i][10] + "','" + dt.Rows[i][11] + "','正常','完成','否','" + dt.Rows[i][12] + "','" + dt.Rows[i][13] + "','" + dt.Rows[i][14] + "','否')", conn);
+                                        DataRow row = dtt.NewRow();
+                                        string[] aa = { dt.Rows[i][0].ToString(), strtea1[0].ToString(), strtea1[1].ToString(), strtype1[0].ToString(), strtype1[1].ToString(), strclass2[1].ToString(), danb.ToString(), strclass2[2].ToString(), classtype.ToString(), dt.Rows[i][4].ToString(), dt.Rows[i][5].ToString(), dt.Rows[i][6].ToString(), dt.Rows[i][7].ToString(), dt.Rows[i][8].ToString(), dt.Rows[i][9].ToString(), dt.Rows[i][10].ToString(), dt.Rows[i][11].ToString(), "正常", "完成", "否", dt.Rows[i][12].ToString(), dt.Rows[i][13].ToString(), dt.Rows[i][14].ToString(), "否" };
+                                        for (int addrow = 0; addrow < aa.Length; addrow++)
+                                        {
+                                            row[addrow] = aa[addrow];
+                                        }
+                                        dtt.Rows.Add(row);
                                     }
                                 }
                             }
@@ -128,7 +165,7 @@ namespace BLL
                         classtype.Clear();
                     }
                 }
-                conn.Close();
+                DAL.DBHelper.sqlbl(dtt);
                 DAL.DBHelper.Getdt("DELETE FROM 初始信息");
                 return 1;
             }
@@ -137,48 +174,7 @@ namespace BLL
                 return 2;
             }
         }
-
-        /*
-         * 加密密码
-         */
-        public static DataTable teadata()
-        {
-            DataTable dt = DAL.DBHelper.getDt("SELECT 工号,密码 FROM 教师");
-            return dt;
-        }
-        public static int jiami()
-        {
-            DataTable dtt = DAL.DBHelper.getDt("select * from 教师 where 部门='1'");
-            SqlConnection conn = new SqlConnection(DAL.DBHelper.getConn());
-            conn.Open();
-            if (dtt.Rows.Count == 0)
-            {
-                DataTable dt = teadata();
-                if (dt.Rows.Count > 0)
-                {
-                    for (int i = 0; i < dt.Rows.Count; i++)
-                    {
-                        DAL.DBHelper.datasplit("UPDATE 教师 SET 密码='" + PWDProcess.MD5Encrypt(dt.Rows[i]["密码"].ToString(), PWDProcess.CreateKey(dt.Rows[i]["工号"].ToString())) + "' WHERE 工号='" + dt.Rows[i]["工号"].ToString() + "'",conn);
-                     }
-                    DAL.DBHelper.Getdt("INSERT INTO 教师(部门) VALUES('"+1.ToString()+"')");
-                    return 1;
-                }
-
-                else
-                {
-                    return 2;
-
-                }
-            }
-             
-            else
-            {
-                return 3;
-
-            }
-                conn.Close();
-        }
-
+        
         /*
          *生成录入考勤表
          */

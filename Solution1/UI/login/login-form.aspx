@@ -55,6 +55,7 @@ h1{
 	border-bottom: 1px solid#484856;}
 .ya{
 	border-bottom: 1px solid#484856;
+    height:55px;
 	}
 .yanbox{
 	        border-style: none;
@@ -91,7 +92,82 @@ h1{
              height:3em;
              line-height:3em;
         }
+input[type=range] {
+    -webkit-appearance: none;
+    width: 300px;
+    border-radius: 10px; /*这个属性设置使填充进度条时的图形为圆角*/
+}
+input[type=range]::-webkit-slider-thumb {
+    -webkit-appearance: none;
+} 
+input[type=range]::-webkit-slider-runnable-track {
+    height: 15px;
+    border-radius: 10px; /*将轨道设为圆角的*/
+    box-shadow: 0 1px 1px #def3f8, inset 0 .125em .125em #0d1112; /*轨道内置阴影效果*/
+}
+input[type=range]:focus {
+    outline: none;
+}
+input[type=range]::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    height: 25px;
+    width: 25px;
+    margin-top: -5px; /*使滑块超出轨道部分的偏移量相等*/
+    background: #ffffff; 
+    border-radius: 50%; /*外观设置为圆形*/
+    border: solid 0.125em rgba(205, 224, 230, 0.5); /*设置边框*/
+    box-shadow: 0 .125em .125em #3b4547; /*添加底部阴影*/
+}
+input[type=range]::-moz-range-progress {
+    background: linear-gradient(to right, #059CFA, white 100%, white);
+    height: 13px;    
+    border-radius: 10px;
+}
+input[type=range] {
+    -webkit-appearance: none;
+    width: 300px;
+    border-radius: 10px;
+}
 
+input[type=range]::-ms-track {
+    height: 25px;
+    border-radius: 10px;
+    box-shadow: 0 1px 1px #def3f8, inset 0 .125em .125em #0d1112;
+    border-color: transparent; /*去除原有边框*/
+    color: transparent; /*去除轨道内的竖线*/
+}
+
+input[type=range]::-ms-thumb {
+    border: solid 0.125em rgba(205, 224, 230, 0.5);
+    height: 25px;
+    width: 25px;
+    border-radius: 50%;
+    background: #ffffff;
+    margin-top: -5px;
+    box-shadow: 0 .125em .125em #3b4547;
+}
+
+input[type=range]::-ms-fill-lower {
+    /*进度条已填充的部分*/
+    height: 22px;
+    border-radius: 10px;
+    background: linear-gradient(to right, #059CFA, white 100%, white);
+}
+
+input[type=range]::-ms-fill-upper {
+    /*进度条未填充的部分*/
+    height: 22px;
+    border-radius: 10px;
+    background: #ffffff;
+}
+
+input[type=range]:focus::-ms-fill-lower {
+    background: linear-gradient(to right, #059CFA, white 100%, white);
+}
+
+input[type=range]:focus::-ms-fill-upper {
+    background: #ffffff;
+}
 </style>
 <script type="text/javascript">
     var b=1;
@@ -100,7 +176,7 @@ h1{
         b++;
         if (b> 5) { b = 1;}
     }
-    setInterval("a()",3000);
+    setInterval("a()", 3000);
 </script>
 
 </head>
@@ -120,9 +196,8 @@ h1{
 this.value='';" onblur="if(this.value==''){this.value='密码';}" />
 </div>
 <div class="ya">
-<label style="line-height:2em; color:#666;">验证码</label>
-<input type="text" id="codeBox" runat="server" autocomplete="off" class="yanbox"  />
-<img src="../ValidateImage.aspx" class="code" style="cursor: pointer; left: 0px; width: 124px;" height="35" onclick="this.src=this.src+'?'" />
+<label style="line-height:2em; color:#666;">拖动滑块</label>
+    <input type="range" id="yanz" max="100" min="0" value="0" runat="server" style="width:200px" />
     <img src="images/pass.png" title="请在输入框输入算数结果" />
 </div>
      
@@ -134,7 +209,6 @@ this.value='';" onblur="if(this.value==''){this.value='密码';}" />
 <div>
     <asp:Button ID="Button1" runat="server" Text="登陆" OnClick="Button1_Click" />
 </div>
-
 </div>
     </form>
 </body>

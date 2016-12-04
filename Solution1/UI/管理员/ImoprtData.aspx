@@ -62,9 +62,6 @@
       <div id="div3">
      <asp:Button ID="Button5" runat="server" Text="分析导入数据" Height="23px" Width="134px" OnClick="Button5_Click" />
           <asp:Label ID="Label6" runat="server" Text="Label"></asp:Label>
-          <asp:Button ID="Button7" runat="server" OnClick="Button7_Click" Text="登陆密码加密" Width="134px" />
-          <asp:Label ID="Label2" runat="server" Text="Label"></asp:Label>
-          <asp:Button ID="Button8" runat="server" OnClick="Button8_Click" Text="生成考勤基础数据" Width="126px" />
           <asp:Label ID="Label7" runat="server" Text="Label"></asp:Label>
           <br />
           <br />

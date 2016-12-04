@@ -270,9 +270,9 @@ namespace BLL
                 DataTable dtt = DAL.DBHelper.getDt("SELECT * FROM 教师 WHERE 工号='"+dt.Rows[5][1]+"'");
                 if (dtt.Rows.Count == 0)
                 {
-                    for (int i = 0; i < dt.Rows.Count; i++)
+                    for (int i = 1; i < dt.Rows.Count; i++)
                     {
-
+                        dt.Rows[i][2] = PWDProcess.MD5Encrypt(dt.Rows[i][2].ToString(),PWDProcess.CreateKey(dt.Rows[i][1].ToString()));
                     }
                     DAL.DBHelper.SQLBulkCopy(dt, "教师");
                     DAL.DBHelper.getDt("DELETE FROM 教师 WHERE 部门='部门'");
@@ -290,17 +290,24 @@ namespace BLL
                     DAL.DBHelper.waiteaSQLBulkCopy(dt, tb);
                     DAL.DBHelper.getDt("DELETE FROM 外聘教师 WHERE 部门='部门'");
                 }
-                else
+                if (dtt.Rows.Count != 0)
                 {
                     return 3;
                 }
                 DataTable dtt1 = DAL.DBHelper.getDt("SELECT * FROM 教师 WHERE 工号='" + dt.Rows[5][1] + "'");
                 if (dtt1.Rows.Count == 0)
                 {
+                    for (int i = 1; i < dt.Rows.Count; i++)
+                    {
+                        dt.Rows[i][2] = PWDProcess.MD5Encrypt(dt.Rows[i][2].ToString(), PWDProcess.CreateKey(dt.Rows[i][1].ToString()));
+                    }
                     DAL.DBHelper.waipinTea(dt, "教师");
                     DAL.DBHelper.getDt("DELETE FROM 教师 WHERE 部门='部门'");
                 }
-                return 3;
+               if(dtt1.Rows.Count!=0)
+                {
+                    return 3;
+                }
             }
             if (tb == "信息艺术系" || tb == "会计系" || tb == "商务外语系" || tb == "食品工程系" || tb == "建筑工程系" || tb == "机械工程系" || tb == "经济管理系" || tb == "教务处" || tb == "基础教学部")
             {
